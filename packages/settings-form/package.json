@@ -1,0 +1,49 @@
+{
+  "name": "@formily/element-plus-settings-form",
+  "version": "1.0.0-alpha.0",
+  "license": "MIT",
+  "main": "lib",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "module": "esm",
+  "umd:main": "dist/formily.element-plus-settings-form.umd.production.js",
+  "unpkg": "dist/formily.element-plus-settings-form.umd.production.js",
+  "jsdelivr": "dist/formily.element-plus-settings-form.umd.production.js",
+  "jsnext:main": "esm",
+  "sideEffects": [
+    "dist/*",
+    "esm/*.js",
+    "lib/*.js",
+    "src/*.ts",
+    "*.less",
+    "*.scss",
+    "**/*/style.js"
+  ],
+  "scripts": {
+    "build": "formily-tpl build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formilyjs/element-plus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/formilyjs/element-plus/issues"
+  },
+  "homepage": "https://github.com/formilyjs/element-plus#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-beta.1",
+    "vue": "^2.6.0 || >=3.0.0-rc.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
