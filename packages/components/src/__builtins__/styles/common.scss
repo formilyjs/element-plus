@@ -1,0 +1,22 @@
+$formily-prefix: 'formily-element-plus';
+$namespace: 'el';
+@import './element-plus.scss';
+@import 'element-plus/theme-chalk/src/common/var.scss';
+
+@mixin active {
+  border-color: $--color-primary;
+  outline: 0;
+  border-right-width: $--border-width-base !important;
+}
+
+@mixin hover {
+  border-color: $--border-color-hover;
+  outline: 0;
+  border-right-width: $--border-width-base !important;
+}
+
+$--font-size-extra-small: var(--el-font-size-extra-small);
+$--font-size-extra-large: var(--el-font-size-extra-large);
+$--font-size-large: var(--el-font-size-large);
+$--font-size-medium: var(--el-font-size-medium);
+$--font-size-small: var(--el-font-size-small);
