@@ -26,24 +26,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/formilyjs/element-plus.git"
+    "url": "git+https://github.com/formilyjs/element.git"
   },
   "bugs": {
-    "url": "https://github.com/formilyjs/element-plus/issues"
+    "url": "https://github.com/formilyjs/element/issues"
   },
-  "homepage": "https://github.com/formilyjs/element-plus#readme",
+  "homepage": "https://github.com/formilyjs/element#readme",
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-beta.1",
-    "vue": "^2.6.0 || >=3.0.0-rc.0"
+    "vue": "^3.2.24"
   },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@formily/grid": "^2.0.9",
+    "@formily/json-schema": "^2.0.9",
+    "@formily/reactive-vue": "^2.0.9",
+    "@formily/shared": "^2.0.9",
+    "@formily/vue": "^2.0.9",
+    "element-plus": "^2.0.1",
+    "vue-slicksort": "^1.2.0",
+    "vue": "^3.2.24"
+  }
 }
