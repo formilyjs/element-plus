@@ -39,13 +39,18 @@
     "vue": "^3.2.24"
   },
   "dependencies": {
-    "@formily/grid": "^2.0.9",
-    "@formily/json-schema": "^2.0.9",
-    "@formily/reactive-vue": "^2.0.9",
-    "@formily/shared": "^2.0.9",
-    "@formily/vue": "^2.0.9",
-    "element-plus": "^2.0.1",
+    "@element-plus/icons-vue": "^1.1.1",
+    "@formily/core": "^2.0.14",
+    "@formily/grid": "^2.0.14",
+    "@formily/json-schema": "^2.0.14",
+    "@formily/reactive": "^2.0.14",
+    "@formily/reactive-vue": "^2.0.14",
+    "@formily/shared": "^2.0.13",
+    "@formily/vue": "^2.0.14",
+    "element-plus": "^2.0.5",
+    "resize-observer-polyfill": "^1.5.1",
     "vue-slicksort": "^1.2.0",
-    "vue": "^3.2.24"
+    "vue": "^3.2.24",
+    "vuedraggable": "^4.1.0"
   }
 }
