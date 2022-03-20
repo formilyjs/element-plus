@@ -22,7 +22,9 @@
     "**/*/style.js"
   ],
   "scripts": {
-    "build": "formily-tpl build"
+    "start": "vuepress dev docs",
+    "build": "formily-tpl build",
+    "build:docs": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -40,17 +42,22 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.1",
-    "@formily/core": "^2.0.14",
-    "@formily/grid": "^2.0.14",
-    "@formily/json-schema": "^2.0.14",
-    "@formily/reactive": "^2.0.14",
-    "@formily/reactive-vue": "^2.0.14",
-    "@formily/shared": "^2.0.13",
-    "@formily/vue": "^2.0.14",
+    "@formily/core": "2.0.14",
+    "@formily/grid": "2.0.14",
+    "@formily/json-schema": "2.0.14",
+    "@formily/reactive": "2.0.14",
+    "@formily/reactive-vue": "2.0.14",
+    "@formily/shared": "2.0.14",
+    "@formily/vue": "2.0.14",
     "element-plus": "^2.0.5",
     "resize-observer-polyfill": "^1.5.1",
-    "vue-slicksort": "^1.2.0",
     "vue": "^3.2.24",
+    "vue-slicksort": "^1.2.0",
     "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.3.0",
+    "stylus": "^0.56.0",
+    "vuepress": "^2.0.0-beta.36"
   }
 }

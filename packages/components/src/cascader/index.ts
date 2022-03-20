@@ -33,9 +33,7 @@ export const Cascader = observer(
             options: field?.dataSource,
             modelValue: field?.value,
             onChange: (...args: any[]) => {
-              setTimeout(() => {
-                props.onChange(...args)
-              }, 0)
+              props.onChange(...args)
             },
           },
           slots

@@ -16,6 +16,7 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
+      "@formily/element-plus": ["packages/components/src"],
       "@formily/*": ["packages/*/src"]
     }
   }
