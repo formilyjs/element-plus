@@ -39,13 +39,13 @@
     "vue": "^3.2.24"
   },
   "dependencies": {
-    "@formily/core": "^2.0.2",
-    "@formily/grid": "^2.0.2",
-    "@formily/json-schema": "^2.0.2",
-    "@formily/reactive": "^2.0.2",
-    "@formily/reactive-vue": "^2.0.2",
-    "@formily/shared": "^2.0.2",
-    "@formily/vue": "^2.0.2",
+    "@formily/core": "2.0.14",
+    "@formily/grid": "2.0.14",
+    "@formily/json-schema": "2.0.14",
+    "@formily/reactive": "2.0.14",
+    "@formily/reactive-vue": "2.0.14",
+    "@formily/shared": "2.0.14",
+    "@formily/vue": "2.0.14",
     "vue-slicksort": "^1.2.0"
   },
   "devDependencies": {
