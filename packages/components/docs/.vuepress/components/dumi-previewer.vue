@@ -86,6 +86,11 @@ import { ref, computed, shallowRef, onMounted } from 'vue'
 import copy from 'copy-to-clipboard'
 import highlight from './highlight'
 import { createCodeSandBox } from './createCodeSandBox'
+// tsc-disable-next-line prefer-const
+const modules = import.meta.glob('../../demos/**/*.vue')
+const rawModules = import.meta.glob('./../../demos/**/*.vue', {
+  as: 'raw',
+})
 
 const props = defineProps({
   code: {
@@ -112,12 +117,15 @@ const demo = shallowRef(null)
 
 onMounted(() => {
   if (props.demoPath) {
-    import(`../../demos/${props.demoPath}.vue`).then((module) => {
+    modules[`../../demos/${props.demoPath}.vue`]?.().then((module) => {
       demo.value = module.default
     })
-    import(`../../demos/${props.demoPath}.vue?raw`).then((module) => {
-      demoStr.value = module.default
-    })
+    // import(
+    //   `../../demos/${props.demoPath}${
+    //     /\.jsx?|\.tsx?$/.test(props.demoPath) ? '' : '.vue'
+    //   }?raw`
+    // ).
+    demoStr.value = rawModules[`./../../demos/${props.demoPath}.vue`]
   }
 })
 

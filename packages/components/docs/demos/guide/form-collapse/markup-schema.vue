@@ -51,7 +51,7 @@
       </SchemaVoidField>
     </SchemaField>
     <FormButtonGroup alignFormItem>
-      <Button
+      <ElButton
         @click="
           () => {
             form.query('tab3').take((field) => {
@@ -61,8 +61,8 @@
         "
       >
         显示/隐藏最后一个Tab
-      </Button>
-      <Button
+      </ElButton>
+      <ElButton
         @click="
           () => {
             formCollapse.toggleActiveKey('tab2')
@@ -70,13 +70,13 @@
         "
       >
         切换第二个Tab
-      </Button>
+      </ElButton>
       <Submit @submit="log">提交</Submit>
     </FormButtonGroup>
   </Form>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import {
@@ -87,9 +87,9 @@ import {
   Input,
   Form,
 } from '@formily/element-plus'
-import { Button } from 'element-ui'
+import { ElButton } from 'element-plus'
 
-const SchemaField = createSchemaField({
+const { SchemaField, SchemaVoidField, SchemaStringField } = createSchemaField({
   components: {
     FormItem,
     FormCollapse,
@@ -97,29 +97,11 @@ const SchemaField = createSchemaField({
   },
 })
 
-export default {
-  components: {
-    Form,
-    FormButtonGroup,
-    Button,
-    Submit,
-    ...SchemaField,
-  },
+const form = createForm()
+const formCollapse = FormCollapse.createFormCollapse()
 
-  data() {
-    const form = createForm()
-    const formCollapse = FormCollapse.createFormCollapse()
-
-    return {
-      form,
-      formCollapse,
-    }
-  },
-  methods: {
-    log(values) {
-      console.log(values)
-    },
-  },
+const log = (values) => {
+  console.log(values)
 }
 </script>
 

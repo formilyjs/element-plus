@@ -2,6 +2,7 @@ import path from 'path'
 import utils from './util'
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const componentFiles = utils
   .getFiles(path.resolve(__dirname, '../guide'))
@@ -13,7 +14,6 @@ export default defineUserConfig<DefaultThemeOptions>({
   title: 'Element-plus',
   description: 'Alibaba unified front-end form solution',
   dest: './doc-site',
-  theme: '@vuepress/theme-default',
   head: [
     [
       'link',
@@ -30,6 +30,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
     ],
   ],
+  theme: 'vuepress-theme-dumi',
   themeConfig: {
     logo: '//img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg',
     navbar: [
@@ -52,49 +53,61 @@ export default defineUserConfig<DefaultThemeOptions>({
     lastUpdated: true,
     smoothScroll: true,
   },
+  markdown: {
+    code: {
+      lineNumbers: false,
+    },
+  },
   alias: {
     '@formily/element-plus': path.resolve(__dirname, '../../src'),
   },
   plugins: [
     'vuepress-plugin-typescript',
-    '@vuepress/back-to-top',
+    // '@vuepress/back-to-top',
     // '@vuepress/last-updated',
-    '@vuepress-dumi/dumi-previewer',
-    [
-      '@vuepress/medium-zoom',
-      {
-        selector: '.content__default :not(a) > img',
-      },
-    ],
+    // '@vuepress-dumi/dumi-previewer',
+    // [
+    //   '@vuepress/medium-zoom',
+    //   {
+    //     selector: '.content__default :not(a) > img',
+    //   },
+    // ],
   ],
   bundlerConfig: {
-    configureWebpack: (config, isServer) => {
-      return {
-        resolve: {
-          alias: {
-            '@formily/element-plus': path.resolve(__dirname, '../../src'),
-          },
-        },
-      }
-    },
-    chainWebpack: (config, isServer) => {
-      config.module
-        .rule('js') // Find the rule.
-        .use('babel-loader') // Find the loader
-        .tap((options) =>
-          Object.assign(options, {
-            // Modifying options
-            presets: [
-              [
-                '@vue/babel-preset-jsx',
-                {
-                  vModel: false,
-                  compositionAPI: true,
-                },
-              ],
-            ],
-          })
-        )
+    //   configureWebpack: (config, isServer) => {
+    //     return {
+    //       resolve: {
+    //         alias: {
+    //           '@formily/element-plus': path.resolve(__dirname, '../../src'),
+    //         },
+    //       },
+    //     }
+    //   },
+    //   chainWebpack: (config, isServer) => {
+    //     config.module
+    //       .rule('js') // Find the rule.
+    //       .use('babel-loader') // Find the loader
+    //       .tap((options) =>
+    //         Object.assign(options, {
+    //           // Modifying options
+    //           presets: [
+    //             [
+    //               '@vue/babel-preset-jsx',
+    //               {
+    //                 vModel: false,
+    //                 compositionAPI: true,
+    //               },
+    //             ],
+    //           ],
+    //         })
+    //       )
+    //   },
+    viteOptions: {
+      plugins: [
+        vueJsx({
+          // options are passed on to @vue/babel-plugin-jsx
+        }),
+      ],
     },
   },
 })

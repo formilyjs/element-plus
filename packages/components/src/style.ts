@@ -1,5 +1,4 @@
 // auto generated code
-
 import './array-base/style.scss'
 import './array-cards/style.scss'
 import './array-collapse/style.scss'
