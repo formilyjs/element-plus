@@ -1,7 +1,6 @@
 import {
   defineComponent,
   provide,
-  ref,
   onMounted,
   InjectionKey,
   Ref,
@@ -100,7 +99,7 @@ const FormGridInner = observer(
         type: Object as PropType<Grid<HTMLElement>>,
       },
     },
-    setup(props: IFormGridProps, { slots }) {
+    setup(props: any, { slots }) {
       const layout = useFormLayout()
 
       const gridInstance = computed(() => {

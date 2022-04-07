@@ -36,7 +36,7 @@ export const DatePicker = connect(
       value: 'modelValue',
       readOnly: 'readonly',
     },
-    (props: DatePickerProps) => {
+    (props: any) => {
       return {
         ...props,
         format: props.format || getDefaultFormat(props),

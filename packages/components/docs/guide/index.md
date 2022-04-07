@@ -69,7 +69,7 @@
 ## 安装
 
 ```bash
-$ npm install --save element-ui
+$ npm install --save element-plus
 $ npm install --save @formily/core @formily/vue @vue/composition-api @formily/element-plus
 ```
 
@@ -99,7 +99,7 @@ yarn add babel-plugin-import --dev
     [
       "component",
       {
-        "libraryName": "element-ui",
+        "libraryName": "element-plus",
         "styleLibraryName": "theme-chalk"
       }
     ],

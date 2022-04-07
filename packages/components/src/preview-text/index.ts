@@ -297,6 +297,6 @@ export const PreviewText = composeExport(Text, {
   TimePicker,
   Placeholder: PlaceholderContext.Provider,
   usePlaceholder,
-})
+}) as any
 
 export default PreviewText
