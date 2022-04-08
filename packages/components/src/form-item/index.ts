@@ -56,7 +56,7 @@ export type FormItemProps = {
   tooltipLayout?: 'icon' | 'text'
   feedbackIcon?: string | Component
   asterisk?: boolean
-  gridSpan?: number
+  gridSpan?: number | string
   bordered?: boolean
   inset?: boolean
 }
@@ -160,7 +160,7 @@ export const FormBaseItem = defineComponent({
     provide(FormLayoutShallowContext, ref({}))
 
     return () => {
-      const gridColumn = useGridColumn(props.gridSpan as number)
+      const gridColumn = useGridColumn(props.gridSpan as string)
       const gridStyles: Record<string, any> = {}
 
       if (gridColumn) {

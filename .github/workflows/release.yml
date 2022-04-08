@@ -14,13 +14,12 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: |
           yarn -v
           yarn --ignore-engines
           yarn build
-          yarn test:prod
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           REGISTRY: https://registry.npmjs.org
