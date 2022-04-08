@@ -7,7 +7,7 @@ import {
   Plus,
 } from '@element-plus/icons-vue'
 import { ElUpload, ElButton, ElIcon } from 'element-plus'
-import type { UploadFile } from 'element-plus/es/components/upload/src/upload.type'
+import type { UploadFile } from 'element-plus/es/components/upload/src/upload'
 
 export type UploadProps = typeof ElUpload & {
   textContent?: string
@@ -31,7 +31,7 @@ const UploadWrapper = defineComponent({
       type: Array,
     },
   },
-  setup(curProps: UploadProps, { slots, attrs, emit }) {
+  setup(curProps: any, { slots, attrs, emit }) {
     return () => {
       const fieldRef = useField<Field>()
       const setFeedBack = (error?: ErrorEvent) => {
@@ -84,7 +84,7 @@ const UploadWrapper = defineComponent({
                   h(
                     ElIcon,
                     { style: { fontSize: '60px', margin: '40px 0 16px' } },
-                    h(UploadFilled, { color: 'gray' }, {})
+                    { default: () => h(UploadFilled, { color: 'gray' }, {}) }
                   ),
                   h(
                     'div',
