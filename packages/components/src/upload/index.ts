@@ -84,7 +84,7 @@ const UploadWrapper = defineComponent({
                   h(
                     ElIcon,
                     { style: { fontSize: '60px', margin: '40px 0 16px' } },
-                    h(UploadFilled, { color: 'gray' }, {})
+                    { default: () => h(UploadFilled, { color: 'gray' }, {}) }
                   ),
                   h(
                     'div',

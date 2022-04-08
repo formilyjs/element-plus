@@ -20,11 +20,11 @@
 | ------------ | ------------- | ---------------------------------------------------------- | ------ |
 | formCollapse | IFormCollapse | 传入通过 createFormCollapse/useFormCollapse 创建出来的模型 |        |
 
-其余参考 [https://element.eleme.io/#/zh-CN/component/collapse](https://element.eleme.io/#/zh-CN/component/collapse)
+其余参考 [https://element-plus.gitee.io/zh-CN/component/collapse.html](https://element-plus.gitee.io/zh-CN/component/collapse.html)
 
 ### FormCollapse.Item
 
-参考 [https://element.eleme.io/#/zh-CN/component/collapse](https://element.eleme.io/#/zh-CN/component/collapse)
+参考 [https://element-plus.gitee.io/zh-CN/component/collapse.html#collapse-插槽](https://element-plus.gitee.io/zh-CN/component/collapse.html#collapse-插槽)
 
 ### FormCollapse.createFormCollapse
 

@@ -94,8 +94,8 @@
   </Form>
 </template>
 
-<script>
-import { createForm, onFieldChange } from '@formily/core'
+<script setup lang="tsx">
+import { createForm, DataField, onFieldChange } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import {
   Form,
@@ -109,11 +109,8 @@ import {
   Radio,
 } from '@formily/element-plus'
 
-const Div = {
-  functional: true,
-  render(h, context) {
-    return h('div', context.data, context.children)
-  },
+const Div = (props, { slots }) => {
+  return <div {...props}>{slots?.default()}</div>
 }
 
 const form = createForm({
@@ -124,37 +121,24 @@ const form = createForm({
     onFieldChange('size', ['value'], (field, form) => {
       form.setFieldState('sizeWrap.*', (state) => {
         if (state.decorator[1]) {
-          state.decorator[1].size = field.value
+          state.decorator[1].size = (field as DataField).value
         }
       })
     })
   },
 })
-const fields = createSchemaField({
-  components: {
-    FormItem,
-    Input,
-    Select,
-    Cascader,
-    DatePicker,
-    Switch,
-    InputNumber,
-    Radio,
-    Div,
-  },
-})
-
-export default {
-  components: { Form, ...fields },
-  data() {
-    return {
-      form,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
+const { SchemaField, SchemaStringField, SchemaVoidField, SchemaBooleanField } =
+  createSchemaField({
+    components: {
+      FormItem,
+      Input,
+      Select,
+      Cascader,
+      DatePicker,
+      Switch,
+      InputNumber,
+      Radio,
+      Div,
     },
-  },
-}
+  })
 </script>

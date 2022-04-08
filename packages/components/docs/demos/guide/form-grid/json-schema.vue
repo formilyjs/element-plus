@@ -5,7 +5,7 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
 import { FormItem, Input, Submit, FormGrid } from '@formily/element-plus'
@@ -76,19 +76,7 @@ const { SchemaField } = createSchemaField({
   },
 })
 
-export default {
-  components: { FormProvider, SchemaField, Submit },
-  data() {
-    return {
-      form,
-      schema,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
-    },
-  },
+const onSubmit = (value) => {
+  console.log(value)
 }
 </script>
-l

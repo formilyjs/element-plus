@@ -39,7 +39,7 @@
           x-component="DatePicker"
           x-decorator="FormItem"
           :x-decorator-props="{
-            gridSpan: 2,
+            gridSpan: 'span 2',
           }"
           :x-component-props="{
             type: 'daterange',
@@ -56,8 +56,8 @@
   </FormProvider>
 </template>
 
-<script>
-import { defineComponent, ref, onUnmounted } from '@vue/composition-api'
+<script setup lang="tsx">
+import { defineComponent, ref, onUnmounted } from 'vue'
 import { createForm } from '@formily/core'
 import {
   createSchemaField,
@@ -197,27 +197,15 @@ const QueryForm = observer(
 )
 
 const form = createForm()
-const fields = createSchemaField({
-  components: {
-    QueryForm,
-    Input,
-    Select,
-    DatePicker,
-    FormItem,
-  },
-})
-
-export default {
-  components: { FormProvider, ...fields, Submit },
-  data() {
-    return {
-      form,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
+const { SchemaField, SchemaObjectField, SchemaStringField } = createSchemaField(
+  {
+    components: {
+      QueryForm,
+      Input,
+      Select,
+      DatePicker,
+      FormItem,
     },
-  },
-}
+  }
+)
 </script>

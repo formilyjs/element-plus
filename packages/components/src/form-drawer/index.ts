@@ -403,13 +403,18 @@ const FormDrawerFooter = defineComponent({
   name: 'FFormDrawerFooter',
   setup(props, { slots }) {
     return () => {
-      return h(
-        Teleport,
-        {
-          to: `#${PORTAL_TARGET_NAME}`,
-        },
-        slots
-      )
+      // 临时解决方案
+      if (document.querySelector(`#${PORTAL_TARGET_NAME}`)) {
+        return h(
+          Teleport,
+          {
+            to: `#${PORTAL_TARGET_NAME}`,
+          },
+          slots
+        )
+      } else {
+        return null
+      }
     }
   },
 })

@@ -66,7 +66,7 @@ interface FormDialog {
 }
 ```
 
-`DialogProps`类型定义参考 [Element-UI Dialog API](https://element.eleme.io/#/zh-CN/component/dialog#attributes)
+`DialogProps`类型定义参考 [Element-Plus Dialog API](https://element-plus.gitee.io/zh-CN/component/dialog.html#dialog-属性)
 
 ### FormDialog.Footer
 

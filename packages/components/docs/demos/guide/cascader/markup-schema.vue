@@ -24,7 +24,6 @@ import { createForm, onFieldReact, DataField } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import { Form, FormItem, Cascader, Submit } from '@formily/element-plus'
 import { action } from '@formily/reactive'
-import axios from 'axios'
 
 const transformAddress = (data = {}) => {
   return Object.entries(data).reduce(
@@ -63,8 +62,8 @@ const transformAddress = (data = {}) => {
 const useAddress = (pattern) => {
   onFieldReact(pattern, (field: DataField) => {
     field.loading = true
-    axios('//unpkg.com/china-location/dist/location.json')
-      .then((res) => res.data)
+    fetch('//unpkg.com/china-location/dist/location.json')
+      .then((res) => res.json())
       .then(
         action.bound((data) => {
           field.dataSource = transformAddress(data)

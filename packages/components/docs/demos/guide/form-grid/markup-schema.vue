@@ -12,7 +12,7 @@
           name="aaa"
           title="aaa"
           x-decorator="FormItem"
-          :x-decorator-props="{ gridSpan: 2 }"
+          :x-decorator-props="{ gridSpan: 'span 2' }"
           x-component="Input"
         />
         <SchemaStringField
@@ -57,13 +57,13 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
 import { FormItem, Input, Submit, FormGrid } from '@formily/element-plus'
 
 const form = createForm()
-const fields = createSchemaField({
+const { SchemaField, SchemaVoidField, SchemaStringField } = createSchemaField({
   components: {
     FormItem,
     Input,
@@ -71,17 +71,7 @@ const fields = createSchemaField({
   },
 })
 
-export default {
-  components: { FormProvider, ...fields, Submit },
-  data() {
-    return {
-      form,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
-    },
-  },
+const onSubmit = (value) => {
+  console.log(value)
 }
 </script>

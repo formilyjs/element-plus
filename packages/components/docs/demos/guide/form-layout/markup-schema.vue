@@ -30,22 +30,13 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
 import { FormLayout, FormItem, Input, Select } from '@formily/element-plus'
 
-const fields = createSchemaField({
+const { SchemaField, SchemaVoidField, SchemaStringField } = createSchemaField({
   components: { FormLayout, FormItem, Input, Select },
 })
-
-export default {
-  components: { FormProvider, ...fields },
-  data() {
-    const form = createForm()
-    return {
-      form,
-    }
-  },
-}
+const form = createForm()
 </script>

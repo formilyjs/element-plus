@@ -20,11 +20,11 @@
 | ------- | -------- | ------------------------------------- | ------ |
 | formTab | IFormTab | 传入通过 createFormTab 创建出来的模型 |        |
 
-其余参考 [https://element.eleme.io/#/zh-CN/component/tabs](https://element.eleme.io/#/zh-CN/component/tabs)
+其余参考 [https://element-plus.gitee.io/zh-CN/component/tabs.html](https://element-plus.gitee.io/zh-CN/component/tabs.html)
 
 ### FormTab.TabPane
 
-参考 [https://element.eleme.io/#/zh-CN/component/tabs](https://element.eleme.io/#/zh-CN/component/tabs)
+参考 [https://element-plus.gitee.io/zh-CN/component/tabs.html#tab-pane-属性](https://element-plus.gitee.io/zh-CN/component/tabs.html#tab-pane-属性)
 
 ### FormTab.createFormTab
 

@@ -185,6 +185,7 @@ const FormStepInner = observer(
 
 const StepPane = defineComponent({
   name: 'FFormStepPane',
+  inheritAttrs: false,
   setup(_props, { slots }) {
     return () => h(Fragment, {}, slots)
   },

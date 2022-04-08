@@ -47,7 +47,7 @@ const useGridSpan = (gridSpan: number) => {
 /**
  * @deprecated
  */
-export const useGridColumn = (gridSpan = 1) => {
+export const useGridColumn = (gridSpan = 'span 1') => {
   return gridSpan
 }
 
