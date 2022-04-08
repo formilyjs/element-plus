@@ -1,4 +1,4 @@
-import { FormProvider, h, Fragment } from '@formily/vue'
+import { FormProvider, FragmentComponent } from '@formily/vue'
 import { toJS } from '@formily/reactive'
 import { observer } from '@formily/reactive-vue'
 import { createForm, Form, IFormProps } from '@formily/core'
@@ -15,13 +15,14 @@ import type {
   ElDialog as ElDialogProps,
   ElButton as ElButtonProps,
 } from 'element-plus'
-// import { t } from 'element-plus/es/locale'
-import type, {
+import {
   Component,
   VNode,
   defineComponent,
   Teleport,
   createApp,
+  PropType,
+  h,
 } from 'vue'
 import {
   isValidElement,
@@ -144,7 +145,7 @@ export function FormDialog(
       setup() {
         return () =>
           h(
-            Fragment,
+            FragmentComponent,
             {},
             {
               default: () =>
@@ -160,7 +161,7 @@ export function FormDialog(
   const render = (visible = true, resolve?: () => any, reject?: () => any) => {
     if (!env.instance) {
       const ComponentConstructor = defineComponent({
-        props: ['dialogProps'],
+        props: { dialogProps: Object as PropType<typeof ElDialogProps> },
         data() {
           return {
             visible: false,
@@ -374,13 +375,18 @@ const FormDialogFooter = defineComponent({
   name: 'FFormDialogFooter',
   setup(props, { slots }) {
     return () => {
-      return h(
-        Teleport,
-        {
-          to: `#${PORTAL_TARGET_NAME}`,
-        },
-        slots
-      )
+      // 临时解决方案
+      if (document.querySelector(`#${PORTAL_TARGET_NAME}`)) {
+        return h(
+          Teleport as any,
+          {
+            to: `#${PORTAL_TARGET_NAME}`,
+          },
+          slots
+        )
+      } else {
+        return null
+      }
     }
   },
 })

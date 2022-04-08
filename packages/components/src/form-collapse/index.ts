@@ -183,6 +183,7 @@ const FormCollapse = observer(
 
 export const FormCollapseItem = defineComponent({
   name: 'FFormCollapseItem',
+  inheritAttrs: false,
   setup(_props, { slots }) {
     return () => h(Fragment, {}, slots)
   },

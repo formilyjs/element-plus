@@ -1,6 +1,6 @@
 {
   "name": "@formily/element-plus",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-beta.1",
   "license": "MIT",
   "main": "lib",
   "types": "lib/index.d.ts",
@@ -24,12 +24,8 @@
   "scripts": {
     "start": "vuepress dev docs",
     "clean": "rimraf -rf lib esm dist",
-    "build": "rimraf -rf lib esm dist && npm run create:style && npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:style",
+    "build": "formily-tpl build",
     "create:style": "ts-node create-style",
-    "build:style": "ts-node build-style",
-    "build:cjs": "ttsc  --declaration",
-    "build:esm": "ttsc --declaration --module es2015 --outDir esm",
-    "build:umd": "rollup --config",
     "build:docs": "vuepress build docs"
   },
   "repository": {
@@ -48,13 +44,13 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.1",
-    "@formily/core": "2.0.14",
-    "@formily/grid": "2.0.14",
-    "@formily/json-schema": "2.0.14",
-    "@formily/reactive": "2.0.14",
-    "@formily/reactive-vue": "2.0.14",
-    "@formily/shared": "2.0.14",
-    "@formily/vue": "2.0.14",
+    "@formily/core": "2.0.18",
+    "@formily/grid": "2.0.18",
+    "@formily/json-schema": "2.0.18",
+    "@formily/reactive": "2.0.18",
+    "@formily/reactive-vue": "2.0.18",
+    "@formily/shared": "2.0.18",
+    "@formily/vue": "2.0.18",
     "element-plus": "^2.0.1",
     "resize-observer-polyfill": "^1.5.1",
     "vue": "^3.2.24",
@@ -69,6 +65,6 @@
     "ttypescript": "^1.5.13",
     "vuepress": "^2.0.0-beta.38",
     "vuepress-plugin-typescript": "^0.3.1",
-    "vuepress-theme-dumi": "^0.1.0"
+    "vuepress-theme-dumi": "^0.1.1"
   }
 }

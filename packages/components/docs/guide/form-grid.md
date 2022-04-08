@@ -59,7 +59,7 @@ interface createFormGrid {
 ```
 
 - IGridProps 参考 FormGrid 属性
-- Grid 实例属性方法参考 https://github.com/alibaba/formily/tree/formily_next/packages/grid
+- Grid 实例属性方法参考 [https://github.com/alibaba/formily/tree/formily_next/packages/grid](https://github.com/alibaba/formily/tree/formily_next/packages/grid)
 
 ### FormGrid.useFormGrid
 
@@ -71,4 +71,4 @@ interface useFormGrid {
 }
 ```
 
-- Grid 实例属性方法参考 https://github.com/alibaba/formily/tree/formily_next/packages/grid
+- Grid 实例属性方法参考 [https://github.com/alibaba/formily/tree/formily_next/packages/grid](https://github.com/alibaba/formily/tree/formily_next/packages/grid)

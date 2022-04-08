@@ -141,30 +141,24 @@
   </div>
 </template>
 
-<script>
+<script setup lang="tsx">
 import { FormGrid } from '@formily/element-plus'
 
-const Cell = {
-  functional: true,
-  render(h, context) {
-    return h(
-      'div',
-      {
-        style: {
-          backgroundColor: '#AAA',
-          color: '#FFF',
-          height: '30px',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '0 10px',
-        },
-      },
-      context.children
-    )
-  },
+const Cell = (_props, { slots }) => {
+  return (
+    <div
+      style={{
+        backgroundColor: '#AAA',
+        color: '#FFF',
+        height: '30px',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 10px',
+      }}
+    >
+      {slots?.default()}
+    </div>
+  )
 }
-
-export default {
-  components: { FormGrid, FormGridColumn: FormGrid.GridColumn, Cell },
-}
+const FormGridColumn = FormGrid.GridColumn
 </script>

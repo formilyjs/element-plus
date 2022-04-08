@@ -4,7 +4,7 @@
     <FormConsumer>
       <template #default>
         <FormButtonGroup>
-          <Button
+          <ElButton
             :disabled="!formStep.allowBack"
             @click="
               () => {
@@ -13,8 +13,8 @@
             "
           >
             上一步
-          </Button>
-          <Button
+          </ElButton>
+          <ElButton
             :disabled="!formStep.allowNext"
             @click="
               () => {
@@ -23,7 +23,7 @@
             "
           >
             下一步
-          </Button>
+          </ElButton>
           <Submit :disabled="formStep.allowNext" @submit="log">提交</Submit>
         </FormButtonGroup>
       </template>
@@ -31,7 +31,7 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField, FormConsumer } from '@formily/vue'
 import {
@@ -41,7 +41,7 @@ import {
   Submit,
   Input,
 } from '@formily/element-plus'
-import { Button } from 'element-ui'
+import { ElButton } from 'element-plus'
 
 const { SchemaField } = createSchemaField({
   components: {
@@ -86,7 +86,7 @@ const schema = {
           properties: {
             bbb: {
               type: 'string',
-              title: 'AAA',
+              title: 'BBB',
               required: true,
               'x-decorator': 'FormItem',
               'x-component': 'Input',
@@ -102,7 +102,7 @@ const schema = {
           properties: {
             ccc: {
               type: 'string',
-              title: 'AAA',
+              title: 'CCC',
               required: true,
               'x-decorator': 'FormItem',
               'x-component': 'Input',
@@ -113,31 +113,11 @@ const schema = {
     },
   },
 }
+const form = createForm()
+const formStep = FormStep.createFormStep()
 
-export default {
-  components: {
-    FormProvider,
-    FormConsumer,
-    FormButtonGroup,
-    Button,
-    Submit,
-    SchemaField,
-  },
-
-  data() {
-    const form = createForm()
-    const formStep = FormStep.createFormStep()
-    return {
-      schema,
-      form,
-      formStep,
-    }
-  },
-  methods: {
-    log() {
-      this.formStep.submit(console.log)
-    },
-  },
+const log = () => {
+  formStep.submit(console.log)
 }
 </script>
 

@@ -13,7 +13,6 @@ import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import { Form, FormItem, Cascader, Submit } from '@formily/element-plus'
 import { action } from '@formily/reactive'
-import axios from 'axios'
 
 const transformAddress = (data = {}) => {
   return Object.entries(data).reduce(
@@ -52,9 +51,9 @@ const transformAddress = (data = {}) => {
 const useAsyncDataSource = (url, transform) => {
   return (field) => {
     field.loading = true
-    axios
-      .get(url)
-      .then((res) => res.data)
+
+    fetch(url)
+      .then((res) => res.json())
       .then(
         action.bound((data) => {
           field.dataSource = transform(data)

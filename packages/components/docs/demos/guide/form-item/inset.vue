@@ -65,7 +65,7 @@
   </Form>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import {
@@ -80,29 +80,16 @@ import {
 } from '@formily/element-plus'
 
 const form = createForm()
-const fields = createSchemaField({
-  components: {
-    FormItem,
-    Input,
-    Select,
-    Cascader,
-    DatePicker,
-    Switch,
-    InputNumber,
-  },
-})
-
-export default {
-  components: { Form, ...fields },
-  data() {
-    return {
-      form,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
+const { SchemaField, SchemaStringField, SchemaBooleanField } =
+  createSchemaField({
+    components: {
+      FormItem,
+      Input,
+      Select,
+      Cascader,
+      DatePicker,
+      Switch,
+      InputNumber,
     },
-  },
-}
+  })
 </script>

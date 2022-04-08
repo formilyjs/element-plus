@@ -20,11 +20,11 @@
 | -------- | --------- | -------------------------------------- | ------ |
 | formStep | IFormStep | 传入通过 createFormStep 创建出来的模型 |        |
 
-其余参考 [https://element.eleme.io/#/zh-CN/component/steps](https://element.eleme.io/#/zh-CN/component/steps)
+其余参考 [https://element-plus.gitee.io/zh-CN/component/steps.html](https://element-plus.gitee.io/zh-CN/component/steps.html)
 
 ### FormStep.StepPane
 
-参考 [https://element.eleme.io/#/zh-CN/component/steps](https://element.eleme.io/#/zh-CN/component/steps)
+参考 [https://element-plus.gitee.io/zh-CN/component/steps.html](https://element-plus.gitee.io/zh-CN/component/steps.html)
 
 ### FormStep.createFormStep
 

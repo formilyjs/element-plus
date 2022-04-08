@@ -2,10 +2,10 @@
   <FormProvider :form="form">
     <FormLayout
       :breakpoints="[680]"
-      :layout="['vertical', 'horizontal']"
-      :labelAlign="['left', 'right']"
-      :labelCol="[24, 6]"
-      :wrapperCol="[24, 10]"
+      layout="horizontal"
+      label-align="left"
+      :label-col="6"
+      :wrapper-col="10"
     >
       <Field
         name="input"
@@ -30,22 +30,10 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { FormProvider, Field } from '@formily/vue'
 import { FormLayout, FormItem, Input, Select } from '@formily/element-plus'
 
-export default {
-  components: { FormProvider, Field, FormLayout },
-  data() {
-    const form = createForm()
-    return {
-      FormLayout,
-      FormItem,
-      Input,
-      Select,
-      form,
-    }
-  },
-}
+const form = createForm()
 </script>

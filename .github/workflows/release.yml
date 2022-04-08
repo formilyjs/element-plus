@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - formily_next
+      - main
 jobs:
   release:
     runs-on: ubuntu-latest

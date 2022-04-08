@@ -391,7 +391,8 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
+import { h } from 'vue'
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
 import {
@@ -405,24 +406,18 @@ import {
   TimePicker,
 } from '@formily/element-plus'
 
-const SuccessIcon = {
-  functional: true,
-  render(h) {
-    return h('i', {
-      class: 'el-icon-circle-check',
-      style: { color: '#8AE65C' },
-    })
-  },
+const SuccessIcon = () => {
+  return h('i', {
+    class: 'el-icon-circle-check',
+    style: { color: '#8AE65C' },
+  })
 }
 
-const Title = {
-  functional: true,
-  render(h, context) {
-    return h('p', context.data, context.children)
-  },
+const Title = (props, { slots }) => {
+  return h('p', props, slots.default?.())
 }
 
-const fields = createSchemaField({
+const { SchemaField, SchemaVoidField, SchemaStringField } = createSchemaField({
   components: {
     Title,
     FormItem,
@@ -436,14 +431,5 @@ const fields = createSchemaField({
   },
 })
 
-export default {
-  components: { FormProvider, ...fields },
-  data() {
-    const form = createForm()
-    return {
-      form,
-      SuccessIcon,
-    }
-  },
-}
+const form = createForm()
 </script>

@@ -4,7 +4,7 @@
   </FormProvider>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
 import {
@@ -50,7 +50,7 @@ const schema = {
 }
 
 const form = createForm()
-const fields = createSchemaField({
+const { SchemaField } = createSchemaField({
   components: {
     FormLayout,
     FormItem,
@@ -58,19 +58,4 @@ const fields = createSchemaField({
     Select,
   },
 })
-
-export default {
-  components: { FormProvider, ...fields, Submit },
-  data() {
-    return {
-      form,
-      schema,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
-    },
-  },
-}
 </script>

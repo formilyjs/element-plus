@@ -73,7 +73,7 @@ import {
 import { ElButton } from 'element-plus'
 
 const UploadButton = () => {
-  return h(ElButton, {}, '上传图片')
+  return h(ElButton, {}, { default: () => '上传图片' })
 }
 
 const form = createForm()

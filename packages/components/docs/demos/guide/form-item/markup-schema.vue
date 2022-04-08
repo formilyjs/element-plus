@@ -13,30 +13,20 @@
   </Form>
 </template>
 
-<script>
+<script setup lang="ts">
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import { Form, FormItem, Input, Submit } from '@formily/element-plus'
 
 const form = createForm()
-const fields = createSchemaField({
+const { SchemaField, SchemaStringField } = createSchemaField({
   components: {
     FormItem,
     Input,
   },
 })
 
-export default {
-  components: { Form, ...fields, Submit },
-  data() {
-    return {
-      form,
-    }
-  },
-  methods: {
-    onSubmit(value) {
-      console.log(value)
-    },
-  },
+const onSubmit = (value) => {
+  console.log(value)
 }
 </script>
