@@ -141,6 +141,7 @@ const FormTab = observer(
 
 const FormTabPane = defineComponent<IFormTabPaneProps>({
   name: 'FFormTabPane',
+  inheritAttrs: false,
   setup(_props, { slots }) {
     return () => h(Fragment, {}, slots)
   },

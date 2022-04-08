@@ -22,8 +22,6 @@ import { Delete, ArrowUp, ArrowDown, Rank } from '@element-plus/icons-vue'
 import { stylePrefix } from '../__builtins__/configs'
 import { composeExport } from '../__builtins__/shared'
 
-import './style'
-
 export interface IArrayBaseAdditionProps extends ElButtonProps {
   title?: string
   method?: 'push' | 'unshift'

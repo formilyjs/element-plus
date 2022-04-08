@@ -8,8 +8,6 @@ import { stylePrefix } from '../__builtins__/configs'
 import { ArrayBase } from '../array-base'
 import { composeExport } from '../__builtins__/shared'
 
-import './style'
-
 const isAdditionComponent = (schema: ISchema) => {
   return schema['x-component']?.indexOf('Addition') > -1
 }

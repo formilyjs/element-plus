@@ -1,8 +1,6 @@
 import { defineComponent, SetupContext, h } from 'vue'
 import type { VNode } from 'vue'
-// import { h } from '@formily/vue'
 import { stylePrefix } from '../__builtins__'
-import { each } from '@formily/shared'
 import { useFormLayout } from '../form-layout'
 
 export type SpaceProps = {
