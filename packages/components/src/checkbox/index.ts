@@ -72,7 +72,7 @@ export type CheckboxGroupProps = typeof ElCheckboxGroup & {
 }
 
 const TransformElCheckboxGroup = transformComponent(ElCheckboxGroup, {
-  change: 'change',
+  change: 'update:modelValue',
 })
 
 const CheckboxGroupOption: Component = defineComponent({
