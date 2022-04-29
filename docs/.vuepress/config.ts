@@ -59,7 +59,10 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
   },
   alias: {
-    '@formily/element-plus': path.resolve(__dirname, '../../src'),
+    '@formily/element-plus': path.resolve(
+      __dirname,
+      '../../packages/components/src'
+    ),
   },
   plugins: [
     'vuepress-plugin-typescript',
@@ -74,34 +77,6 @@ export default defineUserConfig<DefaultThemeOptions>({
     // ],
   ],
   bundlerConfig: {
-    //   configureWebpack: (config, isServer) => {
-    //     return {
-    //       resolve: {
-    //         alias: {
-    //           '@formily/element-plus': path.resolve(__dirname, '../../src'),
-    //         },
-    //       },
-    //     }
-    //   },
-    //   chainWebpack: (config, isServer) => {
-    //     config.module
-    //       .rule('js') // Find the rule.
-    //       .use('babel-loader') // Find the loader
-    //       .tap((options) =>
-    //         Object.assign(options, {
-    //           // Modifying options
-    //           presets: [
-    //             [
-    //               '@vue/babel-preset-jsx',
-    //               {
-    //                 vModel: false,
-    //                 compositionAPI: true,
-    //               },
-    //             ],
-    //           ],
-    //         })
-    //       )
-    //   },
     viteOptions: {
       plugins: [
         vueJsx({

@@ -14,3 +14,16 @@ features:
     details: 完备，灵活，优雅
 footer: Open-source MIT Licensed | Copyright © 2022-present
 ---
+
+## 安装
+
+vue3:
+
+```bash
+$ npm install --save element-plus
+$ npm install --save @formily/core @formily/vue @formily/element-plus
+```
+
+## 快速开始
+
+<dumi-previewer demoPath="index" :collapsed="false" />
