@@ -1,0 +1,36 @@
+@import '../../styles.less';
+
+.dn-designable-form {
+  .@{element-prefix}-input,
+  .@{element-prefix}-input-number,
+  .@{element-prefix}-input-affix-wrapper,
+  .@{element-prefix}-cascader-picker,
+  .@{element-prefix}-picker-input,
+  .@{element-prefix}-picker,
+  .@{element-prefix}-cascader-picker-label,
+  .@{element-prefix}-slider,
+  .@{element-prefix}-checkbox,
+  .@{element-prefix}-cascader,
+  .@{element-prefix}-textarea,
+  .@{element-prefix}-rate,
+  .@{element-prefix}-switch,
+  .@{element-prefix}-radio,
+  .@{element-prefix}-radio-wrapper,
+  .@{element-prefix}-checkbox-group,
+  .@{element-prefix}-checkbox-wrapper,
+  .@{element-prefix}-radio-group,
+  .@{element-prefix}-upload,
+  .@{element-prefix}-transfer,
+  .@{element-prefix}-select,
+  .@{element-prefix}-select-selector {
+    pointer-events: none !important;
+
+    input {
+      pointer-events: none !important;
+    }
+  }
+
+  .elementicon svg {
+    pointer-events: none;
+  }
+}

@@ -1,1 +1,2 @@
-export default {}
+import './locales'
+export * from './SettingsForm'

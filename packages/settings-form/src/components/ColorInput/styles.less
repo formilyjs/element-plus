@@ -1,0 +1,28 @@
+@import '../../styles.less';
+
+.dn-color-input {
+  width: 100%;
+
+  .@{element-prefix}-popover-inner-content {
+    padding: 0 !important;
+    user-select: none;
+  }
+
+  .@{element-prefix}-input__prefix {
+    display: flex;
+    align-items: center;
+  }
+  .el-input--prefix {
+    .@{element-prefix}-input__inner {
+      padding-left: 40px;
+    }
+  }
+
+  &-color-tips {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 1px solid @border-color-base;
+    cursor: pointer;
+  }
+}

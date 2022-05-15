@@ -70,7 +70,7 @@
 
 ```bash
 $ npm install --save element-plus
-$ npm install --save @formily/core @formily/vue @vue/composition-api @formily/element-plus
+$ npm install --save @formily/core @formily/vue @formily/element-plus
 ```
 
 ## 按需打包

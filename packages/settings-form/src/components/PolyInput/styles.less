@@ -1,0 +1,37 @@
+// @import '~antd/lib/style/themes/default.less';
+@import '../../styles.less';
+
+.dn-poly-input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  .dn-poly-input-content {
+    flex-grow: 2;
+    margin-right: 2px;
+    display: flex;
+
+    .@{element-prefix}-select {
+      width: 100%;
+    }
+
+    .@{element-prefix}-input-number {
+      width: 100%;
+      .el-input__inner {
+        padding: 0 11px;
+        text-align: left;
+      }
+    }
+  }
+
+  .dn-poly-input-controller {
+    border: 1px solid @border-color-base;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+  }
+}
