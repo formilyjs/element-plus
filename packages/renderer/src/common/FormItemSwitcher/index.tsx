@@ -12,9 +12,11 @@ export const FormItemSwitcher = defineComponent({
     return () => {
       return (
         <Switch
-          value={props.value === 'FormItem'}
-          onChange={(value) => {
-            emit('change', value ? 'FormItem' : undefined)
+          modelValue={props.value === 'FormItem'}
+          {...{
+            "onUpdate:modelValue": (value) => {
+              emit('change', value ? 'FormItem' : undefined)
+            }
           }}
         />
       )

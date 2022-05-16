@@ -194,7 +194,6 @@ export const OutlineTreeNode = observer(
                                             infer={node.hidden ? 'EyeClose' : 'Eye'}
                                             size={14}
                                             onClick={() => {
-                                                console.log(node)
                                                 node.hidden = !node.hidden
                                             }}
                                         />

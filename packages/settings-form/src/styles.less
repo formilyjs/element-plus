@@ -1,3 +1,10 @@
+@formily-element-prefix: ~'formily-element-plus';
+@element-prefix: ~'el';
+
+@text-color: rgba(0, 0, 0, 0.85);
+@border-color-split: #f0f0f0;
+@border-color-base: #d9d9d9;
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -69,40 +76,55 @@
     overflow: visible;
   }
 
-  // .@{ant-prefix}-formily-item {
-  //   border-bottom: 1px solid @border-color-split;
-  //   padding-bottom: 8px;
-  //   margin-bottom: 8px;
-  //   margin-top: 8px;
-  //   * {
-  //     font-size: 13px;
-  //   }
+  .@{formily-element-prefix}-form-item {
+    border-bottom: 1px solid @border-color-split;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 
-  //   .@{ant-prefix}-formily-item-control-content-component {
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: flex-end;
+    * {
+      font-size: 13px;
+    }
 
-  //     & > .@{ant-prefix}-radio-group {
-  //       display: flex !important;
-  //       width: 100%;
+    .el-radio-button__inner {
+      padding: 8px !important;
+    }
 
-  //       .@{ant-prefix}-radio-button-wrapper {
-  //         display: flex;
-  //         justify-content: center;
-  //         padding: 0 6px !important;
-  //         align-items: center;
-  //         flex-grow: 2;
-  //       }
-  //     }
+    .@{formily-element-prefix}-form-item-control-content-component {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 
-  //     & > .@{ant-prefix}-slider {
-  //       flex-shrink: 0;
-  //       min-width: 0;
-  //       width: 100%;
-  //     }
-  //   }
-  // }
+
+      &>.@{element-prefix}-radio-group {
+        display: flex !important;
+        height: 100%;
+
+        .@{element-prefix}-radio-button {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
+
+        .@{element-prefix}-radio-button__inner {
+          flex-grow: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding: 0 6px !important;
+        }
+      }
+
+      &>.@{element-prefix}-slider {
+        flex-shrink: 0;
+        min-width: 0;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .dn-settings-form {
@@ -117,10 +139,3 @@
     color: #888;
   }
 }
-
-@formily-element-prefix: ~'formily-element';
-@element-prefix: ~'el';
-
-@text-color: rgba(0, 0, 0, 0.85);
-@border-color-split: #f0f0f0;
-@border-color-base: #d9d9d9;

@@ -2,6 +2,7 @@ import { NodeActionsWidget } from '@formily/element-plus-prototypes'
 import type { VNode, CSSProperties } from '@vue/runtime-dom'
 import type { VueComponent } from '@formily/vue'
 import { defineComponent } from 'vue-demi'
+import { PropType } from 'vue'
 
 export interface ITemplateAction {
   title: VNode
@@ -16,16 +17,16 @@ export interface ILoadTemplateProps {
   actions?: ITemplateAction[]
 }
 
-export const LoadTemplate: VueComponent<ILoadTemplateProps> = defineComponent({
-  props: { actions: Array },
-  setup(props: ILoadTemplateProps, { attrs, slots }) {
+export const LoadTemplate = defineComponent({
+  props: { actions: Array as PropType<Array<ITemplateAction>> },
+  setup(props, { attrs, slots }) {
     return () => {
       return (
         <NodeActionsWidget>
           {props.actions?.map((action, key) => {
             return (
               <NodeActionsWidget.Action
-                props={action}
+                {...action}
                 key={key}
                 onClick={action.onClick}
               />

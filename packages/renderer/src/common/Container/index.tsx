@@ -20,7 +20,7 @@ export const withContainer = (Target: VNode) => {
       return () => {
         return (
           <DroppableWidget>
-            <Target attrs={attrs} v-slots={slots} />
+            <Target {...attrs} v-slots={slots} />
           </DroppableWidget>
         )
       }

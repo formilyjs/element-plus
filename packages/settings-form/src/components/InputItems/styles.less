@@ -1,4 +1,3 @@
-// @import '~antd/lib/style/themes/default.less';
 @import '../../styles.less';
 
 .dn-input-items {
@@ -11,6 +10,7 @@
     align-items: center;
     margin-bottom: 10px;
     color: @text-color;
+
     &-icon {
       display: flex;
       align-items: center;
@@ -25,20 +25,43 @@
       min-width: 0;
       flex-shrink: 1;
       flex-grow: 1;
+      overflow: hidden;
 
-      // .@{ant-prefix}-radio-group {
-      //   display: flex;
+      .@{element-prefix}-input-number {
+        width: 100%;
 
-      //   .@{ant-prefix}-radio-button-wrapper {
-      //     flex-grow: 1;
-      //     display: flex;
-      //     justify-content: center;
-      //   }
-      // }
+        .@{element-prefix}-input {
+          &__wrapper {
+            padding: 0 !important;
+          }
+        }
+      }
+
+      .@{element-prefix}-radio-group {
+        display: flex;
+
+        .@{element-prefix}-radio-button {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
+
+        .@{element-prefix}-radio-button__inner {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 8px !important;
+        }
+      }
     }
+
     &.vertical {
       flex-direction: column;
       align-items: flex-start;
+
       .dn-input-items-item-controller {
         width: 100%;
       }

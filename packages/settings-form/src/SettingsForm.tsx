@@ -70,67 +70,35 @@ export const SettingsForm = defineComponent({
     const nodeRef = useCurrentNode(currentWorkspaceId)
     const selectedRef = useSelected(currentWorkspaceId)
     const keyupRef = useKeyUp()
-    const idleTaskRef = ref(null)
+    const idleTaskRef = ref<number>()
 
     // [node, node?.props, schema, operation, isEmpty]
     const formRef = shallowRef()
     const sourceRef = shallowRef()
 
     useEffect(() => {
-      sourceRef.value = {
-        key: nodeRef.value.id,
-        schema: nodeRef.value?.designerProps?.propsSchema,
-        isEmpty: !(
-          nodeRef.value &&
-          nodeRef.value.designerProps?.propsSchema &&
-          selectedRef.value.length === 1
-        ),
-      }
-      formRef.value = createForm({
-        initialValues: nodeRef.value?.designerProps?.defaultProps,
-        values: nodeRef.value?.props,
-        effects(form) {
-          useLocales(nodeRef.value)
-          useSnapshot(operationRef.value, keyupRef)
-          props.effects?.(form)
-        },
+      idleTaskRef.value && cancelIdle(idleTaskRef.value)
+      idleTaskRef.value = requestIdle(() => {
+        sourceRef.value = {
+          key: nodeRef.value.id,
+          schema: nodeRef.value?.designerProps?.propsSchema,
+          isEmpty: !(
+            nodeRef.value &&
+            nodeRef.value.designerProps?.propsSchema &&
+            selectedRef.value.length === 1
+          ),
+        }
+        formRef.value = createForm({
+          initialValues: nodeRef.value?.designerProps?.defaultProps,
+          values: nodeRef.value?.props,
+          effects(form) {
+            useLocales(nodeRef.value)
+            useSnapshot(operationRef.value, keyupRef)
+            props.effects?.(form)
+          },
+        })
       })
     }, [nodeRef, () => nodeRef.value?.props, operationRef])
-
-    // const requestIdleTask = () => {
-    //   cancelIdle(idleTaskRef.value)
-    //   idleTaskRef.value = requestIdle(() => {
-    //     formRef.value = createForm({
-    //       initialValues: nodeRef.value?.designerProps?.defaultProps,
-    //       values: nodeRef.value?.props,
-    //       effects(form) {
-    //         useLocales(nodeRef.value)
-    //         useSnapshot(operationRef.value, keyupRef)
-    //         props.effects?.(form)
-    //       },
-    //     })
-    //     sources.key = nodeRef.value.id
-    //     sources.schema = nodeRef.value?.designerProps?.propsSchema
-    //     sources.isEmpty = !(
-    //       nodeRef.value &&
-    //       nodeRef.value.designerProps?.propsSchema &&
-    //       selectedRef.value.length === 1
-    //     )
-    //   })
-    // }
-    // requestIdleTask()
-
-    // observe(nodeRef.value, () => {
-    //   nextTick(() => {
-    //     requestIdleTask()
-    //   })
-    // })
-
-    // watch(selectedRef, () => {
-    //   nextTick(() => {
-    //     requestIdleTask()
-    //   })
-    // })
 
     provide(
       SettingsFormSymbol,
@@ -141,8 +109,7 @@ export const SettingsForm = defineComponent({
       const prefix = prefixRef.value
       const source = sourceRef.value
       const render = () => {
-        if (!source.isEmpty && formRef.value) {
-          console.log(source.schema)
+        if (!source?.isEmpty && formRef.value) {
           return (
             <div class={cls(prefix)} key={source.key}>
               <Form
@@ -150,7 +117,7 @@ export const SettingsForm = defineComponent({
                 form={formRef.value}
               >
                 <FormLayout
-                  labelCol={10}
+                  labelCol={9}
                   wrapperCol={24}
                   colon={false}
                   // labelWidth='110px'
@@ -178,7 +145,7 @@ export const SettingsForm = defineComponent({
       return (
         <IconWidget.Provider props={{ tooltip: true }}>
           <div class={prefix + '-wrapper'} {...attrs}>
-            {!source.isEmpty && (
+            {!source?.isEmpty && (
               <NodePathWidget workspaceId={currentWorkspaceId} />
             )}
             <div class={prefix + '-content'}>{render()}</div>

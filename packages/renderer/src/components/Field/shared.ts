@@ -89,7 +89,6 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              size: 'mini',
               clearable: true,
             },
           },
@@ -98,7 +97,6 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              size: 'mini',
               clearable: true,
             },
           },
@@ -117,7 +115,6 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Select',
             'x-component-props': {
-              size: 'mini',
             },
           },
           'x-pattern': {
@@ -127,7 +124,6 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Select',
             'x-component-props': {
-              size: 'mini',
             },
           },
           default: {
@@ -177,7 +173,6 @@ export const createVoidFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              size: 'mini',
               clearable: true,
             },
           },
@@ -186,7 +181,6 @@ export const createVoidFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              size: 'mini',
               clearable: true,
             },
             'x-reactions': {

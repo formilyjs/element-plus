@@ -30,7 +30,8 @@ const isEqualRect = (rect1: Partial<DOMRect>, rect2: DOMRect) => {
 }
 
 export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
-  const { proxy: { $forceUpdate: forceUpdate }, isMounted } = getCurrentInstance()!
+  const { proxy: { $forceUpdate: forceUpdate } } = getCurrentInstance()!
+  const vm = getCurrentInstance()!
   const engineRef = useDesigner()
   const viewportRef = useViewport()
 
@@ -42,6 +43,7 @@ export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
   useEffect(() => {
     computeRef.value = async () => {
       await Promise.resolve()
+      if (!vm.isMounted) return
       const viewport = viewportRef.value
       const engine = engineRef.value
       const node = nodeRef.value
@@ -50,7 +52,7 @@ export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
       const nextRect = viewport.getValidNodeOffsetRect(node)
       if (!isEqualRect(rectRef.value, nextRect) && nextRect) {
         rectRef.value = nextRect
-        isMounted && forceUpdate()
+        forceUpdate()
       }
     }
     computeRef.value()
