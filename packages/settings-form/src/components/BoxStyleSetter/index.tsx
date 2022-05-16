@@ -5,11 +5,11 @@ import { SizeInput } from '../SizeInput'
 import { InputItems } from '../InputItems'
 import cls from 'classnames'
 import { defineComponent, unref } from 'vue-demi'
-import { uid } from '@formily/shared'
+import { VNode } from 'vue'
 
 type Position = 'top' | 'right' | 'left' | 'bottom' | 'all'
 export interface IMarginStyleSetterProps {
-  labels?: Vue.Component[]
+  labels?: VNode[]
   value?: string
   onChange?: (value: string) => void
 }
@@ -83,53 +83,50 @@ export const BoxStyleSetter = defineComponent({
         bottom: createPositionHandler('bottom', props),
         left: createPositionHandler('left', props),
       }
+
       return (
         <FoldItem class={cls(prefix)} label={field.title} v-slots={{
           base: () => {
             return (
-              <FragmentComponent key={uid()}>
-                <SizeInput
-                  value={positionHandlers.all.value}
-                  onChange={positionHandlers.all.onChange}
-                  exclude={['auto', 'inherit']}
-                />
-              </FragmentComponent>
+              <SizeInput
+                value={positionHandlers.all.value}
+                onChange={positionHandlers.all.onChange}
+                exclude={['auto', 'inherit']}
+              />
             )
           },
           extra: () => {
             return (
-              <FragmentComponent key={uid()}>
-                <InputItems width="50%">
-                  <InputItems.Item icon={props.labels[0]}>
-                    <SizeInput
-                      value={positionHandlers.top.value}
-                      onChange={positionHandlers.top.onChange}
-                      exclude={['auto', 'inherit']}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon={props.labels[1]}>
-                    <SizeInput
-                      value={positionHandlers.right.value}
-                      onChange={positionHandlers.right.onChange}
-                      exclude={['auto', 'inherit']}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon={props.labels[2]}>
-                    <SizeInput
-                      value={positionHandlers.bottom.value}
-                      onChange={positionHandlers.bottom.onChange}
-                      exclude={['auto', 'inherit']}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon={props.labels[3]}>
-                    <SizeInput
-                      value={positionHandlers.left.value}
-                      onChange={positionHandlers.left.onChange}
-                      exclude={['auto', 'inherit']}
-                    />
-                  </InputItems.Item>
-                </InputItems>
-              </FragmentComponent>
+              <InputItems width="50%">
+                <InputItems.Item icon={props.labels[0]}>
+                  <SizeInput
+                    value={positionHandlers.top.value}
+                    onChange={positionHandlers.top.onChange}
+                    exclude={['auto', 'inherit']}
+                  />
+                </InputItems.Item>
+                <InputItems.Item icon={props.labels[1]}>
+                  <SizeInput
+                    value={positionHandlers.right.value}
+                    onChange={positionHandlers.right.onChange}
+                    exclude={['auto', 'inherit']}
+                  />
+                </InputItems.Item>
+                <InputItems.Item icon={props.labels[2]}>
+                  <SizeInput
+                    value={positionHandlers.bottom.value}
+                    onChange={positionHandlers.bottom.onChange}
+                    exclude={['auto', 'inherit']}
+                  />
+                </InputItems.Item>
+                <InputItems.Item icon={props.labels[3]}>
+                  <SizeInput
+                    value={positionHandlers.left.value}
+                    onChange={positionHandlers.left.onChange}
+                    exclude={['auto', 'inherit']}
+                  />
+                </InputItems.Item>
+              </InputItems>
             )
           }
         }}>

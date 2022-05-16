@@ -83,7 +83,6 @@ export const ValueInput = createPolyInput([
           }
           return (
             <Popover
-              placement="left"
               width={'auto'}
               v-slots={{
                 reference: renderButton

@@ -1,13 +1,14 @@
 import { connect, mapProps, h, mapReadPretty } from '@formily/vue'
-import { defineComponent } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import { PreviewText } from '@formily/element-plus'
 import { ElSelect, ElOption } from 'element-plus'
-import { resolveComponent } from '@formily/element-plus/src/__builtins__'
+import { resolveComponent } from '@formily/element-plus/esm/__builtins__'
 
 const SelectOption = defineComponent({
   name: 'FSelect',
   props: ['options', 'value'],
-  setup(props, { attrs, slots }) {
+  emits: ['change'],
+  setup(props, { attrs, slots, emit }) {
     return () => {
       const options = props.options || []
       const _slots =
@@ -46,8 +47,7 @@ const SelectOption = defineComponent({
           }
           : slots
       return (
-        <ElSelect modelValue={props.value} v-slots={_slots}>
-        </ElSelect>
+        <ElSelect modelValue={props.value} v-slots={_slots} {...{ "onUpdate:modelValue": (value: any) => { emit('change', value) } }} />
       )
     }
   },

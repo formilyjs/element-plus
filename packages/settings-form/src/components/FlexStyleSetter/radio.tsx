@@ -5,7 +5,7 @@ import {
   transformComponent,
   resolveComponent,
   SlotTypes,
-} from '@formily/element-plus/src/__builtins__'
+} from '@formily/element-plus/esm/__builtins__'
 import { PreviewText } from '@formily/element-plus'
 
 import { ElRadio, ElRadioGroup, ElRadioButton } from 'element-plus'
@@ -23,13 +23,10 @@ export type RadioGroupProps = typeof ElRadioGroup & {
   optionType: 'defalt' | 'button'
 }
 
-const TransformElRadioGroup = transformComponent(ElRadioGroup, {
-  change: 'input',
-})
-
 const RadioGroupOption = defineComponent({
   name: 'FRadioGroup',
   props: {
+    value: {},
     options: {
       type: Array as PropType<RadioGroupProps['options']>,
       default: () => [],
@@ -39,7 +36,8 @@ const RadioGroupOption = defineComponent({
       default: 'default',
     },
   },
-  setup(customProps, { attrs, slots }) {
+  emits: ['change'],
+  setup(customProps, { attrs, slots, emit }) {
     return () => {
       const options = customProps.options || []
       const OptionType =
@@ -79,12 +77,10 @@ const RadioGroupOption = defineComponent({
               }),
           }
           : slots
-      return h(
-        TransformElRadioGroup,
-        {
-          ...attrs,
-        },
-        children
+      return (
+        <ElRadioGroup {...{ modelValue: customProps.value, ...attrs, "onUpdate:modelValue": (value: any) => { emit('change', value) } }}>
+          {children}
+        </ElRadioGroup>
       )
     }
   },
@@ -92,7 +88,7 @@ const RadioGroupOption = defineComponent({
 
 const RadioGroup = connect(
   RadioGroupOption,
-  mapProps({ dataSource: 'options', value: 'modelValue' }),
+  mapProps({ dataSource: 'options' }),
   mapReadPretty(PreviewText.Select)
 )
 export const Radio = composeExport(ElRadio, {

@@ -93,7 +93,6 @@ export function createPolyInput(polyTypes: PolyTypes = []) {
       return () => {
         const type = types?.find(({ type }) => type === current.value)
         const component = type?.component
-        // key={uid()}
         return (
           <div class={cls(prefixRef.value)} >
             {component && (
