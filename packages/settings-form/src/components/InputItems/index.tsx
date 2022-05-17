@@ -2,7 +2,7 @@ import { usePrefix, IconWidget, useContext } from '@formily/element-plus-prototy
 import cls from 'classnames'
 import { defineComponent, computed, InjectionKey, provide, Ref } from 'vue-demi'
 import './styles.less'
-import { composeExport } from '@formily/element-plus/esm/__builtins__'
+import { composeExport } from '@formily/element-plus/src/__builtins__'
 export interface IInputItemsContext {
   width?: string | number
   vertical?: boolean

@@ -7,6 +7,7 @@ import { computed as reactiveComputed } from '../shared'
 export const useNodeIdProps = (node?: TreeNode) => {
   const targetRef = useTreeNode()
   const designerRef = useDesigner()
+  
   return reactiveComputed(() => {
     return {
       [designerRef.value.props.nodeIdAttrName]: node

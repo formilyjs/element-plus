@@ -1,8 +1,5 @@
-// import React, { Fragment, useState } from 'react'
-import { FragmentComponent as Fragment } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { Tabs, TabPane } from 'element-plus'
-import type { Tabs as TabsProps, TabPane as TabPaneProps } from 'element-plus'
+import { ElTabs as Tabs, ElTabPane as TabPane } from 'element-plus'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
   useNodeIdProps,
@@ -21,8 +18,7 @@ import { matchComponent } from '../../shared'
 
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import type { VueComponent } from '@formily/vue'
-import { defineComponent, nextTick, ref } from 'vue-demi'
-import { uid } from '@designable/shared'
+import { DefineComponent, defineComponent, nextTick, ref } from 'vue-demi'
 
 const parseTabs = (parent: TreeNode) => {
   const tabs: TreeNode[] = []
@@ -42,7 +38,7 @@ const getCorrectActiveKey = (activeKey: string, tabs: TreeNode[]) => {
 //  {
 //   TabPane?: VueComponent<TabPaneProps>
 // }
-export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
+export const FormTab: DnFC<DefineComponent<any>> = composeExport(
   observer(
     defineComponent({
       setup(props, { attrs }) {
@@ -66,7 +62,7 @@ export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
           ]
         })
 
-        const setActiveKey = (value) => {
+        const setActiveKey = (value: string) => {
           activeKeyRef.value = value
           selectionRef.value.select(value)
         }
@@ -75,38 +71,45 @@ export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
           const nodeId = nodeIdRef.value
           const node = nodeRef.value
           const designer = designerRef.value
-
+          if (!node) return
           const tabs = parseTabs(node)
           const renderTabs = () => {
             if (!node.children?.length) return <DroppableWidget />
             return (
               <Tabs
-                attrs={attrs}
-                value={getCorrectActiveKey(activeKey, tabs)}
-                onInput={(id) => {
-                  setActiveKey(id)
+                {...{
+                  ...attrs,
+                  modelValue: getCorrectActiveKey(activeKey!, tabs),
+                  "onUpdate:modelValue": (id: any) => {
+                    setActiveKey(id)
+                  }
                 }}
               >
                 {tabs.map((tab) => {
-                  const props = tab.props['x-component-props'] || {}
+                  const props = tab.props?.['x-component-props'] || {}
+                  const nodeId = {
+                    [designer.props.nodeIdAttrName]: tab.id,
+                  }
                   return (
                     <TabPane
-                      attrs={{
-                        [designer.props.nodeIdAttrName]: tab.id,
-                      }}
-                      style={{ ...props.style }}
+                      {...nodeId}
+                      style={props.style}
                       name={tab.id}
                       key={tab.id}
+                      v-slots={{
+                        label: () => {
+                          return (
+                            <span
+                              data-content-editable="x-component-props.label"
+                              data-content-editable-node-id={tab.id}
+                            >
+                              {props.label}
+                            </span>
+                          )
+                        }
+                      }}
                     >
-                      <span
-                        data-content-editable="x-component-props.label"
-                        data-content-editable-node-id={tab.id}
-                        slot="label"
-                      >
-                        {props.label}
-                      </span>
                       <div
-                        key={uid()}
                         style={{
                           padding: '20px 0',
                         }}
@@ -124,7 +127,7 @@ export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
             )
           }
           return (
-            <div attrs={nodeId}>
+            <div {...nodeId}>
               {renderTabs()}
               <LoadTemplate
                 actions={[
@@ -159,13 +162,13 @@ export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
       {
         name: 'FormTab',
         extends: ['Field'],
-        selector: (node) => node.props['x-component'] === 'FormTab',
+        selector: (node) => node.props?.['x-component'] === 'FormTab',
         designerProps: {
           droppable: true,
           allowAppend: (target, source) =>
             target.children.length === 0 ||
             source.every(
-              (node) => node.props['x-component'] === 'FormTab.TabPane'
+              (node) => node.props?.['x-component'] === 'FormTab.TabPane'
             ),
           propsSchema: createVoidFieldSchema(AllSchemas.FormTab),
         },
@@ -174,10 +177,10 @@ export const FormTab: DnFC<VueComponent<TabsProps>> = composeExport(
       {
         name: 'FormTab.TabPane',
         extends: ['Field'],
-        selector: (node) => node.props['x-component'] === 'FormTab.TabPane',
+        selector: (node) => node.props?.['x-component'] === 'FormTab.TabPane',
         designerProps: {
           droppable: true,
-          allowDrop: (node) => node.props['x-component'] === 'FormTab',
+          allowDrop: (node) => node.props?.['x-component'] === 'FormTab',
           propsSchema: createVoidFieldSchema(AllSchemas.FormTab.TabPane),
         },
         designerLocales: AllLocales.FormTabPane,

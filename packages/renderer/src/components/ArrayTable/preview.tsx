@@ -1,8 +1,7 @@
 import {
-  Table as ElTable,
-  Table as TableProps,
-  TableColumn,
-  Row,
+  ElTable,
+  ElTableColumn,
+  ElRow,
 } from 'element-plus'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
@@ -32,15 +31,18 @@ import { AllLocales } from '../../locales'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { VueComponent } from '@formily/vue'
 import { defineComponent, getCurrentInstance, onMounted } from 'vue-demi'
-import { uid } from '@designable/shared'
 import { observe } from '@formily/reactive'
+import { onUpdated, ref, VNode } from 'vue'
+import { uid } from '@designable/shared'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
-const HeaderCell: VueComponent<any> = defineComponent({
+const HeaderCell = defineComponent({
   props: { className: { type: String } },
+  inheritAttrs: false,
+  emits: ['change'],
   setup(props, { slots, attrs }) {
-    const { proxy: vm } = getCurrentInstance()
+    const { proxy: vm } = getCurrentInstance()!
     onMounted(() => {
       const element = vm.$el.parentNode.parentNode as HTMLElement
       element.setAttribute(
@@ -49,15 +51,25 @@ const HeaderCell: VueComponent<any> = defineComponent({
       )
     })
     return () => {
-      return slots.default?.()
+      return (
+        <div
+          {...props}
+          style={{ display: 'inline-flex' }}
+          data-designer-node-id={props.className.match(/data-id\:([^\s]+)/)?.[1]}
+        >
+          {slots.default?.()}
+        </div>
+      )
     }
   },
 })
 
-const BodyCell: VueComponent<any> = defineComponent({
+const BodyCell = defineComponent({
   props: { className: { type: String } },
+  inheritAttrs: false,
+  emits: ['change'],
   setup(props, { slots, attrs }) {
-    const { proxy: vm } = getCurrentInstance()
+    const { proxy: vm } = getCurrentInstance()!
     onMounted(() => {
       const element = vm.$el.parentNode.parentNode as HTMLElement
       element.setAttribute(
@@ -65,20 +77,30 @@ const BodyCell: VueComponent<any> = defineComponent({
         props.className.match(/data-id\:([^\s]+)/)?.[1]
       )
     })
+
     return () => {
-      return slots.default?.()
+      return (
+        <div
+          {...props}
+          style={{ display: 'inline-flex' }}
+          data-designer-node-id={props.className.match(/data-id\:([^\s]+)/)?.[1]}
+        >
+          {slots.default?.()}
+        </div>
+      )
     }
   },
 })
 
 // TableProps<any>
-export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
+export const ArrayTable: DnFC<VNode> = composeExport(
   observer(
     defineComponent({
       props: { className: {} },
       setup(props, { attrs, slots }) {
         const nodeRef = useTreeNode()
         const nodeIdRef = useNodeIdProps()
+
         useDropTemplate('ArrayTable', (source) => {
           const sortHandleNode = new TreeNode({
             componentName: 'Field',
@@ -132,7 +154,6 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
               return node
             }),
           })
-
           const operationNode = new TreeNode({
             componentName: 'Field',
             props: {
@@ -185,15 +206,28 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
         })
 
         useDropTemplate('ArrayTable.Column', (source) => {
-          return source.map((node) => {
-            node.props.title = undefined
+          return source.map((node: TreeNode) => {
+            if (node.props)
+              node.props.title = undefined
             return node
           })
         })
+        /**
+         * TODO:: workaround
+         * 直接渲染table会报错
+         * 先渲染其他的 其他的渲染完成后在渲染table
+         */
+        const waitRef = ref(false)
+        onMounted(() => {
+          waitRef.value = true
+        })
 
         return () => {
+          if (!waitRef.value) return
           const node = nodeRef.value
           const nodeId = nodeIdRef.value
+          if (!node) return
+
           const columns = queryNodesByComponentPath(node, [
             'ArrayTable',
             '*',
@@ -214,31 +248,32 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
               <ArrayBase disabled>
                 {/* TODO:: rerender table cuz table resizes when insert new value */}
                 <ElTable
+                  {...nodeId}
                   size="small"
-                  bordered
-                  key={uid()}
-                  attrs={attrs}
+                  border={true}
+                  {...attrs}
                   rowKey={defaultRowKey}
-                  class={cls('element-formily-array-table', props.className)}
+                  class={cls('element-formily-array-table')}
                   style={{ marginBottom: '10px' }}
                   data={[{ id: '1' }]}
+                  key={uid()}
                 >
                   {columns.map((node, index) => {
                     const children = node.children.map((child) => {
                       return <TreeNodeWidget node={child} key={child.id} />
                     })
-                    const props = node.props['x-component-props']
+                    const props = node.props?.['x-component-props']
                     return (
-                      <TableColumn
-                        attrs={props}
+                      <ElTableColumn
+                        {...props}
                         key={node.id}
                         dataIndex={node.id}
                         class={`data-id:${node.id}`}
-                        scopedSlots={{
+                        v-slots={{
                           default: ({ row, column, $index }) => {
                             return (
                               <BodyCell
-                                attrs={{ className: `data-id:${node.id}` }}
+                                {...{ className: `data-id:${node.id}` }}
                               >
                                 <ArrayBase.Item index={$index}>
                                   {children.length > 0 ? children : 'Droppable'}
@@ -249,7 +284,7 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
                           header: ({ column, $index }) => {
                             return (
                               <HeaderCell
-                                attrs={{ className: `data-id:${node.id}` }}
+                                {...{ className: `data-id:${node.id}` }}
                               >
                                 <span data-content-editable="x-component-props.label">
                                   {props.label}
@@ -258,26 +293,25 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
                             )
                           },
                         }}
-                      ></TableColumn>
+                      ></ElTableColumn>
                     )
                   })}
                   {columns.length === 0 && (
-                    <TableColumn>
+                    <ElTableColumn>
                       <DroppableWidget />
-                    </TableColumn>
+                    </ElTableColumn>
                   )}
                 </ElTable>
-                {/* TODO::some how cannot make it working */}
-                <Row justify="center" type="flex">
+                <ElRow justify="center">
                   {additions.map((node) => {
                     return <ArrayBase.Addition title="添加条目" />
                   })}
-                </Row>
+                </ElRow>
               </ArrayBase>
             )
           }
           return (
-            <div attrs={nodeId} class="dn-array-table">
+            <div class="dn-array-table">
               {renderTable()}
               <LoadTemplate
                 actions={[
@@ -475,11 +509,11 @@ export const ArrayTable: DnFC<VueComponent<TableProps>> = composeExport(
     Behavior: createBehavior(createArrayBehavior('ArrayTable'), {
       name: 'ArrayTable.Column',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'ArrayTable.Column',
+      selector: (node) => node.props?.['x-component'] === 'ArrayTable.Column',
       designerProps: {
         droppable: true,
         allowDrop: (node) =>
-          node.props['type'] === 'object' &&
+          node.props?.['type'] === 'object' &&
           node.parent?.props?.['x-component'] === 'ArrayTable',
         propsSchema: createVoidFieldSchema(AllSchemas.ArrayTable.Column),
       },

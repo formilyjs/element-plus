@@ -1,19 +1,20 @@
-import { Password as FormilyPassword } from '@formily/element-plus'
+import { Input as FormilyPassword } from '@formily/element-plus'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
-import type { VueComponent } from '@formily/vue'
+import { VueComponent, connect, mapProps } from '@formily/vue'
 import { createBehavior, createResource } from '@designable/core'
 import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { merge } from '@formily/shared'
+import { VNode } from 'vue'
 
-export const Password: DnFC<VueComponent<typeof FormilyPassword>> =
-  composeExport(FormilyPassword, {
+export const Password: DnFC<VNode> =
+  composeExport(connect(FormilyPassword, mapProps({}, (args) => ({ ...args, password: true }))), {
     Behavior: createBehavior({
       name: 'Password',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Password',
+      selector: (node) => node.props?.['x-component'] === 'Password',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Input),
       },

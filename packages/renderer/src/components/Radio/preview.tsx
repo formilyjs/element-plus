@@ -6,14 +6,15 @@ import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Radio: DnFC<VueComponent<typeof FormilyRadio>> = composeExport(
+export const Radio: DnFC<VNode> = composeExport(
   FormilyRadio,
   {
     Behavior: createBehavior({
       name: 'Radio.Group',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Radio.Group',
+      selector: (node) => node.props?.['x-component'] === 'Radio.Group',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Checkbox.Group),
       },

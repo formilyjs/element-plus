@@ -1,17 +1,22 @@
-import { Rate as ElRate } from 'element-plus'
-import { composeExport } from '@formily/element-plus/src/__builtins__'
-import type { VueComponent } from '@formily/vue'
+import { ElRate } from 'element-plus'
+import { composeExport, transformComponent } from '@formily/element-plus/src/__builtins__'
+import { connect, mapProps, VueComponent } from '@formily/vue'
 import { createBehavior, createResource } from '@designable/core'
 import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Rate: DnFC<VueComponent<typeof ElRate>> = composeExport(ElRate, {
+const RateInner = connect(transformComponent(ElRate, {
+  change: 'onUpdate:modelValue'
+}), mapProps({ value: 'modelValue' }))
+
+export const Rate: DnFC<VNode> = composeExport(RateInner, {
   Behavior: createBehavior({
     name: 'Rate',
     extends: ['Field'],
-    selector: (node) => node.props['x-component'] === 'Rate',
+    selector: (node) => node.props?.['x-component'] === 'Rate',
     designerProps: {
       propsSchema: createFieldSchema(AllSchemas.Rate),
     },

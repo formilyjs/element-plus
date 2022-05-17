@@ -34,7 +34,7 @@ export const Card: DnFC<VNode> = composeExport(
     Behavior: createBehavior({
       name: 'Card',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Card',
+      selector: (node) => node.props?.['x-component'] === 'Card',
       designerProps: {
         droppable: true,
         propsSchema: createVoidFieldSchema(AllSchemas.Card),

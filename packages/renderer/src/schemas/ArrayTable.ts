@@ -105,17 +105,6 @@ const Column: ISchema = {
       'x-component': 'Switch',
     },
     align: {
-      default: 'center',
-      type: 'string',
-      enum: ['left', 'center', 'right'],
-      'x-decorator': 'FormItem',
-      'x-component': 'Select',
-      'x-component-props': {
-
-      },
-    },
-    'header-align': {
-      default: 'center',
       type: 'string',
       enum: ['left', 'center', 'right'],
       'x-decorator': 'FormItem',

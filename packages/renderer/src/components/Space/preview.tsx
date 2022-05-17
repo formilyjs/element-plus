@@ -7,14 +7,15 @@ import { createVoidFieldSchema } from '../Field'
 import { withContainer } from '../../common/Container'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Space: DnFC<VueComponent<typeof FormilySpace>> = composeExport(
+export const Space: DnFC<VNode> = composeExport(
   withContainer(FormilySpace),
   {
     Behavior: createBehavior({
       name: 'Space',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Space',
+      selector: (node) => node.props?.['x-component'] === 'Space',
       designerProps: {
         droppable: true,
         inlineChildrenLayout: true,

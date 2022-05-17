@@ -5,11 +5,10 @@ import { SizeInput } from '../SizeInput'
 import { InputItems } from '../InputItems'
 import cls from 'classnames'
 import { defineComponent, unref } from 'vue-demi'
-import { VNode } from 'vue'
 
 type Position = 'top' | 'right' | 'left' | 'bottom' | 'all'
 export interface IMarginStyleSetterProps {
-  labels?: VNode[]
+  labels?: Vue.Component[]
   value?: string
   onChange?: (value: string) => void
 }

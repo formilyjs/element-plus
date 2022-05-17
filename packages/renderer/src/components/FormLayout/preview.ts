@@ -8,12 +8,12 @@ import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 
-export const FormLayout: DnFC<VueComponent<typeof FormilyFormLayout>> =
+export const FormLayout =
   composeExport(withContainer(FormilyFormLayout), {
     Behavior: createBehavior({
       name: 'FormLayout',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'FormLayout',
+      selector: (node) => node.props?.['x-component'] === 'FormLayout',
       designerProps: {
         droppable: true,
         propsSchema: createVoidFieldSchema(AllSchemas.FormLayout),

@@ -2,12 +2,20 @@ import { transformToSchema } from '@designable/formily-transformer'
 import { createForm, Form as IForm } from '@formily/core'
 import { Form, FormLayout } from '@formily/element-plus'
 import * as ElementUI from '@formily/element-plus'
-import { createSchemaField } from '@formily/vue'
+import { connect, createSchemaField, mapProps } from '@formily/vue'
 import { shallowRef, defineComponent, computed } from 'vue'
-import { Card } from '@formily/element-plus-renderer'
+import { Card, Text, Rate, Slider, TreeSelect } from '@formily/element-plus-renderer'
 
 const { SchemaField } = createSchemaField({
-  components: { ...ElementUI, Card },
+  components: {
+    ...ElementUI,
+    Card,
+    Text,
+    Rate,
+    Slider,
+    TreeSelect,
+    Password: connect(ElementUI.Input, mapProps({}, (args) => ({ ...args, type: 'password', showPassword: true })))
+  },
 })
 
 export default defineComponent({

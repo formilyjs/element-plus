@@ -1,10 +1,5 @@
 import { observer } from '@formily/reactive-vue'
-import { FragmentComponent, VueComponent } from '@formily/vue'
-import { Collapse, CollapseItem } from 'element-plus'
-import {
-  Collapse as CollapseProps,
-  CollapseItem as CollapsePanelProps,
-} from 'element-plus'
+import { ElCollapse as Collapse, ElCollapseItem as CollapseItem } from 'element-plus'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
   useTreeNode,
@@ -21,14 +16,14 @@ import { createVoidFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { matchComponent } from '../../shared'
-import { defineComponent, nextTick, ref } from 'vue-demi'
+import { DefineComponent, defineComponent, nextTick, ref } from 'vue-demi'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { uid } from '@designable/shared'
 
 const parseCollapse = (parent: TreeNode) => {
   const tabs: TreeNode[] = []
   parent.children.forEach((node) => {
-    if (matchComponent(node, 'FormCollapse.CollapsePanel')) {
+    if (matchComponent(node, 'FormCollapse.Item')) {
       tabs.push(node)
     }
   })
@@ -38,7 +33,7 @@ const parseCollapse = (parent: TreeNode) => {
 // & {
 //   CollapsePanel?: VueComponent<CollapsePanelProps>
 // }
-export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
+export const FormCollapse: DnFC<DefineComponent<any>> = composeExport(
   observer(
     defineComponent({
       name: 'DnFormCollapse',
@@ -46,7 +41,7 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
       setup(props, { attrs }) {
         const activeKeyRef = ref<string | string[]>([])
 
-        const setActiveKey = (value) => {
+        const setActiveKey = (value: string) => {
           activeKeyRef.value = value
         }
         const nodeRef = useTreeNode()
@@ -58,7 +53,7 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
             componentName: 'Field',
             props: {
               type: 'void',
-              'x-component': 'FormCollapse.CollapsePanel',
+              'x-component': 'FormCollapse.Item',
               'x-component-props': {
                 header: `Unnamed Title`,
               },
@@ -99,40 +94,41 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
           const nodeId = nodeIdRef.value
           const activeKey = activeKeyRef.value
           const designer = designerRef.value
-
+          if (!node) return
           const panels = parseCollapse(node)
 
           const renderCollapse = () => {
             if (!node.children?.length) return <DroppableWidget />
             return (
               <Collapse
-                attrs={attrs}
-                value={getCorrectActiveKey(activeKey, panels)}
+                {...attrs}
+                modelValue={getCorrectActiveKey(activeKey, panels)}
                 accordion={props.accordion}
               >
                 {panels.map((panel) => {
-                  const props = panel.props['x-component-props'] || {}
+                  const props = panel.props?.['x-component-props'] || {}
+                  const nodeId = {
+                    [designer.props.nodeIdAttrName]: panel.id,
+                  }
                   return (
-                    <CollapseItem attrs={attrs} key={panel.id} name={panel.id}>
-                      <span
-                        // attrs={{
-                        //   [designer.props.nodeIdAttrName]: panel.id,
-                        // }}
-                        data-content-editable="x-component-props.title"
-                        data-content-editable-node-id={panel.id}
-                        slot="title"
-                      >
-                        {props.title}
-                      </span>
+                    <CollapseItem {...attrs} key={panel.id} name={panel.id} v-slots={{
+                      title: () => {
+                        return (
+                          <span
+                            data-content-editable="x-component-props.title"
+                            data-content-editable-node-id={panel.id}
+                          >
+                            {props.title}
+                          </span>
+                        )
+                      }
+                    }}>
                       <div
+                        {...nodeId}
                         style={{
                           padding: '20px 0',
                         }}
-                        attrs={{
-                          [designer.props.nodeIdAttrName]: panel.id,
-                        }}
                       >
-                        {/* TODO::reactive的flow，重新渲染了整个子树 */}
                         {panel.children.length ? (
                           <TreeNodeWidget node={panel} />
                         ) : (
@@ -142,11 +138,11 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
                     </CollapseItem>
                   )
                 })}
-              </Collapse>
+              </Collapse >
             )
           }
           return (
-            <div attrs={nodeId}>
+            <div {...nodeId}>
               {renderCollapse()}
               <LoadTemplate
                 actions={[
@@ -158,7 +154,7 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
                         componentName: 'Field',
                         props: {
                           type: 'void',
-                          'x-component': 'FormCollapse.CollapsePanel',
+                          'x-component': 'FormCollapse.Item',
                           'x-component-props': {
                             header: `Unnamed Title`,
                           },
@@ -185,29 +181,29 @@ export const FormCollapse: DnFC<VueComponent<CollapseProps>> = composeExport(
       {
         name: 'FormCollapse',
         extends: ['Field'],
-        selector: (node) => node.props['x-component'] === 'FormCollapse',
+        selector: (node) => node.props?.['x-component'] === 'FormCollapse',
         designerProps: {
           droppable: true,
           allowAppend: (target, source) =>
             target.children.length === 0 ||
             source.every(
               (node) =>
-                node.props['x-component'] === 'FormCollapse.CollapsePanel'
+                node.props?.['x-component'] === 'FormCollapse.Item'
             ),
           propsSchema: createVoidFieldSchema(AllSchemas.FormCollapse),
         },
         designerLocales: AllLocales.FormCollapse,
       },
       {
-        name: 'FormCollapse.CollapsePanel',
+        name: 'FormCollapse.Item',
         extends: ['Field'],
         selector: (node) =>
-          node.props['x-component'] === 'FormCollapse.CollapsePanel',
+          node.props?.['x-component'] === 'FormCollapse.Item',
         designerProps: {
           droppable: true,
-          allowDrop: (node) => node.props['x-component'] === 'FormCollapse',
+          allowDrop: (node) => node.props?.['x-component'] === 'FormCollapse',
           propsSchema: createVoidFieldSchema(
-            AllSchemas.FormCollapse.CollapsePanel
+            AllSchemas.FormCollapse.Item
           ),
         },
         designerLocales: AllLocales.FormCollapsePanel,

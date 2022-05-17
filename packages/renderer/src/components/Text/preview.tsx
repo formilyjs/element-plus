@@ -28,9 +28,9 @@ export const Text: DnFC<IDesignableTextProps> = composeExport(
         return (
           <TagName
             class={cls('dn-text')}
-            props={props}
-            attrs={{
+            {...{
               ...attrs,
+              ...props,
               'data-content-editable': 'x-component-props.content',
             }}
           >
@@ -44,7 +44,7 @@ export const Text: DnFC<IDesignableTextProps> = composeExport(
     Behavior: createBehavior({
       name: 'Text',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Text',
+      selector: (node) => node.props?.['x-component'] === 'Text',
       designerProps: {
         propsSchema: createVoidFieldSchema(AllSchemas.Text),
       },

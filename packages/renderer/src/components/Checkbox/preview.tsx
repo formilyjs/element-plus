@@ -6,13 +6,14 @@ import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Checkbox: DnFC<VueComponent<typeof FormilyCheckbox>> =
+export const Checkbox: DnFC<VNode> =
   composeExport(FormilyCheckbox, {
     Behavior: createBehavior({
       name: 'Checkbox.Group',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Checkbox.Group',
+      selector: (node) => node.props?.['x-component'] === 'Checkbox.Group',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Checkbox.Group),
       },

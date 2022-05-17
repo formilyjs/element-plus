@@ -51,7 +51,7 @@ export const Form: DnFC<Vue.Component<any, any, any, typeof FormilyForm>> =
               style: AllSchemas.CSSStyle,
             },
           },
-          defaultProps: {
+          defaultProps: { // 带默认值的组件
             labelCol: 6,
             wrapperCol: 24,
             colon: false,

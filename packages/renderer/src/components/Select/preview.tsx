@@ -5,13 +5,14 @@ import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
+import { VNode } from 'vue'
 
-export const Select: DnFC<Vue.Component<any, any, any, typeof FormilySelect>> =
+export const Select: DnFC<VNode> =
   composeExport(FormilySelect, {
     Behavior: createBehavior({
       name: 'Select',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Select',
+      selector: (node) => node.props?.['x-component'] === 'Select',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Select),
       },

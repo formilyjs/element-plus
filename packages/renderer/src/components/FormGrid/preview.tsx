@@ -14,15 +14,14 @@ import { AllLocales } from '../../locales'
 import './styles.less'
 
 import { composeExport } from '@formily/element-plus/src/__builtins__'
-import type { VueComponent } from '@formily/vue'
+import type { DefineComponent, VueComponent } from '@formily/vue'
 import { defineComponent } from 'vue-demi'
 import { FragmentComponent as Fragment, h as CreateElement } from '@formily/vue'
+import { VNode } from 'vue'
 
 type formilyGrid = typeof FormilyGird
 
-export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
-  GridColumn?: VueComponent<formilyGrid['GridColumn']>
-} = composeExport(
+export const FormGrid = composeExport(
   defineComponent({
     inheritAttrs: false,
     setup(props, { slots, attrs }) {
@@ -30,22 +29,24 @@ export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
       const nodeIdRef = useNodeIdProps()
 
       return () => {
-        if (nodeRef.value.children.length === 0)
-          return <DroppableWidget attrs={attrs} />
-        const totalColumns = nodeRef.value.children.reduce(
-          (buf, child) =>
-            buf + (child.props?.['x-component-props']?.gridSpan ?? 1),
-          0
-        )
+        const node = nodeRef.value
+        if (!node) return
+        if (node.children.length === 0)
+          return <DroppableWidget {...attrs} />
+        // const totalColumns = node.children.reduce(
+        //   (buf, child) =>
+        //     buf + (child.props?.['x-component-props']?.gridSpan ?? 1),
+        //   0
+        // )
         return (
-          <div class="dn-grid" attrs={nodeIdRef.value}>
-            <FormilyGird attrs={attrs} key={totalColumns}>
+          <div class="dn-grid" {...nodeIdRef.value}>
+            <FormilyGird {...attrs}>
               {slots.default?.()}
             </FormilyGird>
             <LoadTemplate
               actions={[
                 {
-                  title: nodeRef.value.getMessage('addGridColumn'),
+                  title: node.getMessage('addGridColumn'),
                   icon: 'AddColumn',
                   onClick: () => {
                     const column = new TreeNode({
@@ -55,7 +56,7 @@ export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
                         'x-component': 'FormGrid.GridColumn',
                       },
                     })
-                    nodeRef.value.append(column)
+                    node.append(column)
                   },
                 },
               ]}
@@ -72,11 +73,11 @@ export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
         return () => {
           return (
             <DroppableWidget
-              attrs={attrs}
-              data-span={props.gridSpan}
-              style={{
-                gridColumnStart: `span ${props.gridSpan || 1}`,
-              }}
+              {...attrs}
+              data-grid-span={props.gridSpan}
+              // style={{
+              //   gridColumnStart: `span ${props.gridSpan || 1}`,
+              // }}
             >
               {slots.default?.()}
             </DroppableWidget>
@@ -88,10 +89,10 @@ export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
       {
         name: 'FormGrid',
         extends: ['Field'],
-        selector: (node) => node.props['x-component'] === 'FormGrid',
+        selector: (node) => node.props?.['x-component'] === 'FormGrid',
         designerProps: {
           droppable: true,
-          allowDrop: (node) => node.props['x-component'] !== 'FormGrid',
+          allowDrop: (node) => node.props?.['x-component'] !== 'FormGrid',
           propsSchema: createFieldSchema(AllSchemas.FormGrid),
         },
         designerLocales: AllLocales.FormGrid,
@@ -99,10 +100,10 @@ export const FormGrid: DnFC<VueComponent<formilyGrid>> & {
       {
         name: 'FormGrid.GridColumn',
         extends: ['Field'],
-        selector: (node) => node.props['x-component'] === 'FormGrid.GridColumn',
+        selector: (node) => node.props?.['x-component'] === 'FormGrid.GridColumn',
         designerProps: {
           droppable: true,
-          allowDrop: (node) => node.props['x-component'] === 'FormGrid',
+          allowDrop: (node) => node.props?.['x-component'] === 'FormGrid',
           propsSchema: createFieldSchema(AllSchemas.FormGrid.GridColumn),
         },
         designerLocales: AllLocales.FormGridColumn,

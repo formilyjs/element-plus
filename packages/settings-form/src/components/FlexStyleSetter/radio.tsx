@@ -5,7 +5,7 @@ import {
   transformComponent,
   resolveComponent,
   SlotTypes,
-} from '@formily/element-plus/esm/__builtins__'
+} from '@formily/element-plus/src/__builtins__'
 import { PreviewText } from '@formily/element-plus'
 
 import { ElRadio, ElRadioGroup, ElRadioButton } from 'element-plus'

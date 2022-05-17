@@ -6,8 +6,9 @@ import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Transfer: DnFC<VueComponent<typeof FormilyTransfer>> =
+export const Transfer: DnFC<VNode> =
   composeExport(FormilyTransfer, {
     Resource: createResource({
       icon: 'TransferSource',
@@ -25,7 +26,7 @@ export const Transfer: DnFC<VueComponent<typeof FormilyTransfer>> =
     Behavior: createBehavior({
       name: 'Transfer',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Transfer',
+      selector: (node) => node.props?.['x-component'] === 'Transfer',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Transfer),
       },

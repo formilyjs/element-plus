@@ -1,5 +1,6 @@
 import { Engine, IResource, IBehavior } from '@designable/core'
 import Vue, { VNode } from 'vue'
+import { ComponentRenderProxy } from 'vue'
 
 export interface IDesignerLayoutProps {
   prefixCls?: string

@@ -38,10 +38,10 @@ export const CSSStyle: ISchema = {
       'x-component': 'BorderStyleSetter',
     },
     'style.opacity': {
+      default: 1,
       'x-decorator': 'FormItem',
       'x-component': 'Slider',
       'x-component-props': {
-        defaultValue: 1,
         min: 0,
         max: 1,
         step: 0.01,

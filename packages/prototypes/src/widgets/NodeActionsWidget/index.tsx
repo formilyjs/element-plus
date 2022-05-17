@@ -1,4 +1,3 @@
-// import { Space, Typography, Divider, TypographyProps } from 'antd'
 import { observer } from '@formily/reactive-vue'
 import { Space } from '@formily/element-plus'
 import { ElButton as Button } from 'element-plus'
@@ -8,20 +7,19 @@ import { TextWidget } from '../TextWidget'
 import cls from 'classnames'
 import './styles.less'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
-import { defineComponent } from 'vue-demi'
+import { CSSProperties, defineComponent, VNode, ComponentCustomProps } from 'vue-demi'
 
 // export interface INodeActionsWidgetProps {
 //   activeShown?: boolean
 // }
 
-// export interface INodeActionsWidgetActionProps
-//   extends Omit<React.ComponentProps<'a'>, 'title' | 'type' | 'ref'>,
-//     Partial<TypographyProps['Link']> {
-//   className?: string
-//   style?: React.CSSProperties
-//   title: React.ReactNode
-//   icon?: React.ReactNode
-// }
+export interface INodeActionsWidgetActionProps
+  extends ComponentCustomProps {
+  className?: string
+  style?: CSSProperties
+  title: VNode
+  icon?: VNode
+}
 
 const NodeActionsWidgetComponent = observer(
   defineComponent({

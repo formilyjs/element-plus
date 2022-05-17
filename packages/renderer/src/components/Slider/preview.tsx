@@ -26,7 +26,7 @@ export const Slider = composeExport(
     Behavior: createBehavior({
       name: 'Slider',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Slider',
+      selector: (node) => node.props?.['x-component'] === 'Slider',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Slider),
       },

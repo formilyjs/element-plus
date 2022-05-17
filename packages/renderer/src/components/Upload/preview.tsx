@@ -1,19 +1,19 @@
 import { Upload as FormilyUpload } from '@formily/element-plus'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
-import type { VueComponent } from '@formily/vue'
 import { createBehavior, createResource } from '@designable/core'
 import { DnFC } from '@formily/element-plus-prototypes'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { VNode } from 'vue'
 
-export const Upload: DnFC<VueComponent<typeof FormilyUpload>> = composeExport(
+export const Upload: DnFC<VNode> = composeExport(
   FormilyUpload,
   {
     Behavior: createBehavior({
       name: 'Upload',
       extends: ['Field'],
-      selector: (node) => node.props['x-component'] === 'Upload',
+      selector: (node) => node.props?.['x-component'] === 'Upload',
       designerProps: {
         propsSchema: createFieldSchema(AllSchemas.Upload),
       },

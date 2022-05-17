@@ -52,3 +52,16 @@ export const DatePicker = {
     },
   },
 }
+
+export const DateRangePicker = createLocales(DatePicker, {
+  'zh-CN': {
+    title: '日期范围',
+  },
+  'en-US': {
+    title: 'DateRange',
+  },
+  'ko-KR': {
+    title: '날짜범위 선택 상자',
+  },
+})
+

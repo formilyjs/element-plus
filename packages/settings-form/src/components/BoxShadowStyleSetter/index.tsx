@@ -7,7 +7,7 @@ import { ColorInput } from '../ColorInput'
 import { SizeInput } from '../SizeInput'
 import { InputItems } from '../InputItems'
 import cls from 'classnames'
-import { unref, defineComponent } from 'vue'
+import { unref, defineComponent } from 'vue-demi'
 export interface IBoxShadowStyleSetterProps {
   value?: string
 }

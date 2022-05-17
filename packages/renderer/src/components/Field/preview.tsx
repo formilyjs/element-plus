@@ -7,7 +7,6 @@ import {
   ObjectField,
   Schema,
   VoidField,
-  h as CreateElement,
 } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { FormItem } from '@formily/element-plus'
@@ -22,8 +21,8 @@ import {
 import { isArr, isFn, isStr } from '@designable/shared'
 import { Container } from '../../common/Container'
 import { AllLocales } from '../../locales'
-import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { defineComponent } from 'vue'
+import { composeExport } from '@formily/element-plus/src/__builtins__'
 
 Schema.silent(true)
 
@@ -132,17 +131,18 @@ const toDesignableFieldProps = (
     FormPath.setIn(results['component'][1], nodeIdAttrName, id)
   }
   // vue为异步渲染需要进行缓存 不然就变成了函数
-  const label = results.title
+  const title = results.title
   const description = results.description
-  results.label =
-    label && (() => <span data-content-editable="title">{label}</span>)
-  results.description = description
+  results.title =
+    title && (() => <span data-content-editable="title">{title}</span>)
+  results.description = description && (() => <span data-content-editable="description">{results.description}</span>)
   return results
 }
 //
 const FieldComponent = observer(
   defineComponent({
     name: 'DnField',
+    inheritAttrs: false,
     setup(props: ISchema, { slots, attrs }) {
       const designerRef = useDesigner()
       const componentsRef = useComponents()
@@ -153,35 +153,25 @@ const FieldComponent = observer(
         const fieldProps = toDesignableFieldProps(
           props,
           componentsRef.value,
-          designerRef.value.props.nodeIdAttrName,
+          designerRef.value.props.nodeIdAttrName!,
           nodeRef.value.id
         )
         if (props.type === 'object') {
           return (
             <Container>
-              <ObjectField attrs={{ ...fieldProps, name: nodeRef.value.id }}>
-                {slots.default?.()}
-              </ObjectField>
+              <ObjectField name={nodeRef.value.id} {...fieldProps} v-slots={slots} />
             </Container>
           )
         } else if (props.type === 'array') {
-          return CreateElement(
-            ArrayField,
-            { attrs: { ...fieldProps, name: nodeRef.value.id } },
-            slots
+          return (
+            <ArrayField {...fieldProps} v-slots={slots} name={nodeRef.value.id} />
           )
-        } else if (nodeRef.value.props.type === 'void') {
-          return CreateElement(
-            VoidField,
-            { attrs: { ...fieldProps, name: nodeRef.value.id } },
-            slots
+        } else if (nodeRef.value.props?.type === 'void') {
+          return (
+            <VoidField {...fieldProps} v-slots={slots} name={nodeRef.value.id} />
           )
         }
-        return CreateElement(
-          InternalField,
-          { props: {}, attrs: { ...fieldProps, name: nodeRef.value.id } },
-          {}
-        )
+        return <InternalField {...fieldProps} name={nodeRef.value.id} />
       }
     },
   })

@@ -20,7 +20,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -29,7 +29,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -38,7 +38,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -47,7 +47,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -65,10 +65,10 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
         'daterange',
         'monthrange',
       ],
+      'x-index': 0,
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -77,7 +77,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -88,7 +88,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -97,7 +97,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -111,7 +111,6 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -119,19 +118,24 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'DatePicker',
+      'x-component-props': {
+        clearable: false
+      }
     },
     'default-time': {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'TimePicker',
+      'x-component-props': {
+        clearable: false
+      }
     },
     'value-format': {
-      default: 'timestamp',
+      default: 'x',
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -145,7 +149,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
@@ -154,7 +158,7 @@ export const DatePicker: ISchema & { RangePicker?: ISchema } = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
+
         clearable: true,
       },
     },
