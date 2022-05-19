@@ -8,6 +8,7 @@ import cls from 'classnames'
 import './styles.less'
 import { defineComponent, PropType, provide, ref, toRef } from 'vue-demi'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
+import { VNode } from 'vue'
 
 export interface IComponentTreeWidgetProps {
   components: IDesignerComponents
@@ -32,13 +33,33 @@ export const TreeNodeWidgetComponent =
 
       return () => {
         const node = props.node!
+        // default slot
         const renderChildren = () => {
           if (node?.designerProps?.selfRenderChildren) return []
-          return node?.children?.map((child) => {
+          return node?.children?.filter(child => {
+            const slot = child.props?.['x-slot']
+            return !slot || slot === 'default'
+          })?.map((child) => {
             return <TreeNodeWidget {...{ node: child }} key={child.id} />
           })
         }
 
+        // 支持 x-slot
+        const renderSlots = () => {
+          if (node?.designerProps?.selfRenderChildren) return []
+          const result = node?.children?.reduce((buffer, child) => {
+            const slot = child.props?.['x-slot']
+            if (slot) {
+              if (!buffer[slot]) buffer[slot] = []
+              buffer[slot].push(<TreeNodeWidget node={child} key={child.id} />)
+            }
+            return buffer
+          }, {} as Record<string, VNode[]>)
+          return Object.entries(result).reduce((buffer, [key, value]) => {
+            buffer[key] = () => value
+            return buffer
+          }, {} as Record<string, () => VNode[]>)
+        }
         // may need to change
         const renderProps = (extendsProps: any = {}) => {
           return {
@@ -60,7 +81,7 @@ export const TreeNodeWidgetComponent =
             }
             const { style, ...attrs } = renderProps(dataId)
             return (
-              <Component {...attrs} key={node.id} style={style}>
+              <Component {...attrs} key={node.id} style={style} v-slots={renderSlots()}>
                 {renderChildren()}
               </Component>
             )
