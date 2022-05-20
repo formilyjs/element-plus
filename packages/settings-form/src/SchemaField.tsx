@@ -11,6 +11,7 @@ import {
   BorderRadiusStyleSetter,
   BorderStyleSetter,
   ValueInput,
+  DrawerSetter,
 } from './components'
 import { Slider, FormItemSwitcher } from '@formily/element-plus-renderer'
 import * as ElementUI from '@formily/element-plus'
@@ -25,6 +26,7 @@ const SchemaFields = createSchemaField({
     BackgroundStyleSetter,
     BoxShadowStyleSetter,
     FontStyleSetter,
+    DrawerSetter,
     BoxStyleSetter,
     BorderRadiusStyleSetter,
     BorderStyleSetter,

@@ -36,8 +36,20 @@
     "access": "public"
   },
   "peerDependencies": {
-    "vue": "^3.2.24"
+    "vue": "^3.2.24",
+    "@formily/core": "^2.0.20",
+    "@formily/vue": "^2.0.20",
+    "@formily/element-plus": "1.0.0-beta.1"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@designable/core": "1.0.0-beta.45",
+    "@formily/element-plus-settings-form": "1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@formily/element-plus": "1.0.0-beta.1",
+    "@formily/core": "^2.0.20",
+    "@formily/vue": "^2.0.20",
+    "@formily/shared": "^2.0.20",
+    "element-plus": "^2.0.1"
+  }
 }
