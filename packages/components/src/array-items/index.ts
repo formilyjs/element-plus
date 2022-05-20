@@ -100,7 +100,7 @@ const ArrayItemsInner = observer(
             if (isAdditionComponent(schema)) {
               return h(RecursionField, {
                 schema,
-                name: 'addition',
+                name: schema.name || 'addition',
               })
             }
             return addition

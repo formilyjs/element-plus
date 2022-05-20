@@ -178,8 +178,6 @@ export const ValidatorSetter = observer(
                     {GlobalRegistry.getDesignerMessage(
                       'SettingComponents.ValidatorSetter.formats'
                     ).map((item) => {
-                      if (isStr(item))
-                        return <Option label={item} value={item} />
                       return <Option label={item.label} value={item.value} />
                     })}
                   </Select>

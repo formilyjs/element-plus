@@ -100,41 +100,6 @@ export const SettingsForm = defineComponent({
       })
     }, [nodeRef, () => nodeRef.value?.props, operationRef])
 
-    // const requestIdleTask = () => {
-    //   cancelIdle(idleTaskRef.value)
-    //   idleTaskRef.value = requestIdle(() => {
-    //     formRef.value = createForm({
-    //       initialValues: nodeRef.value?.designerProps?.defaultProps,
-    //       values: nodeRef.value?.props,
-    //       effects(form) {
-    //         useLocales(nodeRef.value)
-    //         useSnapshot(operationRef.value, keyupRef)
-    //         props.effects?.(form)
-    //       },
-    //     })
-    //     sources.key = nodeRef.value.id
-    //     sources.schema = nodeRef.value?.designerProps?.propsSchema
-    //     sources.isEmpty = !(
-    //       nodeRef.value &&
-    //       nodeRef.value.designerProps?.propsSchema &&
-    //       selectedRef.value.length === 1
-    //     )
-    //   })
-    // }
-    // requestIdleTask()
-
-    // observe(nodeRef.value, () => {
-    //   nextTick(() => {
-    //     requestIdleTask()
-    //   })
-    // })
-
-    // watch(selectedRef, () => {
-    //   nextTick(() => {
-    //     requestIdleTask()
-    //   })
-    // })
-
     provide(
       SettingsFormSymbol,
       computed(() => props)

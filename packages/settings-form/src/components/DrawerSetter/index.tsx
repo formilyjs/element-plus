@@ -27,6 +27,7 @@ export const DrawerSetter = observer(
   defineComponent({
     name: 'DrawerSetter',
     props: { text: undefined },
+    inheritAttrs: false,
     setup(props, { attrs, slots }) {
       const visible = ref(false)
       const remove = ref(false)
@@ -87,6 +88,7 @@ export const DrawerSetter = observer(
                       animate__slideOutRight: remove.value,
                     }
                   )}
+                  {...attrs}
                 >
                   <div class={prefix + '-header'} onClick={handleClose}>
                     <IconWidget infer="Return" size={18} />
