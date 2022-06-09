@@ -1,3 +1,6 @@
+## 基于designable v1.0.0-beta.25 实现
+- 兼容到提交79ae6d1
+
 English | [简体中文](./README.zh-cn.md)
 
 <p align="center">

@@ -38,16 +38,16 @@ export const DroppableWidget = observer(
         const children = slots.default?.()
         const hasChildren = target.children?.length > 0 && children
         return (
-          <div {...nodeIdRef.value} {...attrs}>
-            {hasChildren &&
-              !props.placeholder ?
-              children :
-              (
-                <div style={{ height: isStr(props.height) ? props.height : props.height + 'px' }} class="dn-droppable-placeholder">
-                  <NodeTitleWidget node={target} />
-                </div>
-              )
-            }
+          <div {...nodeIdRef.value} {...attrs} class={attrs.class}>
+            {hasChildren ? (
+              children
+            ) : props.placeholder ? (
+              <div style={{ height: isStr(props.height) ? props.height : props.height + 'px' }} class="dn-droppable-placeholder">
+                <NodeTitleWidget node={target} />
+              </div>
+            ) : (
+              children
+            )}
             {props.actions?.length ? (
               <NodeActionsWidget>
                 {props.actions.map((action, key) => (
