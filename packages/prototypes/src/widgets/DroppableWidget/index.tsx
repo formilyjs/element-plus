@@ -7,6 +7,7 @@ import './styles.less'
 import { CSSProperties } from '@vue/runtime-dom'
 import { defineComponent } from 'vue-demi'
 import { PropType } from 'vue'
+import { isNum, isStr } from '@designable/shared'
 
 export interface IDroppableWidgetProps {
   node?: TreeNode
@@ -23,7 +24,8 @@ export const DroppableWidget = observer(
     props: {
       node: { type: Object as PropType<TreeNode> },
       height: {},
-      actions: { type: Array as PropType<Array<IDroppableWidgetProps>> }
+      actions: { type: Array as PropType<Array<INodeActionsWidgetActionProps>> },
+      placeholder: { type: Boolean as PropType<boolean>, default: true }
     },
     inheritAttrs: false,
     setup(props, { attrs, slots }) {
@@ -36,16 +38,16 @@ export const DroppableWidget = observer(
         const children = slots.default?.()
         const hasChildren = target.children?.length > 0 && children
         return (
-          <div {...nodeIdRef.value}>
-            {hasChildren && children}
-            {!hasChildren && (
-              <div
-                style={{ height: props.height + 'px' }}
-                class="dn-droppable-placeholder"
-              >
-                <NodeTitleWidget node={target} />
-              </div>
-            )}
+          <div {...nodeIdRef.value} {...attrs}>
+            {hasChildren &&
+              !props.placeholder ?
+              children :
+              (
+                <div style={{ height: isStr(props.height) ? props.height : props.height + 'px' }} class="dn-droppable-placeholder">
+                  <NodeTitleWidget node={target} />
+                </div>
+              )
+            }
             {props.actions?.length ? (
               <NodeActionsWidget>
                 {props.actions.map((action, key) => (
@@ -56,6 +58,6 @@ export const DroppableWidget = observer(
           </div>
         )
       }
-    },
+    }
   })
 )
