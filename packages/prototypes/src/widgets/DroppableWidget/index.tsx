@@ -25,7 +25,8 @@ export const DroppableWidget = observer(
       node: { type: Object as PropType<TreeNode> },
       height: {},
       actions: { type: Array as PropType<Array<INodeActionsWidgetActionProps>> },
-      placeholder: { type: Boolean as PropType<boolean>, default: true }
+      placeholder: { type: Boolean as PropType<boolean>, default: true },
+      hasChildren: { type: Boolean as PropType<boolean> }
     },
     inheritAttrs: false,
     setup(props, { attrs, slots }) {
@@ -36,7 +37,7 @@ export const DroppableWidget = observer(
         const target = props.node ?? nodeRef.value
         if (!target) return
         const children = slots.default?.()
-        const hasChildren = target.children?.length > 0 && children
+        const hasChildren = props.hasChildren ?? (target.children?.length > 0 && children)
         return (
           <div {...nodeIdRef.value} {...attrs} class={attrs.class}>
             {hasChildren ? (

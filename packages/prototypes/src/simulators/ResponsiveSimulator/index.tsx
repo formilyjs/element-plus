@@ -5,7 +5,7 @@ import {
   DragStartEvent,
   DragMoveEvent,
   DragStopEvent,
-  CursorType,
+  ScreenStatus
 } from '@designable/core'
 import {
   calcSpeedFactor,
@@ -90,6 +90,7 @@ const useResizeEffect = (
       startY = e.data.topClientY || 0
       startWidth = rect.width
       startHeight = rect.height
+      engine.screen.setStatus(ScreenStatus.Resizing)
     }
   })
   engine.subscribeTo(DragMoveEvent, (e: any) => {
@@ -132,6 +133,7 @@ const useResizeEffect = (
     if (!status) return
     status = null
     engine.cursor.setStyle('')
+    engine.screen.setStatus(ScreenStatus.Normal)
     if (animationX) {
       animationX = animationX()
     }

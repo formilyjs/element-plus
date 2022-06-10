@@ -1,18 +1,8 @@
-/* eslint-disable */
-import { CursorStatus, TreeNode } from '@designable/core'
-import { requestIdle, cancelIdle } from '@designable/shared'
-import { ResizeObserver } from '@juggle/resize-observer'
-import { computed as reactiveComputed } from '../shared'
+import { CursorStatus, ScreenStatus, TreeNode } from '@designable/core'
 import {
   getCurrentInstance,
   shallowRef,
   Ref,
-  computed,
-  onBeforeUnmount,
-  onMounted,
-  reactive,
-  ref,
-  UnwrapRef,
 } from 'vue'
 
 import { useDesigner } from './useDesigner'
@@ -47,8 +37,11 @@ export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
       const viewport = viewportRef.value
       const engine = engineRef.value
       const node = nodeRef.value
-      // engine.cursor.dragType === CursorDragType.Move
-      // if (engine.cursor.status == CursorStatus.Normal) return
+      if (
+        engine.cursor.status !== CursorStatus.Normal &&
+        engine.screen.status === ScreenStatus.Normal
+      )
+        return
       const nextRect = viewport.getValidNodeOffsetRect(node)
       if (!isEqualRect(rectRef.value, nextRect) && nextRect) {
         rectRef.value = nextRect
@@ -63,7 +56,7 @@ export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
     const viewport = viewportRef.value
     const element = viewport.findElementById(node?.id)
     const layoutObserver = new LayoutObserver(computeRef.value)
-    if (element) layoutObserver.observe(element)
+    if (element && element.isConnected) layoutObserver.observe(element)
     return () => {
       layoutObserver.disconnect()
     }

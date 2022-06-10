@@ -45,7 +45,7 @@ export const FormLayout: ISchema = {
     },
     layout: {
       type: 'string',
-      enum: ['horizontal', 'vertical', 'inline', null],
+      enum: ['vertical', 'horizontal', 'inline', null],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       // 'x-reactions': "{{(field) => { !field.value && field.setValue('horizontal') }}}",

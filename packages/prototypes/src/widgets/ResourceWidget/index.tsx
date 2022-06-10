@@ -11,7 +11,7 @@ import { usePrefix } from '../../hooks'
 import { IconWidget } from '../IconWidget'
 import { TextWidget } from '../TextWidget'
 import cls from 'classnames'
-import { defineComponent, ref, unref } from 'vue-demi'
+import { defineComponent, isVNode, ref, unref } from 'vue-demi'
 import { VNode } from 'vue/types/umd'
 import { VueComponent } from '@formily/vue'
 import { NodeTitleWidget } from '../NodeTitleWidget'
@@ -46,13 +46,15 @@ export const ResourceWidget = observer(
             {...{ key: node?.id, 'data-designer-source-id': node?.id }}
           >
             {thumb && <img class={prefix + '-item-thumb'} src={thumb} />}
-            {icon && (
-              <IconWidget
-                class={prefix + '-item-icon'}
-                infer={icon}
-                style={{ width: '150px', height: '40px' }}
-              />
-            )}
+            {icon && isVNode(icon) ?
+              <>{icon}</>
+              : (
+                <IconWidget
+                  class={prefix + '-item-icon'}
+                  infer={icon}
+                  style={{ width: '150px', height: '40px' }}
+                />
+              )}
             <span class={prefix + '-item-text'}>
               {title || <NodeTitleWidget node={node}></NodeTitleWidget>}
             </span>

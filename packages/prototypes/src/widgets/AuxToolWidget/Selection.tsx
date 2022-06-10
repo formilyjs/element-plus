@@ -1,5 +1,3 @@
-// import React, { Fragment } from 'react'
-import { FragmentComponent as Fragment } from '@formily/vue'
 import { Helpers } from './Helpers'
 import {
   useSelection,
@@ -17,7 +15,7 @@ import { defineComponent } from 'vue-demi'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { CSSProperties, toRef } from '@vue/runtime-dom'
 import { isNum } from '@designable/shared'
-
+import { TranslateHandler } from './TranslateHandler'
 export interface ISelectionBoxProps {
   node: TreeNode
   showHelpers: boolean
@@ -66,7 +64,7 @@ export const SelectionBox = defineComponent({
         <div {...selectionId} class={prefixRef.value} style={createSelectionStyle()}>
           <div class={innerPrefix}></div>
           <ResizeHandler node={props.node} />
-          {/* <TranslateHandler node={props.node} /> */}
+          <TranslateHandler node={props.node} />
           {props.showHelpers && (
             <Helpers
               {...attrs}

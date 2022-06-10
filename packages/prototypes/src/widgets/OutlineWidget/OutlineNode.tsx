@@ -1,4 +1,3 @@
-// import React, { useRef, useContext, useEffect } from 'react'
 import {
     TreeNode,
     ClosestPosition,
@@ -98,7 +97,8 @@ export const OutlineTreeNode = observer(
                             ref.value.classList.remove('selected')
                         }
                     }
-                    if (cursor.value.status === CursorStatus.Dragging) {
+                    if (cursor.value.status === CursorStatus.Dragging &&
+                        outlineDragon.value?.dragNodes?.length) {
                         if (ref.value.classList.contains('selected')) {
                             ref.value.classList.remove('selected')
                         }
