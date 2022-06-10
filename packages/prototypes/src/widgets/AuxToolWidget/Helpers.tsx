@@ -115,13 +115,8 @@ const HelpersComponent = defineComponent({
       const designer = designerRef.value
       if (!nodeRect || !node) return null
 
-      const helpersId = {
-        [designer.props.nodeHelpersIdAttrName!]: node.id,
-      }
-
       return (
         <div
-          {...helpersId}
           class={cls(prefixRef.value, {
             [unref(position)]: true,
           })}

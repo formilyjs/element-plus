@@ -1,10 +1,11 @@
 import { computed, unref } from 'vue-demi'
 import { DesignerLayoutSymbol, useContext } from '../context'
+import { useLayout } from './useLayout'
 
 export const usePrefix = (after = '') => {
-  const DesignerLayoutContext = useContext(DesignerLayoutSymbol)
+  const layoutRef = useLayout()
   const usePrefixContext = computed(
-    () => unref(DesignerLayoutContext)?.prefixCls + after
+    () => unref(layoutRef)?.prefixCls + after
   )
   return usePrefixContext
 }

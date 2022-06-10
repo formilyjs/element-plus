@@ -1,3 +1,4 @@
+// import React, { useRef } from 'react'
 import { observer } from '@formily/reactive-vue'
 import {
   Engine,
@@ -43,6 +44,12 @@ const useResizeEffect = (
   let animationX: any
   let animationY: any
 
+  const getStyle = (status: ResizeHandleType) => {
+    if (status === ResizeHandleType.Resize) return 'nwse-resize'
+    if (status === ResizeHandleType.ResizeHeight) return 'ns-resize'
+    if (status === ResizeHandleType.ResizeWidth) return 'ew-resize'
+  }
+
   const updateSize = (deltaX: number, deltaY: number) => {
     const containerRect = container.value?.getBoundingClientRect()
     if (!container.value || !containerRect) return
@@ -77,6 +84,7 @@ const useResizeEffect = (
       status = target.getAttribute(
         'data-designer-resize-handle'
       ) as ResizeHandleType
+      engine.cursor.setStyle(getStyle(status)!)
       engine.cursor.setType(status)
       startX = e.data.topClientX || 0
       startY = e.data.topClientY || 0
@@ -123,7 +131,7 @@ const useResizeEffect = (
   engine.subscribeTo(DragStopEvent, () => {
     if (!status) return
     status = null
-    engine.cursor.setType(CursorType.Move)
+    engine.cursor.setStyle('')
     if (animationX) {
       animationX = animationX()
     }

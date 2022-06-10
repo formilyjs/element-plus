@@ -54,6 +54,7 @@ export const StudioPanel = defineComponent({
   props: {
     theme: { type: String, default: 'light' },
     prefixCls: { type: String, default: 'dn-' },
+    position: { type: String, default: 'fixed' }
   },
   setup(props, { slots }) {
     // const scopedSlots = {
@@ -62,7 +63,7 @@ export const StudioPanel = defineComponent({
     // }
     return () => (
       <Layout
-        {...{ theme: props.theme, prefixCls: props.prefixCls }}
+        {...{ theme: props.theme, prefixCls: props.prefixCls, position: props.position }}
       >
         <StudioPanelInternal {...props} v-slots={slots} />
       </Layout>

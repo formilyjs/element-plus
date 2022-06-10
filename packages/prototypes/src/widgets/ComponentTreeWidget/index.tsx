@@ -33,6 +33,7 @@ export const TreeNodeWidgetComponent =
 
       return () => {
         const node = props.node!
+
         // default slot
         const renderChildren = () => {
           if (node?.designerProps?.selfRenderChildren) return []
@@ -60,14 +61,17 @@ export const TreeNodeWidgetComponent =
             return buffer
           }, {} as Record<string, () => VNode[]>)
         }
-        // may need to change
         const renderProps = (extendsProps: any = {}) => {
-          return {
+          const props = {
             ...node.designerProps?.defaultProps,
             ...extendsProps,
             ...node.props,
             ...node.designerProps?.getComponentProps?.(node),
           }
+          if (node.depth === 0) {
+            delete props.style
+          }
+          return props
         }
 
         const renderComponent = () => {

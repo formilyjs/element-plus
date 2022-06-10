@@ -37,7 +37,7 @@ export interface IShadowSVGProps {
 }
 export interface IIconWidgetProps extends HTMLElement {
   tooltip?: ElTooltipProps
-  infer: any
+  infer: VNode | { shadow: string }
   size?: number | string
 }
 // IIconWidgetProps
@@ -45,7 +45,7 @@ const __IconWidgetInner = defineComponent({
   name: 'DnIconWidget',
   props: {
     tooltip: { type: Object as PropType<ElTooltipProps & { content: string | VNode }> },
-    infer: { type: [String, Function, Object] },
+    infer: { type: [String, Function, Object] as PropType<IIconWidgetProps['infer']> },
     size: { type: [Number, String] },
   },
   inheritAttrs: false,
@@ -103,25 +103,17 @@ const __IconWidgetInner = defineComponent({
                 {infer}
               </svg>
             )
-          } else if (infer.props?.content) {
-            // 判断是不是 shadowSVG === IconWidget.ShadowSVG 写死了看看后续怎么修改
-            return (
-              <IconWidget.ShadowSVG
-                {...{
-                  content: infer.props.content,
-                  height,
-                  width,
-                }}
-              />
-            )
           }
           return infer
         } else if (isPlainObj(infer)) {
           const theme = unref(themeRef)
           if (infer[theme]) {
             return takeIcon(infer[theme])
+          } else if (infer['shadow']) {
+            return <IconWidget.ShadowSVG width={width} height={height} content={infer['shadow']} />
           }
         }
+        return null
       }
 
       const renderTooltips = (children: any) => {
@@ -157,12 +149,7 @@ const __IconWidgetInner = defineComponent({
   },
 })
 
-const IconWidgetInner = observer(__IconWidgetInner) as Vue.Component<
-  any,
-  any,
-  any,
-  IIconWidgetProps
->
+const IconWidgetInner = observer(__IconWidgetInner)
 
 const ShadowSVG = defineComponent({
   props: {
@@ -184,17 +171,9 @@ const ShadowSVG = defineComponent({
       }
     })
 
-    onBeforeUnmount(() => {
-      // TODO::报错
-      // if (!refInstance.value) return
-      // refInstance.value.attachShadow({
-      //   mode: 'closed',
-      // })
-    })
-
     return () => <div ref={refInstance}></div>
   },
-}) as Vue.Component<any, any, any, IShadowSVGProps>
+})
 
 const Provider = defineComponent({
   name: 'IconWidget.Provider',
@@ -207,7 +186,7 @@ const Provider = defineComponent({
     )
     return () => slots.default?.()
   },
-}) as Vue.Component<any, any, any, IconProviderProps>
+})
 
 export const IconWidget = composeExport(
   IconWidgetInner,

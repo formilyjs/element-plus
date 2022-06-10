@@ -7,8 +7,8 @@ export interface IEffects {
 }
 
 export const useDesigner = (effects?: IEffects): Ref<Engine> => {
-  const designer = window['__DESINGER_ENGINE__']
-    ? ref(window['__DESINGER_ENGINE__'])
+  const designer = window['__DESIGNABLE_ENGINE__']
+    ? ref(window['__DESIGNABLE_ENGINE__'])
     : inject(DesignerEngineSymbol, ref())
 
   let unRef: any = isFn(effects) ? effects(designer.value) : undefined

@@ -10,8 +10,8 @@ export const useWorkspace = (id?: string): Ref<Workspace> => {
 
   const WorkspaceSymbolRef = useContext(WorkspaceSymbol)
 
-  if (window['__DESINGER_WORKSPACE__']) {
-    workspaceRef.value = window['__DESINGER_WORKSPACE__']
+  if (window['__DESIGNABLE_WORKSPACE__']) {
+    workspaceRef.value = window['__DESIGNABLE_WORKSPACE__']
     return workspaceRef
   }
 
