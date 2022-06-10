@@ -275,7 +275,7 @@ export const ArrayTable: DnFC<VNode> = composeExport(
                               <BodyCell
                                 {...{ className: `data-id:${node.id}` }}
                               >
-                                <ArrayBase.Item index={$index}>
+                                <ArrayBase.Item index={$index} record={null}>
                                   {children.length > 0 ? children : 'Droppable'}
                                 </ArrayBase.Item>
                               </BodyCell>

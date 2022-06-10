@@ -1,20 +1,12 @@
 import { ISchema } from '@formily/json-schema'
-// import {
-//   ReactionsSetter,
-//   DataSourceSetter,
-//   ValidatorSetter,
-// } from '../../../setters'
 import {
-//   ReactionsSetter,
-//   DataSourceSetter,
+  //   ReactionsSetter,
+  //   DataSourceSetter,
   ValidatorSetter,
 } from '@formily/element-plus-setters'
 import { AllSchemas } from '../../schemas'
 // TODO::setter没做
-export const createComponentSchema = (
-  component: ISchema,
-  decorator: ISchema
-) => {
+export const createComponentSchema = (component: ISchema, decorator: ISchema) => {
   return {
     'component-group': component && {
       type: 'void',
@@ -22,13 +14,13 @@ export const createComponentSchema = (
       'x-reactions': {
         fulfill: {
           state: {
-            visible: '{{!!$form.values["x-component"]}}',
-          },
-        },
+            visible: '{{!!$form.values["x-component"]}}'
+          }
+        }
       },
       properties: {
-        'x-component-props': component,
-      },
+        'x-component-props': component
+      }
     },
     'decorator-group': decorator && {
       type: 'void',
@@ -37,13 +29,13 @@ export const createComponentSchema = (
       'x-reactions': {
         fulfill: {
           state: {
-            visible: '{{!!$form.values["x-decorator"]}}',
-          },
-        },
+            visible: '{{!!$form.values["x-decorator"]}}'
+          }
+        }
       },
       properties: {
-        'x-decorator-props': decorator,
-      },
+        'x-decorator-props': decorator
+      }
     },
     'component-style-group': {
       type: 'void',
@@ -52,13 +44,13 @@ export const createComponentSchema = (
       'x-reactions': {
         fulfill: {
           state: {
-            visible: '{{!!$form.values["x-component"]}}',
-          },
-        },
+            visible: '{{!!$form.values["x-component"]}}'
+          }
+        }
       },
       properties: {
-        'x-component-props.style': AllSchemas.CSSStyle,
-      },
+        'x-component-props.style': AllSchemas.CSSStyle
+      }
     },
     'decorator-style-group': {
       type: 'void',
@@ -67,21 +59,18 @@ export const createComponentSchema = (
       'x-reactions': {
         fulfill: {
           state: {
-            visible: '{{!!$form.values["x-decorator"]}}',
-          },
-        },
+            visible: '{{!!$form.values["x-decorator"]}}'
+          }
+        }
       },
       properties: {
-        'x-decorator-props.style': AllSchemas.CSSStyle,
-      },
-    },
+        'x-decorator-props.style': AllSchemas.CSSStyle
+      }
+    }
   }
 }
 
-export const createFieldSchema = (
-  component?: ISchema,
-  decorator: ISchema = AllSchemas.FormItem
-): ISchema => {
+export const createFieldSchema = (component?: ISchema, decorator: ISchema = AllSchemas.FormItem): ISchema => {
   return {
     type: 'object',
     properties: {
@@ -94,24 +83,24 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              clearable: true,
-            },
+              clearable: true
+            }
           },
           title: {
             type: 'string',
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              clearable: true,
-            },
+              clearable: true
+            }
           },
           description: {
             type: 'string',
             'x-decorator': 'FormItem',
             'x-component': 'Input.TextArea',
             'x-component-props': {
-              rows: 1,
-            },
+              rows: 1
+            }
           },
           'x-display': {
             default: 'visible',
@@ -119,7 +108,7 @@ export const createFieldSchema = (
             enum: ['visible', 'hidden', 'none', ''],
             'x-decorator': 'FormItem',
             'x-component': 'Select',
-            'x-component-props': {},
+            'x-component-props': {}
           },
           'x-pattern': {
             default: 'editable',
@@ -127,11 +116,11 @@ export const createFieldSchema = (
             enum: ['editable', 'disabled', 'readOnly', 'readPretty', ''],
             'x-decorator': 'FormItem',
             'x-component': 'Select',
-            'x-component-props': {},
+            'x-component-props': {}
           },
           default: {
             'x-decorator': 'FormItem',
-            'x-component': 'ValueInput',
+            'x-component': 'ValueInput'
           },
           enum: {
             //DataSourceSetter
@@ -139,8 +128,8 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'ValueInput',
             'x-component-props': {
-              include: ['EXPRESSION'],
-            },
+              include: ['EXPRESSION']
+            }
           },
           'x-reactions': {
             'x-display': 'hidden',
@@ -148,29 +137,26 @@ export const createFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'ValueInput',
             'x-component-props': {
-              include: ['EXPRESSION'],
-            },
+              include: ['EXPRESSION']
+            }
           },
           'x-validator': {
             type: 'array',
-            'x-component': ValidatorSetter,
+            'x-component': ValidatorSetter
           },
           required: {
             type: 'boolean',
             'x-decorator': 'FormItem',
-            'x-component': 'Switch',
-          },
-        },
+            'x-component': 'Switch'
+          }
+        }
       },
-      ...createComponentSchema(component, decorator),
-    },
+      ...createComponentSchema(component, decorator)
+    }
   }
 }
 
-export const createVoidFieldSchema = (
-  component?: ISchema,
-  decorator: ISchema = AllSchemas.FormItem
-) => {
+export const createVoidFieldSchema = (component?: ISchema, decorator: ISchema = AllSchemas.FormItem) => {
   return {
     type: 'object',
     properties: {
@@ -183,23 +169,23 @@ export const createVoidFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              clearable: true,
-            },
+              clearable: true
+            }
           },
           title: {
             type: 'string',
             'x-decorator': 'FormItem',
             'x-component': 'Input',
             'x-component-props': {
-              clearable: true,
+              clearable: true
             },
             'x-reactions': {
               fulfill: {
                 state: {
-                  hidden: '{{$form.values["x-decorator"] === "FormItem"}}',
-                },
-              },
-            },
+                  hidden: '{{$form.values["x-decorator"] !== "FormItem"}}'
+                }
+              }
+            }
           },
           description: {
             type: 'string',
@@ -208,10 +194,10 @@ export const createVoidFieldSchema = (
             'x-reactions': {
               fulfill: {
                 state: {
-                  hidden: '{{$form.values["x-decorator"] === "FormItem"}}',
-                },
-              },
-            },
+                  hidden: '{{$form.values["x-decorator"] !== "FormItem"}}'
+                }
+              }
+            }
           },
           'x-display': {
             default: 'visible',
@@ -220,8 +206,8 @@ export const createVoidFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Select',
             'x-component-props': {
-              clearable: true,
-            },
+              clearable: true
+            }
           },
           'x-pattern': {
             default: 'editable',
@@ -230,22 +216,22 @@ export const createVoidFieldSchema = (
             'x-decorator': 'FormItem',
             'x-component': 'Select',
             'x-component-props': {
-              clearable: true,
-            },
+              clearable: true
+            }
           },
           'x-reactions': {
             'x-display': 'hidden',
             'x-decorator': 'FormItem',
-            'x-component': 'ReactionsSetter',
+            'x-component': 'ReactionsSetter'
           },
           'x-decorator': {
             type: 'string',
             'x-decorator': 'FormItem',
-            'x-component': 'FormItemSwitcher',
-          },
-        },
+            'x-component': 'FormItemSwitcher'
+          }
+        }
       },
-      ...createComponentSchema(component, decorator),
-    },
+      ...createComponentSchema(component, decorator)
+    }
   }
 }

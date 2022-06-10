@@ -67,28 +67,28 @@ export const BoxShadowStyleSetter =
                     <InputItems width="50%">
                       <InputItems.Item icon="AxisX">
                         <SizeInput
-                          exclude={['auto']}
+                          exclude={['inherit', 'auto']}
                           value={connectors[0].value}
                           onChange={connectors[0].onChange}
                         />
                       </InputItems.Item>
                       <InputItems.Item icon="AxisY">
                         <SizeInput
-                          exclude={['auto']}
+                          exclude={['inherit', 'auto']}
                           value={connectors[1].value}
                           onChange={connectors[1].onChange}
                         />
                       </InputItems.Item>
                       <InputItems.Item icon="Blur">
                         <SizeInput
-                          exclude={['auto']}
+                          exclude={['inherit', 'auto']}
                           value={connectors[2].value}
                           onChange={connectors[2].onChange}
                         />
                       </InputItems.Item>
                       <InputItems.Item icon="Shadow">
                         <SizeInput
-                          exclude={['auto']}
+                          exclude={['inherit', 'auto']}
                           value={connectors[3].value}
                           onChange={connectors[3].onChange}
                         />

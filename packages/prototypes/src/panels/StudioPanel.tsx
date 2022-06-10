@@ -1,9 +1,10 @@
-import { usePrefix } from '../hooks'
+import { usePosition, usePrefix } from '../hooks'
 import { Layout } from '../containers'
 import cls from 'classnames'
 import { StyleValue } from '@vue/runtime-dom'
 import { defineComponent, unref } from 'vue-demi'
-import { VNode } from 'vue/types/umd'
+import { VNode } from 'vue'
+import { IDesignerLayoutProps } from '../types'
 
 export interface IStudioPanelProps {
   style?: StyleValue
@@ -12,18 +13,20 @@ export interface IStudioPanelProps {
   actions?: VNode | Vue.FunctionalComponentOptions
   prefixCls?: string
   theme?: string
+  position?: IDesignerLayoutProps['position']
 }
 
 const StudioPanelInternal = defineComponent({
   name: 'StudioPanelInternal',
   setup(props, { attrs, slots }) {
     const prefixRef = usePrefix('main-panel')
+    const position = usePosition()
 
     if (slots.logo || slots.actions) {
       return () => {
         const prefix = unref(prefixRef)
         return (
-          <div {...attrs} class={cls(prefix + '-container', 'root')}>
+          <div {...attrs} class={cls(prefix + '-container', 'root', position)}>
             <div class={prefix + '-header'}>
               <div class={prefix + '-header-logo'}>
                 {slots.logo?.()}
@@ -39,7 +42,7 @@ const StudioPanelInternal = defineComponent({
     }
 
     return () => (
-      <div {...attrs} class={cls(prefixRef.value, 'root')}>
+      <div {...attrs} class={cls(prefixRef.value, 'root', position)}>
         {slots.default?.()}
       </div>
     )

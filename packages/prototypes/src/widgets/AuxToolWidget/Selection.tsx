@@ -8,13 +8,16 @@ import {
   useCursor,
   useDragon,
   usePrefix,
+  useDesigner
 } from '../../hooks'
+import { ResizeHandler } from './ResizeHandler'
 import { observer } from '@formily/reactive-vue'
 import { TreeNode } from '@designable/core'
 import { defineComponent } from 'vue-demi'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { CSSProperties, toRef } from '@vue/runtime-dom'
 import { isNum } from '@designable/shared'
+
 export interface ISelectionBoxProps {
   node: TreeNode
   showHelpers: boolean
@@ -25,18 +28,22 @@ export const SelectionBox = defineComponent({
   inheritAttrs: false,
   props: ['node', 'showHelpers'],
   setup(props, { attrs }) {
+    const designerRef = useDesigner()
     const prefixRef = usePrefix('aux-selection-box')
+    const innerPrefixRef = usePrefix('aux-selection-box-inner')
     const nodeRectRef = useValidNodeOffsetRect(toRef(props, 'node'))
 
     return () => {
+      const innerPrefix = innerPrefixRef.value
+      const designer = designerRef.value
       const nodeRect = nodeRectRef.value
       const createSelectionStyle = () => {
         const baseStyle: CSSProperties = {
           position: 'absolute',
           top: 0,
           left: 0,
-          pointerEvents: 'none',
           boxSizing: 'border-box',
+          zIndex: 4,
         }
         if (nodeRect) {
           baseStyle.transform = `perspective(1px) translate3d(${nodeRect.x}px,${nodeRect.y}px,0)`
@@ -52,9 +59,14 @@ export const SelectionBox = defineComponent({
       if (!nodeRect) return null
 
       if (!nodeRect.width || !nodeRect.height) return null
-
+      const selectionId = {
+        [designer.props?.nodeSelectionIdAttrName!]: props.node.id,
+      }
       return (
-        <div class={prefixRef.value} style={createSelectionStyle()}>
+        <div {...selectionId} class={prefixRef.value} style={createSelectionStyle()}>
+          <div class={innerPrefix}></div>
+          <ResizeHandler node={props.node} />
+          {/* <TranslateHandler node={props.node} /> */}
           {props.showHelpers && (
             <Helpers
               {...attrs}

@@ -106,6 +106,7 @@ export const SettingsForm = defineComponent({
     )
 
     return () => {
+      const node = nodeRef.value
       const prefix = prefixRef.value
       const source = sourceRef.value
       const render = () => {
@@ -128,7 +129,7 @@ export const SettingsForm = defineComponent({
                   <SchemaField
                     schema={source.schema}
                     components={props.components}
-                    scope={props.scope}
+                    scope={{ $node: node, ...props.scope }}
                   />
                 </FormLayout>
               </Form>
