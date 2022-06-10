@@ -26,7 +26,7 @@ export const DroppableWidget = observer(
       height: {},
       actions: { type: Array as PropType<Array<INodeActionsWidgetActionProps>> },
       placeholder: { type: Boolean as PropType<boolean>, default: true },
-      hasChildren: { type: Boolean as PropType<boolean> }
+      hasChildren: { type: Boolean as PropType<boolean>, default: undefined }
     },
     inheritAttrs: false,
     setup(props, { attrs, slots }) {
