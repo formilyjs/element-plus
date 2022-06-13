@@ -45,7 +45,7 @@ export const Form = defineComponent({
           },
           {
             default: () => [
-              h(FormLayout, attrs, {
+              h(FormLayout, { attrs }, {
                 default: () => [
                   h(
                     component,
