@@ -1,7 +1,7 @@
 ## 基于designable v1.0.0-beta.25 实现
 - 兼容到designable v1.0.0-beta.45(中间没准有漏掉的commit)
 
-English | [简体中文](./README.zh-cn.md)
+English | [简体中文](./README.zh-CN.md) 
 
 <p align="center">
 <img src="https://img.alicdn.com/tfs/TB1fHhZu4D1gK0jSZFyXXciOVXa-2500-1200.png">
