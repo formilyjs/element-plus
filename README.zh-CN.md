@@ -31,7 +31,7 @@
 
 ## 表单设计器
 
-![https://designable-antd.formilyjs.org/](https://img.alicdn.com/imgextra/i3/O1CN01xAJj1y1wcGzXYc1Uq_!!6000000006328-2-tps-2980-1740.png)
+![https://qq1037305420.github.io/element-plus/](https://s3.bmp.ovh/imgs/2022/06/13/c632f4feee0e21a2.png)
 
 ## 官网
 
