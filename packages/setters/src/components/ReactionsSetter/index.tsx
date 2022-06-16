@@ -214,7 +214,7 @@ export const ReactionsSetter = defineComponent({
                             title: () => <TextWidget token="SettingComponents.ReactionsSetter.configureReactions" />,
                             footer: () => (
                                 <ElSpace>
-                                    <Button onClick={closeModal}>Canel</Button>
+                                    <Button onClick={closeModal}>Cancel</Button>
                                     <Button
                                         onClick={() => {
                                             form.submit((values: ISchema['x-reactions']) => {

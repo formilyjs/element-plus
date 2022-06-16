@@ -70,7 +70,7 @@ export const DataSourceSetter = observer(
                                 title: () => <TextWidget token="SettingComponents.DataSourceSetter.configureDataSource" />,
                                 footer: () => (
                                     <ElSpace>
-                                        <Button onClick={closeModal}>Canel</Button>
+                                        <Button onClick={closeModal}>Cancel</Button>
                                         <Button
                                             onClick={() => {
                                                 props.onChange?.(transformDataToValue(treeDataSource.dataSource))
