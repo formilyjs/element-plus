@@ -269,7 +269,7 @@ const MonacoInputInner = defineComponent({
             const theme = themeRef.value
             const prefix = prefixRef.value
             const loaded = loadedRef.value
-            const input = props.value! || props.defaultValue!
+            const input = props.value! || props.defaultValue! || ""
             computedLanguage.value = props.language! || props.defaultLanguage!
             realLanguage.value = /(?:javascript|typescript)/gi.test(computedLanguage.value) ? 'typescript' : computedLanguage.value
 
