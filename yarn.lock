@@ -1098,104 +1098,6 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@codemirror/autocomplete@^0.20.0":
-  version "0.20.1"
-  resolved "https://registry.npmmirror.com/@codemirror/autocomplete/-/autocomplete-0.20.1.tgz#d9aa5cfc111469f9f014e80d239916bb0c21edf9"
-  integrity sha512-rWDAkE1Qn9O4LsV8tAm/KlzzqdQLaIxqDOLhVYja3rKQIWebD3dixIzg9BAKpjt+0dIaDwtIp3yinD9MefgbQQ==
-  dependencies:
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    "@lezer/common" "^0.16.0"
-
-"@codemirror/basic-setup@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/basic-setup/-/basic-setup-0.20.0.tgz#ed331e0b2d29efc0a09317de9e10467b992b0c7b"
-  integrity sha512-W/ERKMLErWkrVLyP5I8Yh8PXl4r+WFNkdYVSzkXYPQv2RMPSkWpr2BgggiSJ8AHF/q3GuApncDD8I4BZz65fyg==
-  dependencies:
-    "@codemirror/autocomplete" "^0.20.0"
-    "@codemirror/commands" "^0.20.0"
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/lint" "^0.20.0"
-    "@codemirror/search" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-
-"@codemirror/commands@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/commands/-/commands-0.20.0.tgz#51405d442e6b8687b63e8fa27effc28179917c88"
-  integrity sha512-v9L5NNVA+A9R6zaFvaTbxs30kc69F6BkOoiEbeFw4m4I0exmDEKBILN6mK+GksJtvTzGBxvhAPlVFTdQW8GB7Q==
-  dependencies:
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    "@lezer/common" "^0.16.0"
-
-"@codemirror/lang-javascript@*":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/lang-javascript/-/lang-javascript-0.20.0.tgz#64a7beaa634ad2163dbfdcff94bae8ff28bae476"
-  integrity sha512-Wawq5+o1DlWtsqAyaa9NkiSXNT7geFcfdUael0hIQdM7P23gkQaD+xgZcyQP6QvPxVAdnY4VIWHFzFAqBti+WQ==
-  dependencies:
-    "@codemirror/autocomplete" "^0.20.0"
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/lint" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    "@lezer/javascript" "^0.16.0"
-
-"@codemirror/language@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/language/-/language-0.20.0.tgz#959967901e780c1612934cf5d6df3d7b7e5bf9f0"
-  integrity sha512-lPsF5Y2ZFd5lZ9+7HXTxu57Po3dms3+7q2iAffzrbis2wyJo0lzi/j2312EKStEzwd0pGGpvrUk2dEd333N2jw==
-  dependencies:
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    "@lezer/common" "^0.16.0"
-    "@lezer/highlight" "^0.16.0"
-    "@lezer/lr" "^0.16.0"
-
-"@codemirror/lint@^0.20.0":
-  version "0.20.2"
-  resolved "https://registry.npmmirror.com/@codemirror/lint/-/lint-0.20.2.tgz#e47307167ff7e5bb14b717f4084a386dd7f8954e"
-  integrity sha512-xEH3wlzoFLEhPEeMVRNoQIhoTCMEtXhVxemGh3FYjLfl/CL3B2Wz+CU7ooP5SKhN1le7JqUNSfiTArFP+IzFuw==
-  dependencies:
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.2"
-    crelt "^1.0.5"
-
-"@codemirror/search@^0.20.0":
-  version "0.20.1"
-  resolved "https://registry.npmmirror.com/@codemirror/search/-/search-0.20.1.tgz#9eba0514218a673e29501a889a4fcb7da7ce24ad"
-  integrity sha512-ROe6gRboQU5E4z6GAkNa2kxhXqsGNbeLEisbvzbOeB7nuDYXUZ70vGIgmqPu0tB+1M3F9yWk6W8k2vrFpJaD4Q==
-  dependencies:
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    crelt "^1.0.5"
-
-"@codemirror/state@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/state/-/state-0.20.0.tgz#3343d209169813b0152b77361cd78bea01549a73"
-  integrity sha512-R3XrAWCS5Xm9lx+4pDET4EUPEg+8bDfAa5zoOFIhx+VChsfew9Vy33dAjCXS5ES4Q8UecW4WM4UudmUFpZ+86A==
-
-"@codemirror/theme-one-dark@*":
-  version "0.20.0"
-  resolved "https://registry.npmmirror.com/@codemirror/theme-one-dark/-/theme-one-dark-0.20.0.tgz#112074e446d46931d1104405154ccbe8c8874009"
-  integrity sha512-iqTKaiOZddwlc2rYF+9D60Gfyz9EsSawVejSjyP2FCtOwZ1X0frG5/ByTKH5FBDD2+P7W8+h/OIG4r5dWq4bgA==
-  dependencies:
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    "@lezer/highlight" "^0.16.0"
-
-"@codemirror/view@^0.20.0", "@codemirror/view@^0.20.2":
-  version "0.20.4"
-  resolved "https://registry.npmmirror.com/@codemirror/view/-/view-0.20.4.tgz#5d988b929103f8148ec92512b937a3a8601bcc72"
-  integrity sha512-6yprcc0/39EzI6y9Jm/J5F9lFzQik0yj8gE3CO/wOCQ4vd3Drol114mMK91LGtKrfoS0MFKVGulw0TdfN49Bfw==
-  dependencies:
-    "@codemirror/state" "^0.20.0"
-    style-mod "^4.0.0"
-    w3c-keyname "^2.2.4"
-
 "@commitlint/cli@^14.1.0":
   version "14.1.0"
   resolved "https://registry.npmjs.org/@commitlint/cli/-/cli-14.1.0.tgz"
@@ -1369,11 +1271,6 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@ctrl/tinycolor@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
-  integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
-
 "@ctrl/tinycolor@^3.4.1":
   version "3.4.1"
   resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.1.tgz"
@@ -1407,7 +1304,7 @@
   resolved "https://registry.npmmirror.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@element-plus/icons-vue@^1.1.1", "@element-plus/icons-vue@^1.1.4":
+"@element-plus/icons-vue@^1.1.4":
   version "1.1.4"
   resolved "https://registry.npmjs.org/@element-plus/icons-vue/-/icons-vue-1.1.4.tgz"
   integrity sha512-Iz/nHqdp1sFPmdzRwHkEQQA3lKvoObk8azgABZ81QUOpW9s/lUyQVUSh0tNtEPZXQlKwlSh7SPgoVxzrE0uuVQ==
@@ -1447,11 +1344,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@floating-ui/core@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/@floating-ui/core/-/core-0.6.1.tgz"
-  integrity sha512-Y30eVMcZva8o84c0HcXAtDO4BEzPJMvF6+B7x7urL2xbAqVsGJhojOyHLaoQHQYjb6OkqRq5kO+zeySycQwKqg==
-
 "@floating-ui/core@^0.6.2":
   version "0.6.2"
   resolved "https://registry.npmjs.org/@floating-ui/core/-/core-0.6.2.tgz"
@@ -1461,13 +1353,6 @@
   version "0.7.3"
   resolved "https://registry.npmmirror.com/@floating-ui/core/-/core-0.7.3.tgz#d274116678ffae87f6b60e90f88cc4083eefab86"
   integrity sha512-buc8BXHmG9l82+OQXOFU3Kr2XQx9ys01U/Q9HMIrZ300iLc8HLMgh7dcCqgYzAzf4BkoQvDcXf5Y+CuEZ5JBYg==
-
-"@floating-ui/dom@^0.4.2":
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/@floating-ui/dom/-/dom-0.4.4.tgz"
-  integrity sha512-0Ulu3B/dqQplUUSqnTx0foSrlYuMN+GTtlJWvNJwt6Fr7/PqmlR/Y08o6/+bxDWr6p3roBJRaQ51MDZsNmEhhw==
-  dependencies:
-    "@floating-ui/core" "^0.6.1"
 
 "@floating-ui/dom@^0.4.5":
   version "0.4.5"
@@ -1482,24 +1367,6 @@
   integrity sha512-vpjWB1uC7rajvgA58uzlJZgtWqrdDQLw+XVA3w63ZTmsWwRmVd0Gl5Dy9VMAViI9cP7hBWaJt23Jy3AVgVYnoQ==
   dependencies:
     "@floating-ui/core" "^0.7.3"
-
-"@formily/core@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/core/-/core-2.0.14.tgz#2d48627c95873de16931c5965197bb057ef8d36d"
-  integrity sha512-B96jIQjWu2klzOtEDh4dLf4LfKyjlJSPRBPIhCSl37QKpaT+9NyYjQSRfzPu767yC2kgkz6VeGxsbCFuYEtS9A==
-  dependencies:
-    "@formily/reactive" "2.0.14"
-    "@formily/shared" "2.0.14"
-    "@formily/validator" "2.0.14"
-
-"@formily/core@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/core/-/core-2.0.18.tgz#1fa21a5a3e92fc2b94cf4e49adafb57102fa400b"
-  integrity sha512-ZjTih1T7MXWNIYRawVCo5nJ2ZdFqUwxWiezBFbZX2VajFrkb/5St26h6bYcRLgCAmiuwxu3H8hNmOO3iVOIB5w==
-  dependencies:
-    "@formily/reactive" "2.0.18"
-    "@formily/shared" "2.0.18"
-    "@formily/validator" "2.0.18"
 
 "@formily/core@2.0.20", "@formily/core@^2.0.20":
   version "2.0.20"
@@ -1519,76 +1386,12 @@
     "@formily/shared" "2.1.5"
     "@formily/validator" "2.1.5"
 
-"@formily/element-plus-prototypes@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmmirror.com/@formily/element-plus-prototypes/-/element-plus-prototypes-1.0.0-beta.1.tgz#1300ff41af0ee7427f85788d55c5a54e6d9915da"
-  integrity sha512-Skkwz9ixS2sf8ASCa5K/El8f3Fq+VMrKOpNPzFoEiCxQ8u1fb8RN3B4gP8Kn8AM+cjKxCgUzERHjMjm1XtLGig==
-
-"@formily/element-plus-renderer@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmmirror.com/@formily/element-plus-renderer/-/element-plus-renderer-1.0.0-beta.1.tgz#7559b26702b8a69b9229fed9873319a3a14ea982"
-  integrity sha512-WEE+ZZVrGzS4E4neX6rwYjUOt1hM/P9ITqeBzS/XgCVtTmBOZ+RUrOpcAGnmdekfxWjnEPMlyf9L5VaYxTgTIg==
-
-"@formily/element-plus-setters@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmmirror.com/@formily/element-plus-setters/-/element-plus-setters-1.0.0-beta.1.tgz#cb9d7c47c92a4cfa1087d33742d3986735f56f02"
-  integrity sha512-YOr0ccd3lcaaMMLUR+jZWn6gVEffovnrjYNwId5yseu/64qBm843WpVwvgKLris+gLbIS2t9JTZAam9V3Sq14g==
-
-"@formily/element-plus-settings-form@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmmirror.com/@formily/element-plus-settings-form/-/element-plus-settings-form-1.0.0-beta.1.tgz#9aca9b9860ad8b19181497f30bb67f1694071f23"
-  integrity sha512-MvZ/6x++Q3qUctJU1M0oN6kvLLscIiUWEaJb3KjVCDsBH/em7wwNN6ZqLiQZvIVL4FzXiKZM9FdsAJnydEueNw==
-  dependencies:
-    "@formily/core" "2.0.14"
-    "@formily/grid" "2.0.14"
-    "@formily/json-schema" "2.0.14"
-    "@formily/reactive" "2.0.14"
-    "@formily/reactive-vue" "2.0.14"
-    "@formily/shared" "2.0.14"
-    "@formily/vue" "2.0.14"
-    vue-slicksort "^1.2.0"
-
-"@formily/element-plus@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmmirror.com/@formily/element-plus/-/element-plus-1.0.0-beta.1.tgz#fdfa1f0390b5fcac4c2a7318a0e101011f2c715b"
-  integrity sha512-f+nt0aUwOQfku4yhuQ3W+NXsJaWSl5TJRIRsjydmB1ZUruhCxqk9UWs3PJjcU3f0jCQ85v0cxfVxBBoKlBMlSA==
-  dependencies:
-    "@element-plus/icons-vue" "^1.1.1"
-    "@formily/core" "2.0.18"
-    "@formily/grid" "2.0.18"
-    "@formily/json-schema" "2.0.18"
-    "@formily/reactive" "2.0.18"
-    "@formily/reactive-vue" "2.0.18"
-    "@formily/shared" "2.0.18"
-    "@formily/vue" "2.0.18"
-    element-plus "^2.0.1"
-    resize-observer-polyfill "^1.5.1"
-    vue "^3.2.24"
-    vue-slicksort "^1.2.0"
-    vuedraggable "^4.1.0"
-
 "@formily/grid@*":
   version "2.1.2"
   resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.1.2.tgz#b524f5b5ec3768dcb24a4c7ff83b05044f2221e0"
   integrity sha512-t5aFqGW1qVkbZzvHS5rSvCswUP0zXjswYzSM9yqo2C8q9IFV+hW7Wp1ilq1nP485ejiSVtdnsufVNuOa7qk7Sg==
   dependencies:
     "@formily/reactive" "2.1.2"
-    "@juggle/resize-observer" "^3.3.1"
-
-"@formily/grid@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.0.14.tgz#625e158f16c9a8b113895d931ceb571c544e6f21"
-  integrity sha512-tnQuPM5y8S1GSno/WE6VNpuyhcQTEKB3jJPKzgrc9AJG5CuUsskonVYOrCAjKlPRsS6/tpJqLwYunJGLg4Py2g==
-  dependencies:
-    "@formily/reactive" "2.0.14"
-    "@juggle/resize-observer" "^3.3.1"
-
-"@formily/grid@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.0.18.tgz#65f628001a0ece52f407341d1f2abb45e0f96150"
-  integrity sha512-41X1ovt7cLXPvDy9gBS6EcB8j9ddLNtPHM0Qrs9ylW2XNKz0lkH5raGzzRPZ5Chr9enR5U5yby+bAMkjQb3dsA==
-  dependencies:
-    "@formily/reactive" "2.0.18"
     "@juggle/resize-observer" "^3.3.1"
 
 "@formily/grid@^2.0.20":
@@ -1606,24 +1409,6 @@
   dependencies:
     "@formily/reactive" "2.1.5"
     "@juggle/resize-observer" "^3.3.1"
-
-"@formily/json-schema@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/json-schema/-/json-schema-2.0.14.tgz#761c88f2077710ff8ce1413623461b0087418163"
-  integrity sha512-34KT2RxB3qRmu6gG8XCD+jak21f+1FjbhGcEE2TbzM+H0o02mstCn+Gli87luzhVJAOX6iUg2f3AJRetM4jb0g==
-  dependencies:
-    "@formily/core" "2.0.14"
-    "@formily/reactive" "2.0.14"
-    "@formily/shared" "2.0.14"
-
-"@formily/json-schema@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/json-schema/-/json-schema-2.0.18.tgz#93561f14a58bf4243a59ba03f0ec74c5e2576597"
-  integrity sha512-ZU7W8Hi670fpCdBJNxx03EjarV8JzvB/AXCMFT2umZkyaCLx0YqxUVDC+/UOigeUVv19H/pA2yLL/rJuoab4+A==
-  dependencies:
-    "@formily/core" "2.0.18"
-    "@formily/reactive" "2.0.18"
-    "@formily/shared" "2.0.18"
 
 "@formily/json-schema@2.0.20", "@formily/json-schema@^2.0.20":
   version "2.0.20"
@@ -1643,16 +1428,6 @@
     "@formily/reactive" "2.1.5"
     "@formily/shared" "2.1.5"
 
-"@formily/path@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/path/-/path-2.0.14.tgz#65894e8232e46437ede867bf8be0883bf1597238"
-  integrity sha512-9Xb/aEyRE4SnU9Yu36z3xM4fW/gblq57NmYACZ8yaT9HupnUwMPORubBTfxbsT95k2BPJ9PrKjkVb+BoD4EROA==
-
-"@formily/path@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/path/-/path-2.0.18.tgz#09e6570a001ca996e86858fddd35e4ea598c728d"
-  integrity sha512-8KkJq9BQPMY6tleQ25BvxMTk0bBdasNwnZWj93w6BXlKMShRkOO3YBCbGxeI3gXQQxws0Q0xX34/fTeccWZVRw==
-
 "@formily/path@2.0.20":
   version "2.0.20"
   resolved "https://registry.npmjs.org/@formily/path/-/path-2.0.20.tgz"
@@ -1662,22 +1437,6 @@
   version "2.1.5"
   resolved "https://registry.npmmirror.com/@formily/path/-/path-2.1.5.tgz#25274f95ad21d5d827016db0917dc3c431277a9d"
   integrity sha512-mkVYNQBeDTPswJb5SilK0IJWMa8s3U2rzynEIh0hqGihTOCBQB5vEIUtk/GTc+njM/tMCF/wNxv2AvRXjIXRBQ==
-
-"@formily/reactive-vue@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/reactive-vue/-/reactive-vue-2.0.14.tgz#4acd1fc854de08280486418d9cbf95167605fde8"
-  integrity sha512-kgOLaK2TxKRWAV2EpNHSuiIBtM1CJURBOOsezMLpyWiG01yMegC2wfcd1gijpB2nYoZO63SYMldQhqefAWymsw==
-  dependencies:
-    "@formily/reactive" "2.0.14"
-    vue-demi "^0.9.0"
-
-"@formily/reactive-vue@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/reactive-vue/-/reactive-vue-2.0.18.tgz#4a7a5e27acf5637f304282997888c71df29cefcc"
-  integrity sha512-gcQ3CRKyoPuewt1vqB8OjCG8QXmiZLxHQDt6YrT87MMYNSlFpB7oReDoNyzB4iNMxZGdqvN5sXx4D5ZVhyDZLw==
-  dependencies:
-    "@formily/reactive" "2.0.18"
-    vue-demi "^0.9.0"
 
 "@formily/reactive-vue@2.0.20", "@formily/reactive-vue@^2.0.20":
   version "2.0.20"
@@ -1695,16 +1454,6 @@
     "@formily/reactive" "2.1.5"
     vue-demi "^0.9.0"
 
-"@formily/reactive@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.0.14.tgz#6bd9484c405fe8951583f0e8d07c70a77c71d0b0"
-  integrity sha512-VtErQckmaXskVYyJHPw8R5JsFmWGJuPdBYcqnj2KCo3jqG2GKcL5qfhZ3N/jkQOmaOT9JuHGTrNU7u3SWhIqDA==
-
-"@formily/reactive@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.0.18.tgz#3d6fc59f813b05c5f0f56c83ad944df6e110141d"
-  integrity sha512-Xy0RZ+Srnnr1q6ApU6SOReOyhOUMWiL00qpUQUO1XclIgWxcxCQVOzPsBQA9S+MPg2B4Ja30ii7/QcEd554CLg==
-
 "@formily/reactive@2.0.20", "@formily/reactive@^2.0.20":
   version "2.0.20"
   resolved "https://registry.npmjs.org/@formily/reactive/-/reactive-2.0.20.tgz"
@@ -1719,32 +1468,6 @@
   version "2.1.5"
   resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.1.5.tgz#70d273043d6e69d9e589248af800b741211323b3"
   integrity sha512-Zo0XrYVbcj31+77gdDx3k3TTT9YX033RNkG1NMsOGPqRY1dQ782/+aT6Iyhiaam4HAqdqkD/u9VESKcslWGyxA==
-
-"@formily/shared@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/shared/-/shared-2.0.14.tgz#9d32ef2e0162b87c9355670d2dcf2b67bbe18856"
-  integrity sha512-6mbNUtkKN2qHGm14LTFTCraUJGpzPS08MCA04EOtvXpi36mCrChx2SiJ3JamrRu6C01Iv1/Joa0ZdbvOq5qsXg==
-  dependencies:
-    "@formily/path" "2.0.14"
-    camel-case "^4.1.1"
-    lower-case "^2.0.1"
-    no-case "^3.0.4"
-    param-case "^3.0.4"
-    pascal-case "^3.1.1"
-    upper-case "^2.0.1"
-
-"@formily/shared@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/shared/-/shared-2.0.18.tgz#ebc0b3468dbf7fe6daf168214c238a26f61e2e04"
-  integrity sha512-v+rhavjzSXnMPZX6LpEtpecUBRhw08MrS1peKSNCLX6Kdof8sQq0j13SGNZ2oKuE7F98kDV9j9fllZ6EUGRaKQ==
-  dependencies:
-    "@formily/path" "2.0.18"
-    camel-case "^4.1.1"
-    lower-case "^2.0.1"
-    no-case "^3.0.4"
-    param-case "^3.0.4"
-    pascal-case "^3.1.1"
-    upper-case "^2.0.1"
 
 "@formily/shared@2.0.20", "@formily/shared@^2.0.20":
   version "2.0.20"
@@ -1802,20 +1525,6 @@
     ts-node "^9.1.1"
     typescript "^4.1.5"
 
-"@formily/validator@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/validator/-/validator-2.0.14.tgz#a0acb82b21460ba41b7b0ffb31ea090df08f1917"
-  integrity sha512-xnjexDl56SPPVQO8DYU3UhF+dkzrqoJEG+4iFcZAZ8+pa7jVEFuDCD+5PByeqxNQStmtH9HhUmhOGPIVFPpJ2A==
-  dependencies:
-    "@formily/shared" "2.0.14"
-
-"@formily/validator@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/validator/-/validator-2.0.18.tgz#8fd15547152546b500080d4d1653e0b00ee11980"
-  integrity sha512-G8+w22T8yaojc4Kk9LaIr2sr5YRzm5s9W3rlQYVq/0yIJDmkj1oTCkuGiknnR22Y28REasBVdp93qWQa8o9YHw==
-  dependencies:
-    "@formily/shared" "2.0.18"
-
 "@formily/validator@2.0.20":
   version "2.0.20"
   resolved "https://registry.npmjs.org/@formily/validator/-/validator-2.0.20.tgz"
@@ -1829,36 +1538,6 @@
   integrity sha512-iKKF2/Vy5QgFgCbEXzptPqLorEADe6lLe/adh9MuYqoydvwulw1wJiyn6DK4HzUYzbSbe1NibV2mlHsW76W6eQ==
   dependencies:
     "@formily/shared" "2.1.5"
-
-"@formily/vue@2.0.14":
-  version "2.0.14"
-  resolved "https://registry.npmmirror.com/@formily/vue/-/vue-2.0.14.tgz#07053f0c46a41cdd5e75271a5251eddb37bec655"
-  integrity sha512-rmK6M/wiUPXnHREy9iMMDpaBFWlZ7L+rd/MeXXmohYS8qZ7cklJnf8CsJ+K+b/8TSf3osRmXF1+ljRg5W4Cs7w==
-  dependencies:
-    "@formily/core" "2.0.14"
-    "@formily/json-schema" "2.0.14"
-    "@formily/reactive" "2.0.14"
-    "@formily/reactive-vue" "2.0.14"
-    "@formily/shared" "2.0.14"
-    "@formily/validator" "2.0.14"
-    fs-extra "^10.0.0"
-    vue-demi "^0.9.0"
-    vue-frag "^1.1.4"
-
-"@formily/vue@2.0.18":
-  version "2.0.18"
-  resolved "https://registry.npmmirror.com/@formily/vue/-/vue-2.0.18.tgz#8c3316af21e55e1f725fb84ef22f91891709fb86"
-  integrity sha512-Q3FQ7fj7DyUu43Qs/uhaolTt2II0AuIuRuL/ZQLWdXz92Dqx7V66AwDX9uLgaqjXI00EPQvv47nW+jGSaK7j2g==
-  dependencies:
-    "@formily/core" "2.0.18"
-    "@formily/json-schema" "2.0.18"
-    "@formily/reactive" "2.0.18"
-    "@formily/reactive-vue" "2.0.18"
-    "@formily/shared" "2.0.18"
-    "@formily/validator" "2.0.18"
-    fs-extra "^10.0.0"
-    vue-demi "^0.9.0"
-    vue-frag "^1.1.4"
 
 "@formily/vue@2.1.5", "@formily/vue@^2.1.5":
   version "2.1.5"
@@ -1894,6 +1573,13 @@
   version "1.1.3"
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
+
+"@guolao/vue-monaco-editor@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmmirror.com/@guolao/vue-monaco-editor/-/vue-monaco-editor-0.0.4.tgz#037ad5e484d1840b09a0475cbf7f82edc4e4d4a6"
+  integrity sha512-xcqFkksq7kXj/JiAtFRbi9748lc1k+ygP5dqeG1KhlLe4ccaTdwoDrVsCamdKlLwT9h8sCLCv+CqFtsxztJBfg==
+  dependencies:
+    "@monaco-editor/loader" "1.3.2"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
@@ -2852,32 +2538,12 @@
     npmlog "^4.1.2"
     write-file-atomic "^3.0.3"
 
-"@lezer/common@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.npmmirror.com/@lezer/common/-/common-0.16.0.tgz#b6023a0a682b0b7676d0e7f0e0838f71bde39fcd"
-  integrity sha512-H6sPCku+asKWYaNjwfQ1Uvcay9UP1Pdzu4qpy8GtRZ0cKT2AAGnj9MQGiRtY18MDntvhYRJxNGv7FNWOSV/e8A==
-
-"@lezer/highlight@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.npmmirror.com/@lezer/highlight/-/highlight-0.16.0.tgz#95f7b7ee3c32c8a0f6ce499c085e8b1f927ffbdc"
-  integrity sha512-iE5f4flHlJ1g1clOStvXNLbORJoiW4Kytso6ubfYzHnaNo/eo5SKhxs4wv/rtvwZQeZrK3we8S9SyA7OGOoRKQ==
+"@monaco-editor/loader@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.npmmirror.com/@monaco-editor/loader/-/loader-1.3.2.tgz#04effbb87052d19cd7d3c9d81c0635490f9bb6d8"
+  integrity sha512-BTDbpHl3e47r3AAtpfVFTlAi7WXv4UQ/xZmz8atKl4q7epQV5e7+JbigFDViWF71VBi4IIBdcWP57Hj+OWuc9g==
   dependencies:
-    "@lezer/common" "^0.16.0"
-
-"@lezer/javascript@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.npmmirror.com/@lezer/javascript/-/javascript-0.16.0.tgz#712c3bc098bfc91b381a386551a86e9d4baf95eb"
-  integrity sha512-kDcwX3QMFKVd7VJwlYTeTNtcj3/gXQEDa7cQzXXsFMvTGV/RTDq0r8agTpZu0zBc1RUZkVILusd1Cluz3STRqw==
-  dependencies:
-    "@lezer/highlight" "^0.16.0"
-    "@lezer/lr" "^0.16.0"
-
-"@lezer/lr@^0.16.0":
-  version "0.16.3"
-  resolved "https://registry.npmmirror.com/@lezer/lr/-/lr-0.16.3.tgz#1e4cc581d2725c498e6a731fc83c379114ba3a70"
-  integrity sha512-pau7um4eAw94BEuuShUIeQDTf3k4Wt6oIUOYxMmkZgDHdqtIcxWND4LRxi8nI9KuT4I1bXQv67BCapkxt7Ywqw==
-  dependencies:
-    "@lezer/common" "^0.16.0"
+    state-local "^1.0.6"
 
 "@node-ipc/js-queue@2.0.3":
   version "2.0.3"
@@ -3082,11 +2748,6 @@
   version "1.0.0-next.21"
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
-
-"@popperjs/core@^2.11.4":
-  version "2.11.5"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
-  integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
 "@popperjs/core@npm:@sxzz/popperjs-es@^2.11.6":
   version "2.11.7"
@@ -4534,7 +4195,7 @@
     "@vueuse/shared" "5.3.0"
     vue-demi "*"
 
-"@vueuse/core@^8.2.1", "@vueuse/core@^8.2.3":
+"@vueuse/core@^8.2.1":
   version "8.2.5"
   resolved "https://registry.npmjs.org/@vueuse/core/-/core-8.2.5.tgz"
   integrity sha512-5prZAA1Ji2ltwNUnzreu6WIXYqHYP/9U2BiY5mD/650VYLpVcwVlYznJDFcLCmEWI3o3Vd34oS1FUf+6Mh68GQ==
@@ -5606,7 +5267,7 @@ browserslist@^4.0.0, browserslist@^4.16.6, browserslist@^4.17.5, browserslist@^4
     node-releases "^2.0.2"
     picocolors "^1.0.0"
 
-browserslist@^4.14.5, browserslist@^4.16.3, browserslist@^4.19.1, browserslist@^4.20.3:
+browserslist@^4.14.5, browserslist@^4.16.3, browserslist@^4.20.3:
   version "4.20.3"
   resolved "https://registry.npmmirror.com/browserslist/-/browserslist-4.20.3.tgz#eb7572f49ec430e054f56d52ff0ebe9be915f8bf"
   integrity sha512-NBhymBQl1zM0Y5dQT/O+xiLP9/rzOIQdKM/eMJBAq7yBgaB6krIYLGejrwVYnSHZdqjscB1SPuAjHwxjvN6Wdg==
@@ -5883,7 +5544,7 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001317:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001325.tgz"
   integrity sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==
 
-caniuse-lite@^1.0.30001301, caniuse-lite@^1.0.30001332, caniuse-lite@^1.0.30001335:
+caniuse-lite@^1.0.30001332, caniuse-lite@^1.0.30001335:
   version "1.0.30001341"
   resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001341.tgz#59590c8ffa8b5939cf4161f00827b8873ad72498"
   integrity sha512-2SodVrFFtvGENGCv0ChVJIDQ0KPaS1cg7/qtfMaICgeMolDdo/Z2OD32F0Aq9yl6F4YFwGPBS5AaPqNYiW4PoA==
@@ -6700,11 +6361,6 @@ create-require@^1.1.0:
   resolved "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-crelt@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npmmirror.com/crelt/-/crelt-1.0.5.tgz#57c0d52af8c859e354bace1883eb2e1eb182bb94"
-  integrity sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==
-
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.npmjs.org/cross-spawn/-/cross-spawn-5.1.0.tgz"
@@ -6796,11 +6452,6 @@ css-tree@~2.0.4:
   dependencies:
     mdn-data "2.0.23"
     source-map-js "^1.0.1"
-
-css-unit-converter@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/css-unit-converter/-/css-unit-converter-1.1.2.tgz#4c77f5a1954e6dbff60695ecb214e3270436ab21"
-  integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
 css-what@^6.0.1:
   version "6.1.0"
@@ -7005,11 +6656,6 @@ dateformat@^3.0.0:
   version "3.0.3"
   resolved "https://registry.npmjs.org/dateformat/-/dateformat-3.0.3.tgz"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
-
-dayjs@^1.11.0:
-  version "1.11.0"
-  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.0.tgz"
-  integrity sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==
 
 dayjs@^1.11.1:
   version "1.11.1"
@@ -7491,25 +7137,6 @@ elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/elegant-spinner/-/elegant-spinner-1.0.1.tgz"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
-
-element-plus@^2.0.1:
-  version "2.1.8"
-  resolved "https://registry.npmjs.org/element-plus/-/element-plus-2.1.8.tgz"
-  integrity sha512-hwFtzw0R5lKMhWf3oVvSU/ucfN8RiY8DRaRWo6LktX4RlWWA2QjKfDXtISBi5Rb303Ny4I0Sgz0CA1Fd4Z2GGg==
-  dependencies:
-    "@ctrl/tinycolor" "^3.4.0"
-    "@element-plus/icons-vue" "^1.1.4"
-    "@floating-ui/dom" "^0.4.2"
-    "@popperjs/core" "^2.11.4"
-    "@vueuse/core" "^8.2.3"
-    async-validator "^4.0.7"
-    dayjs "^1.11.0"
-    escape-html "^1.0.3"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
-    lodash-unified "^1.0.2"
-    memoize-one "^6.0.0"
-    normalize-wheel-es "^1.1.2"
 
 element-plus@^2.2.0:
   version "2.2.0"
@@ -13463,16 +13090,6 @@ postcss-discard-overridden@^5.1.0:
   resolved "https://registry.npmjs.org/postcss-discard-overridden/-/postcss-discard-overridden-5.1.0.tgz"
   integrity sha512-21nOL7RqWR1kasIVdKs8HNqQJhFxLsyRfAnUDm4Fe4t4mCWL9OJiHvlHPjcd8zc5Myu89b/7wZDnOSjFgeWRtw==
 
-postcss-grid-kiss@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npmmirror.com/postcss-grid-kiss/-/postcss-grid-kiss-3.0.3.tgz#ea5696b00662c2d716544176a226133433c8f792"
-  integrity sha512-VoLV3NJ4lrXvBJzvab9BhSAt3icmcj7AtDg8KksEDa5DEy5y03nuG93+NabIuG9nCJ+lULVku73bYKI6ee7PCw==
-  dependencies:
-    browserslist "^4.19.1"
-    caniuse-lite "^1.0.30001301"
-    postcss-merge-grid-template "^0.8.1"
-    reduce-css-calc "^2.1.8"
-
 postcss-load-config@^3.0.0:
   version "3.1.4"
   resolved "https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-3.1.4.tgz"
@@ -13489,11 +13106,6 @@ postcss-loader@^6.1.1:
     cosmiconfig "^7.0.0"
     klona "^2.0.5"
     semver "^7.3.5"
-
-postcss-merge-grid-template@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.npmmirror.com/postcss-merge-grid-template/-/postcss-merge-grid-template-0.8.1.tgz#49b09d4527236c55bba90990829f56247e9cb2ba"
-  integrity sha512-G/a22yDfoVRp/dC+GKghWeK8mQOEaTYjywbTwBcl7woq3Hq/Pam3ACtlIiUYaschh8VvayhA/9/8Ynn9LvCaPw==
 
 postcss-merge-longhand@^5.1.4:
   version "5.1.4"
@@ -13704,11 +13316,6 @@ postcss-unique-selectors@^5.1.1:
   integrity sha512-5JiODlELrz8L2HwxfPnhOWZYWDxVHWL83ufOv84NrcgipI7TaeRsatAhK4Tr2/ZiYldpK/wBvw5BD3qfaK96GA==
   dependencies:
     postcss-selector-parser "^6.0.5"
-
-postcss-value-parser@^3.3.0:
-  version "3.3.1"
-  resolved "https://registry.npmmirror.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
-  integrity sha512-pISE66AbVkp4fDQ7VHBwRNXzAAKJjw4Vw7nWI/+Q3vuly7SNfgYXvm6i5IgFylHGK5sP/xHAbB7N49OS4gWNyQ==
 
 postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   version "4.2.0"
@@ -14270,14 +13877,6 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
-
-reduce-css-calc@^2.1.8:
-  version "2.1.8"
-  resolved "https://registry.npmmirror.com/reduce-css-calc/-/reduce-css-calc-2.1.8.tgz#7ef8761a28d614980dc0c982f772c93f7a99de03"
-  integrity sha512-8liAVezDmUcH+tdzoEGrhfbGcP7nOV4NkGE3a74+qqvE7nt9i4sKLGBuZNOnpI4WiGksiNPklZxva80061QiPg==
-  dependencies:
-    css-unit-converter "^1.1.1"
-    postcss-value-parser "^3.3.0"
 
 regenerate-unicode-properties@^10.0.1:
   version "10.0.1"
@@ -15503,6 +15102,11 @@ staged-git-files@1.1.2:
   resolved "https://registry.npmjs.org/staged-git-files/-/staged-git-files-1.1.2.tgz"
   integrity sha512-0Eyrk6uXW6tg9PYkhi/V/J4zHp33aNyi2hOCmhFLqLTIhbgqWn5jlSzI+IU0VqrZq6+DbHcabQl/WP6P3BG0QA==
 
+state-local@^1.0.6:
+  version "1.0.7"
+  resolved "https://registry.npmmirror.com/state-local/-/state-local-1.0.7.tgz#da50211d07f05748d53009bee46307a37db386d5"
+  integrity sha512-HTEHMNieakEnoe33shBYcZ7NX83ACUjCu8c40iOGEZsngj9zRnkqS9j1pqQPXwobB0ZcVTk27REb7COQ0UR59w==
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.npmjs.org/static-extend/-/static-extend-0.1.2.tgz"
@@ -15719,11 +15323,6 @@ style-inject@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/style-inject/-/style-inject-0.3.0.tgz"
   integrity sha512-IezA2qp+vcdlhJaVm5SOdPPTUu0FCEqfNSli2vRuSIBbu5Nq5UvygTk/VzeCqfLz2Atj3dVII5QBKGZRZ0edzw==
-
-style-mod@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmmirror.com/style-mod/-/style-mod-4.0.0.tgz#97e7c2d68b592975f2ca7a63d0dd6fcacfe35a01"
-  integrity sha512-OPhtyEjyyN9x3nhPsu76f52yUGXiZcgvsrFVtvTkyGRQJ0XK+GPc6ov1z+lRpbeabka+MYEQxOYRnt5nF30aMw==
 
 stylehacks@^5.1.0:
   version "5.1.0"
@@ -16696,18 +16295,6 @@ vite@~2.9.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-codemirror@5.*:
-  version "5.0.1"
-  resolved "https://registry.npmmirror.com/vue-codemirror/-/vue-codemirror-5.0.1.tgz#7637839be5f3329374ebd5ffdc9f5dfa46e63ea0"
-  integrity sha512-bSr601Okb4ezQOcGdxR3urlcWpIV4s8hbIJeMuwXlRc1qFDkHlnkcsvAzP0bPK3+TpWBq7ovi3FAjE4tMTbf7A==
-  dependencies:
-    "@codemirror/basic-setup" "^0.20.0"
-    "@codemirror/commands" "^0.20.0"
-    "@codemirror/language" "^0.20.0"
-    "@codemirror/state" "^0.20.0"
-    "@codemirror/view" "^0.20.0"
-    csstype "^2.6.8"
-
 vue-demi@*, vue-demi@^0.12.5:
   version "0.12.5"
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.12.5.tgz"
@@ -16872,11 +16459,6 @@ w3c-hr-time@^1.0.2:
   integrity sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==
   dependencies:
     browser-process-hrtime "^1.0.0"
-
-w3c-keyname@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.npmmirror.com/w3c-keyname/-/w3c-keyname-2.2.4.tgz#4ade6916f6290224cdbd1db8ac49eab03d0eef6b"
-  integrity sha512-tOhfEwEzFLJzf6d1ZPkYfGj+FWhIpBux9ppoP3rlclw3Z0BZv3N7b7030Z1kYth+6rDuAsXUFr+d0VE6Ed1ikw==
 
 w3c-xmlserializer@^2.0.0:
   version "2.0.0"
