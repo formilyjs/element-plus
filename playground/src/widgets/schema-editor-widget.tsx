@@ -4,34 +4,26 @@ import {
   transformToTreeNode,
 } from '@designable/formily-transformer'
 import _ from 'lodash'
-import { Codemirror } from 'vue-codemirror'
-import { javascript } from '@codemirror/lang-javascript'
+import { MonacoInput } from '@formily/element-plus-settings-form'
 
 export default defineComponent({
   name: 'SchemaEditorWidget',
   props: ['tree'],
-  setup(props, { emit }) {
+  emits: ['change'],
+  setup(props, { attrs, emit }) {
     const code = computed(() => {
       return JSON.stringify(transformToSchema(props.tree), null, 2)
     })
 
-    const handleEmitChanges = _.debounce((value) => {
-      emit('change', transformToTreeNode(JSON.parse(value)))
-    }, 2000)
-
     return () => {
       return (
-        <Codemirror
-          modelValue={code.value}
-          extensions={[javascript()]}
-          onChange={handleEmitChanges}
-          style={{ height: '100%', width: '100%', background: 'var(--dn-composite-panel-tabs-content-bg-color)' }}
-          {...{
-            tabSize: 4,
-            lineNumbers: true,
-            line: true,
-            mode: 'text/javascript',
-          }}
+        <MonacoInput
+          {...attrs}
+          value={code.value}
+          onChange={(value) => emit('change', transformToTreeNode(JSON.parse(value)))}
+          language="json"
+          height="100%"
+          width="100%"
         />
       )
     }

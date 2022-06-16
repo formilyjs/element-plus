@@ -6,12 +6,10 @@ import { createPolyInput } from '../PolyInput'
 import { ElSelect as Select, ElOption as Option, ElPopover as Popover, ElButton as Button } from 'element-plus'
 import { InputNumber, Input } from '@formily/element-plus'
 import { defineComponent } from 'vue-demi'
-import { Codemirror } from 'vue-codemirror'
-import { javascript } from '@codemirror/lang-javascript'
+import { MonacoInput } from '../MonacoInput'
 import { TextWidget } from '@formily/element-plus-prototypes'
 
-const STARTTAG_REX =
-  /<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/
+const STARTTAG_REX = /<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/
 
 const EXPRESSION_REX = /^\{\{([\s\S]*)\}\}$/
 
@@ -42,35 +40,25 @@ export const ValueInput = createPolyInput([
     type: 'TEXT',
     icon: 'Text',
     component: Input,
-    checker: isNormalText,
+    checker: isNormalText
   },
   {
     type: 'EXPRESSION',
     icon: 'Expression',
     component: defineComponent({
       props: ['value'],
-      setup(props: any, { emit }) {
+      emits: ['change'],
+      setup(props: any, { attrs, emit }) {
         return () => {
           const renderEditor = () => {
             return (
               <div
                 style={{
                   width: '400px',
-                  height: '200px',
+                  height: '200px'
                 }}
               >
-                <Codemirror
-                  modelValue={props.value}
-                  extensions={[javascript()]}
-                  onChange={(value) => emit('change', value)}
-                  style={{ height: '100%', width: '100%', background: 'var(--dn-composite-panel-tabs-content-bg-color)' }}
-                  {...{
-                    tabSize: 4,
-                    lineNumbers: true,
-                    line: true,
-                    mode: 'text/javascript',
-                  }}
-                />
+                <MonacoInput {...attrs} value={props.value} onChange={value => emit('change', value)} language="javascript.expression" />
               </div>
             )
           }
@@ -96,16 +84,16 @@ export const ValueInput = createPolyInput([
       }
     }),
     checker: isExpression,
-    toInputValue: (value) => {
+    toInputValue: value => {
       if (!value || value === '{{}}') return
       const matched = String(value).match(EXPRESSION_REX)
       return matched?.[1] || value || ''
     },
-    toChangeValue: (value) => {
+    toChangeValue: value => {
       if (!value || value === '{{}}') return
       const matched = String(value).match(EXPRESSION_REX)
       return `{{${matched?.[1] || value || ''}}}`
-    },
+    }
   },
   {
     type: 'BOOLEAN',
@@ -120,7 +108,7 @@ export const ValueInput = createPolyInput([
             <Select
               modelValue={props.value}
               {...{
-                "onUpdate:modelValue": (value) => {
+                'onUpdate:modelValue': value => {
                   emit('change', value)
                 }
               }}
@@ -130,15 +118,15 @@ export const ValueInput = createPolyInput([
             </Select>
           )
         }
-      },
+      }
     }),
     checker: isBoolean,
-    toInputValue: (value) => {
+    toInputValue: value => {
       return !!value
     },
-    toChangeValue: (value) => {
+    toChangeValue: value => {
       return !!value
-    },
+    }
   },
   {
     type: 'NUMBER',
@@ -146,6 +134,6 @@ export const ValueInput = createPolyInput([
     component: InputNumber,
     checker: isNumber,
     toInputValue: takeNumber,
-    toChangeValue: takeNumber,
-  },
+    toChangeValue: takeNumber
+  }
 ])

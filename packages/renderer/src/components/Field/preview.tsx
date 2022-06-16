@@ -9,7 +9,7 @@ import {
   VoidField,
 } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { FormItem } from '@formily/element-plus'
+import { FormItem } from '@formily/element-plus/src/'
 import { each, reduce } from '@formily/shared'
 import { createBehavior } from '@designable/core'
 import {
@@ -135,7 +135,7 @@ const toDesignableFieldProps = (
   const description = results.description
   results.title =
     title && (() => <span data-content-editable="title">{title}</span>)
-  results.description = description && (() => <span data-content-editable="description">{results.description}</span>)
+  results.description = description && (<span data-content-editable="description">{results.description}</span>)
   return results
 }
 //
