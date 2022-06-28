@@ -2,17 +2,16 @@ import { getParameters } from 'codesandbox/lib/api/define'
 
 const CodeSandBoxHTML = '<div id="app"></div>'
 const CodeSandBoxJS = `
-import Vue from 'vue'
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import App from './App.vue'
-import Element  from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.config.productionTip = false
-Vue.use(Element, { size: 'small' });
+const app = createApp(App)
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')`
+app.use(ElementPlus)
+app.mount('#app')
+`
 
 const createForm = ({ method, action, data }) => {
   const form = document.createElement('form') // 构造 form
@@ -55,6 +54,49 @@ export function createCodeSandBox(codeStr) {
           },
         },
       },
+      'tsconfig.json': {
+        content: `{
+          "compilerOptions": {
+            "target": "esnext",
+            "module": "esnext",
+            "strict": true,
+            "jsx": "preserve",
+            "moduleResolution": "node",
+            "skipLibCheck": true,
+            "esModuleInterop": true,
+            "allowSyntheticDefaultImports": true,
+            "forceConsistentCasingInFileNames": true,
+            "useDefineForClassFields": true,
+            "sourceMap": true,
+            "baseUrl": ".",
+            "types": [
+              "webpack-env"
+            ],
+            "paths": {
+              "@/*": [
+                "src/*"
+              ]
+            },
+            "lib": [
+              "esnext",
+              "dom",
+              "dom.iterable",
+              "scripthost"
+            ]
+          },
+          "include": [
+            "src/**/*.ts",
+            "src/**/*.tsx",
+            "src/**/*.vue",
+            "tests/**/*.ts",
+            "tests/**/*.tsx"
+          ],
+          "exclude": [
+            "node_modules"
+          ]
+        }
+        `
+      },
       'package.json': {
         content: {
           scripts: {
@@ -63,46 +105,50 @@ export function createCodeSandBox(codeStr) {
             lint: 'vue-cli-service lint',
           },
           dependencies: {
-            '@formily/core': 'latest',
-            '@formily/vue': 'latest',
             '@formily/element-plus': 'latest',
-            axios: '^0.21.1',
-            'core-js': '^3.6.5',
-            'element-ui': 'latest',
-            'vue-demi': 'latest',
-            vue: '^2.6.11',
+            "core-js": "^3.8.3",
+            "vue": "^3.2.13"
           },
           devDependencies: {
-            '@vue/cli-plugin-babel': '~4.5.0',
-            '@vue/cli-service': '~4.5.0',
-            '@vue/composition-api': 'latest',
-            'vue-template-compiler': '^2.6.11',
-            sass: '^1.34.1',
-            'sass-loader': '^8.0.2',
+            "@vue/cli-plugin-babel": "~5.0.0",
+            "@vue/cli-service": "~5.0.0",
+            "@vue/cli-plugin-typescript": "~5.0.0",
+            "sass": "^1.32.7",
+            "sass-loader": "^12.0.0",
+            "typescript": "latest"
           },
           babel: {
             presets: [
               [
-                '@vue/babel-preset-jsx',
-                {
-                  vModel: false,
-                  compositionAPI: true,
-                },
+                '@vue/cli-plugin-babel/preset',
               ],
             ],
           },
           vue: {
             devServer: {
+              headers: {
+                'Access-Control-Allow-Origin': '*'
+              },
               host: '0.0.0.0',
-              disableHostCheck: true, // 必须
+              allowedHosts: 'all',
             },
           },
         },
       },
+      'src/shims-vue.d.ts': {
+        content: `
+        /* eslint-disable */
+        declare module '*.vue' {
+          import type { DefineComponent } from 'vue'
+          const component: DefineComponent<{}, {}, any>
+          export default component
+        }
+      `
+      },
       'src/App.vue': {
         content: codeStr,
       },
-      'src/main.js': {
+      'src/main.ts': {
         content: CodeSandBoxJS,
       },
       'public/index.html': {
