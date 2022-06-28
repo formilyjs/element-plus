@@ -75,45 +75,7 @@ $ npm install --save @formily/core @formily/vue @vue/composition-api @formily/el
 
 ## 按需打包
 
-`Element-UI` 按需引入参见 [https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru](https://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru)
-
-`@formily/element-plus`按需引入需借助 `babel-plugin-import`
-
-#### 安装 `babel-plugin-import`
-
-```shell
-npm install babel-plugin-import --save-dev
-```
-
-或者
-
-```shell
-yarn add babel-plugin-import --dev
-```
-
-修改 `.babelrc`
-
-```json
-{
-  "plugins": [
-    [
-      "component",
-      {
-        "libraryName": "element-plus",
-        "styleLibraryName": "theme-chalk"
-      }
-    ],
-    [
-      "import",
-      {
-        "libraryName": "@formily/element-plus",
-        "libraryDirectory": "esm",
-        "style": true
-      }
-    ]
-  ]
-}
-```
+`Element Plus` 按需引入参见 [https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5](https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5)
 
 ## Q/A
 
