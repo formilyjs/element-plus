@@ -16,7 +16,7 @@ export const createPortalProvider = (id: string | symbol) => {
       },
     },
 
-    setup(props, { slots }) {
+    setup(props) {
       onBeforeUnmount(() => {
         const { id } = props
         if (id && PortalMap.has(id)) {

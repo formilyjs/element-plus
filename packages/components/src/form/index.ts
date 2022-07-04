@@ -1,5 +1,5 @@
 import { Component, VNode, defineComponent } from 'vue'
-import type, { SetupContext } from 'vue'
+import type { SetupContext } from 'vue'
 import { Form as FormType, IFormFeedback } from '@formily/core'
 import { FormProvider as _FormProvider, useForm, h } from '@formily/vue'
 

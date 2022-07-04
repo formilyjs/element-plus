@@ -31,11 +31,12 @@ const UploadWrapper = defineComponent({
       type: Array,
     },
   },
+  emits: ['change'],
   setup(curProps: any, { slots, attrs, emit }) {
     return () => {
       const fieldRef = useField<Field>()
       const setFeedBack = (error?: ErrorEvent) => {
-        const message = curProps.errorAdaptor!(error)
+        const message = curProps.errorAdaptor(error)
 
         fieldRef.value.setFeedback({
           type: 'error',
