@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.0.0-beta.3(2022-07-04)
+
+### :bug: Bug Fixes
+
+1. [fix: change form-item style file](https://github.com/formilyjs/element-plus/commit/13b95db) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: create codesandbox script](https://github.com/formilyjs/element-plus/commit/d761fc4) :point_right: ( [qq1037305420](https://github.com/qq1037305420) )
+
+### :memo: Documents Changes
+
+1. [docs: 修改按需引入文档](https://github.com/formilyjs/element-plus/commit/1486198) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [docs: change Element Plus url](https://github.com/formilyjs/element-plus/commit/e61d56e) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
 ## v1.0.0-beta.2(2022-06-09)
 
 ### :tada: Enhancements
