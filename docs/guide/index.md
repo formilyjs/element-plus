@@ -75,7 +75,85 @@ $ npm install --save @formily/core @formily/vue @vue/composition-api @formily/el
 
 ## 按需打包
 
-`Element Plus` 按需引入参见 [https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5](https://element-plus.gitee.io/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5)
+`Element Plus` 按需引入参见 [https://element-plus.gitee.io/zh-CN/guide/quickstart.html#按需引入](https://element-plus.gitee.io/zh-CN/guide/quickstart.html#按需引入)
+
+### vite
+
+`@formily/element-plus` 在 vite 项目中按需引入需借助 `vite-plugin-imp`
+
+```shell
+npm install vite-plugin-imp --save-dev
+```
+
+或者
+
+```shell
+yarn add vite-plugin-imp --dev
+```
+
+src/main.ts
+
+```ts
+import 'element-plus/theme-chalk/src/base.scss'
+```
+
+vite.config.ts
+
+```ts
+import vitePluginImp from 'vite-plugin-imp'
+
+export default defineConfig({
+  plugins: [
+    vitePluginImp({
+      libList: [
+        {
+          libName: '@formily/element-plus',
+          style(name) {
+            return `@formily/element-plus/esm/${name}/style.js`
+          },
+        },
+      ],
+    }),
+  ],
+})
+```
+
+### webpack || vue-cli
+
+#### 安装 `babel-plugin-import`
+
+```shell
+npm install babel-plugin-import --save-dev
+```
+
+或者
+
+```shell
+yarn add babel-plugin-import --dev
+```
+
+src/main.ts
+
+```ts
+import 'element-plus/theme-chalk/src/base.scss'
+```
+
+修改 `.babelrc`
+
+```json
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "@formily/element-plus",
+        "libraryDirectory": "esm",
+        "style": true
+      }
+    ]
+  ]
+}
+```
 
 ## Q/A
 
