@@ -1,4 +1,4 @@
-import type { Component, DefineComponent } from 'vue'
+import type { DefineComponent } from 'vue'
 import {
   defineComponent,
   provide,
@@ -32,7 +32,7 @@ export const createContext = <T>(defaultValue?: T): CreateContext<T> => {
       },
       setup(props, { slots }) {
         const value = toRef(props, 'value' as never)
-        provide(injectKey, readonly(value))
+        provide(injectKey, readonly(value as never))
         return () => slots?.default?.()
       },
     }),

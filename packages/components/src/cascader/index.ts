@@ -1,5 +1,5 @@
 import { defineComponent, h } from 'vue'
-import { connect, mapProps, mapReadPretty, useField } from '@formily/vue'
+import { useField } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { isVoidField, Field } from '@formily/core'
 import { ElCascader } from 'element-plus'
