@@ -106,7 +106,7 @@ const CheckboxGroupOption: Component = defineComponent({
                         optionType: customProps.optionType,
                       },
                       slots?.option
-                        ? { default: () => slots.option!({ option }) }
+                        ? { default: () => slots.option({ option }) }
                         : {}
                     )
                   } else {
@@ -117,7 +117,7 @@ const CheckboxGroupOption: Component = defineComponent({
                         optionType: customProps.optionType,
                       },
                       slots?.option
-                        ? { default: () => slots.option!({ option }) }
+                        ? { default: () => slots.option({ option }) }
                         : {}
                     )
                   }

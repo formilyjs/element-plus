@@ -1,7 +1,6 @@
 import {
   ref,
   defineComponent,
-  onMounted,
   Ref,
   onBeforeUnmount,
   watch,
@@ -10,10 +9,6 @@ import {
 } from 'vue'
 import { isVoidField } from '@formily/core'
 import { connect, mapProps } from '@formily/vue'
-
-// error: () => h('i', { class: 'el-icon-circle-close' }, {}),
-//   success: () => h('i', { class: 'el-icon-circle-check' }, {}),
-//   warning: () => h('i', { class: 'el-icon-warning-outline' }, {}),
 
 import {
   InfoFilled,
@@ -26,7 +21,7 @@ import { composeExport, resolveComponent, stylePrefix } from '../__builtins__'
 import { Component } from 'vue'
 import { ElTooltip, ElIcon } from 'element-plus'
 import ResizeObserver from 'resize-observer-polyfill'
-import { IFormGridProps, useGridColumn } from '../form-grid'
+import { useGridColumn } from '../form-grid'
 
 export type FormItemProps = {
   className?: string
@@ -149,7 +144,7 @@ export const FormBaseItem = defineComponent({
     bordered: { default: true },
     inset: { default: false },
   },
-  setup(props, { slots, attrs }) {
+  setup(props, { slots }) {
     const active = ref(false)
     const deepLayoutRef = useFormLayout()
     const prefixCls = `${stylePrefix}-form-item`

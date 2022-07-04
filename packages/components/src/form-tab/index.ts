@@ -70,6 +70,7 @@ const FormTab = observer(
         type: String,
       },
     },
+    emits: ['input'],
     setup(props, { attrs, emit }: any) {
       const field = useField()
       const prefixCls = `${stylePrefix}-form-tab`

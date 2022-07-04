@@ -10,7 +10,6 @@ import {
 import { observer } from '@formily/reactive-vue'
 import { Schema, SchemaKey } from '@formily/json-schema'
 import { ElCollapse, ElCollapseItem, ElBadge } from 'element-plus'
-import type { ElCollapseItem as ElCollapseItemProps } from 'element-plus'
 import { toArr } from '@formily/shared'
 import { GeneralField } from '@formily/core'
 
@@ -105,6 +104,7 @@ const FormCollapse = observer(
         type: [String, Number],
       },
     },
+    emits: ['input'],
     setup(props, { attrs, emit }) {
       const field = useField()
       const schema = useFieldSchema()
