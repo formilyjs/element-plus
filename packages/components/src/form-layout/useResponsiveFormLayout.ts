@@ -1,6 +1,6 @@
 import { isArr, isValid } from '@formily/shared'
-import { onMounted, Ref, ref, getCurrentInstance } from 'vue'
-import type, { ComponentInternalInstance } from 'vue'
+import { onMounted, ref, getCurrentInstance } from 'vue'
+import type { ComponentInternalInstance } from 'vue'
 
 interface IProps {
   breakpoints?: number[]
@@ -22,12 +22,6 @@ interface ICalcBreakpointIndex {
 
 interface ICalculateProps {
   (target: Element, props: IProps): IProps
-}
-
-interface IUseResponsiveFormLayout {
-  (props: IProps): {
-    props: Ref<IProps>
-  }
 }
 
 const calcBreakpointIndex: ICalcBreakpointIndex = (breakpoints, width) => {

@@ -179,9 +179,6 @@ const ArrayBaseItem = defineComponent({
 const ArrayBaseSortHandle = defineComponent({
   name: 'ArrayBaseSortHandle',
   props: ['index'],
-  directives: {
-    // handle: HandleDirective,
-  },
   setup(props, { attrs }) {
     const array = useArray()
     const prefixCls = `${stylePrefix}-array-base`

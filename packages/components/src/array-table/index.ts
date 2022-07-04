@@ -260,9 +260,9 @@ const StatusSelect = observer(
               return (props.options as { label: string; value: number }[])?.map(
                 ({ label, value }) => {
                   const hasError = errors.some(({ address }) => {
-                    const currentIndex = parseIndex(address!)
-                    const startIndex = (value - 1) * props.pageSize!
-                    const endIndex = value * props.pageSize!
+                    const currentIndex = parseIndex(address)
+                    const startIndex = (value - 1) * props.pageSize
+                    const endIndex = value * props.pageSize
                     return (
                       currentIndex >= startIndex && currentIndex <= endIndex
                     )

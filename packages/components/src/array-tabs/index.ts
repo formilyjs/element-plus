@@ -124,7 +124,7 @@ export const ArrayTabs = observer(
               onEdit(null, 'add')
               !(attrs as any)?.['tab-add']?.()
             },
-            onChange: (...args: any[]) => {},
+            onChange: () => {},
           },
           {
             default: () => [renderItems()],
