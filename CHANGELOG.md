@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.0.0-beta.4(2022-07-05)
+
+### :bug: Bug Fixes
+
+1. [fix: fix eslint warning](https://github.com/formilyjs/element-plus/commit/f34b0ea) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: remove object key](https://github.com/formilyjs/element-plus/commit/f305afb) :point_right: ( [wanghansong](https://github.com/wanghansong) )
+
+1. [fix: form component inherit attrs issue](https://github.com/formilyjs/element-plus/commit/4cb72da) :point_right: ( [qq1037305420](https://github.com/qq1037305420) )
+
+1. [bugfix: fix options data change but not rerender](https://github.com/formilyjs/element-plus/commit/6d5eb5b) :point_right: ( [wanghansong](https://github.com/wanghansong) )
+
+### :memo: Documents Changes
+
+1. [docs: fix docs table error](https://github.com/formilyjs/element-plus/commit/2ee721f) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
 ## v1.0.0-beta.3(2022-07-04)
 
 ### :bug: Bug Fixes
