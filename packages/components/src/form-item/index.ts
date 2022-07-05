@@ -17,7 +17,12 @@ import {
   Warning,
 } from '@element-plus/icons-vue'
 import { useFormLayout, FormLayoutShallowContext } from '../form-layout'
-import { composeExport, resolveComponent, stylePrefix } from '../__builtins__'
+import {
+  composeExport,
+  resolveComponent,
+  stylePrefix,
+  getStyleNumber,
+} from '../__builtins__'
 import { Component } from 'vue'
 import { ElTooltip, ElIcon } from 'element-plus'
 import ResizeObserver from 'resize-observer-polyfill'
@@ -200,12 +205,16 @@ export const FormBaseItem = defineComponent({
       let enableCol = false
       if (labelWidth || wrapperWidth) {
         if (labelWidth) {
-          labelStyle.width = `${labelWidth}px`
-          labelStyle.maxWidth = `${labelWidth}px`
+          labelStyle.width =
+            labelWidth === 'auto' ? undefined : getStyleNumber(labelWidth)
+          labelStyle.maxWidth =
+            labelWidth === 'auto' ? undefined : getStyleNumber(labelWidth)
         }
         if (wrapperWidth) {
-          wrapperStyle.width = `${wrapperWidth}px`
-          wrapperStyle.maxWidth = `${wrapperWidth}px`
+          wrapperStyle.width =
+            wrapperWidth === 'auto' ? undefined : getStyleNumber(wrapperWidth)
+          wrapperStyle.maxWidth =
+            wrapperWidth === 'auto' ? undefined : getStyleNumber(wrapperWidth)
         }
         // 栅格模式
       } else if (labelCol || wrapperCol) {
