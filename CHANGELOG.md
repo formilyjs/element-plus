@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0-beta.5(2022-07-05)
+
+### :bug: Bug Fixes
+
+1. [fix: fix form-item labelWidth and wrapperWidth error](https://github.com/formilyjs/element-plus/commit/6e74041) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
 ## v1.0.0-beta.4(2022-07-05)
 
 ### :bug: Bug Fixes
