@@ -19,7 +19,7 @@ export function isVnode(element: any): boolean {
   )
 }
 
-export function isVueOptions(options) {
+export function isVueOptions(options: any) {
   return (
     options &&
     (typeof options.template === 'string' ||
