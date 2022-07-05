@@ -31,11 +31,16 @@ const SelectOption = defineComponent({
               default: () =>
                 options.map((option: any) => {
                   if (typeof option === 'string') {
-                    return h(ElOption, { value: option, label: option }, slots)
+                    return h(
+                      ElOption,
+                      { key: option, value: option, label: option },
+                      slots
+                    )
                   } else {
                     return h(
                       ElOption,
                       {
+                        key: option.value,
                         ...option,
                       },
                       slots
