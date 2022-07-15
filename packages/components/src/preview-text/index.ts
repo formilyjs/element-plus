@@ -51,7 +51,7 @@ const Input = defineComponent({
               placeholder.value,
               slots?.suffix?.(),
               slots?.append?.(),
-            ].filter((child) => !!child),
+            ].filter((child) => child != null),
         }
       )
     }
@@ -68,8 +68,8 @@ const Select = observer(
       const dataSource: any[] = field?.dataSource?.length
         ? field.dataSource
         : props?.options?.length
-        ? props.options
-        : []
+          ? props.options
+          : []
       const placeholder = usePlaceholder()
       const getSelected = () => {
         const value = props.value
@@ -136,8 +136,8 @@ const Cascader = observer(
       const dataSource: any[] = field?.dataSource?.length
         ? field.dataSource
         : props?.options?.length
-        ? props.options
-        : []
+          ? props.options
+          : []
       const placeholder = usePlaceholder()
       const valueKey = props.props?.value || 'value'
       const labelKey = props.props?.label || 'label'
