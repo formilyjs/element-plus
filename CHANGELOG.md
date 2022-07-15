@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.0-beta.6(2022-07-15)
+
+### :bug: Bug Fixes
+
+1. [fix: fix form-collapse style error](https://github.com/formilyjs/element-plus/commit/9e8c07d) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+### :memo: Documents Changes
+
+1. [docs: update](https://github.com/formilyjs/element-plus/commit/2339eb7) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
 ## v1.0.0-beta.5(2022-07-05)
 
 ### :bug: Bug Fixes
