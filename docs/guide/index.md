@@ -59,7 +59,7 @@
 
 ## 注意
 
-因为 Element UI 是基于 Sass 构建的，如果你用 Webpack 配置请使用以下两个 Sass 工具
+因为 Element-Plus 是基于 Sass 构建的，如果你用 Webpack 配置请使用以下两个 Sass 工具
 
 ```
 "sass": "^1.32.11",
