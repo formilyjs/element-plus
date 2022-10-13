@@ -1,5 +1,57 @@
 # Changelog
 
+## v1.0.0-beta.7(2022-10-13)
+
+### :tada: Enhancements
+
+1. [feat: add Password component (#24)](https://github.com/formilyjs/element-plus/commit/14970b0) :point_right: ( [frehkxu](https://github.com/frehkxu) )
+
+1. [feat: del test](https://github.com/formilyjs/element-plus/commit/941a70b) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [feat: add jest-dom](https://github.com/formilyjs/element-plus/commit/351869a) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [feat: 完善文档](https://github.com/formilyjs/element-plus/commit/5128e0e) :point_right: ( [wukd](https://github.com/wukd) )
+
+1. [feat: add docs of base components and array-\* components](https://github.com/formilyjs/element-plus/commit/ae4bb35) :point_right: ( [wukd](https://github.com/wukd) )
+
+### :bug: Bug Fixes
+
+1. [fix: fix form-collapse style error](https://github.com/formilyjs/element-plus/commit/ecbc88f) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: fix form-item labelWidth and wrapperWidth error](https://github.com/formilyjs/element-plus/commit/f06796f) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: fix eslint warning](https://github.com/formilyjs/element-plus/commit/9ab483c) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: change form-item style file](https://github.com/formilyjs/element-plus/commit/fd39e09) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix: create codesandbox script](https://github.com/formilyjs/element-plus/commit/4ff8718) :point_right: ( [qq1037305420](https://github.com/qq1037305420) )
+
+1. [fix: remove object key](https://github.com/formilyjs/element-plus/commit/eff6552) :point_right: ( [wanghansong](https://github.com/wanghansong) )
+
+1. [fix: form component inherit attrs issue](https://github.com/formilyjs/element-plus/commit/b603655) :point_right: ( [qq1037305420](https://github.com/qq1037305420) )
+
+1. [fix: add @formily/template deps](https://github.com/formilyjs/element-plus/commit/886eda4) :point_right: ( [wukd](https://github.com/wukd) )
+
+1. [bugfix: fix checkbox-group v-model not effect](https://github.com/formilyjs/element-plus/commit/e88f1d1) :point_right: ( [wanghansong](https://github.com/wanghansong) )
+
+1. [bugfix: fix options data change but not rerender](https://github.com/formilyjs/element-plus/commit/eac00a0) :point_right: ( [wanghansong](https://github.com/wanghansong) )
+
+1. [fix: docs](https://github.com/formilyjs/element-plus/commit/520eb4c) :point_right: ( [wukd](https://github.com/wukd) )
+
+### :memo: Documents Changes
+
+1. [docs(vite-config): add `libDirectory: ‘esm’,`](https://github.com/formilyjs/element-plus/commit/435a43f) :point_right: ( [w-xuefeng](https://github.com/w-xuefeng) )
+
+1. [docs: update](https://github.com/formilyjs/element-plus/commit/901410a) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [docs: fix docs table error](https://github.com/formilyjs/element-plus/commit/6e8bdf4) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [docs: 修改按需引入文档](https://github.com/formilyjs/element-plus/commit/7ceb91e) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [docs: change Element Plus url](https://github.com/formilyjs/element-plus/commit/7bf1da6) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [docs: move docs to root dir](https://github.com/formilyjs/element-plus/commit/79af97d) :point_right: ( [wukd](https://github.com/wukd) )
+
 ## v1.0.0-beta.6(2022-07-15)
 
 ### :bug: Bug Fixes
