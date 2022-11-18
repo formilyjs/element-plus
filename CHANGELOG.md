@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.0-beta.8(2022-11-18)
+
+### :bug: Bug Fixes
+
+1. [fix(FormTab): filter not string activeKey update (#25)](https://github.com/formilyjs/element-plus/commit/f5523ef) :point_right: ( [frehkxu](https://github.com/frehkxu) )
+
+### :memo: Documents Changes
+
+1. [docs: fix README link (#26)](https://github.com/formilyjs/element-plus/commit/6f3e98b) :point_right: ( [迷悟](https://github.com/迷悟) )
+
 ## v1.0.0-beta.7(2022-10-13)
 
 ### :tada: Enhancements
