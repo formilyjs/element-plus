@@ -1,4 +1,4 @@
-English | [简体中文](./README.zh-cn.md)
+English | [简体中文](./README.zh-CN.md)
 
 <p align="center">
 <img src="https://img.alicdn.com/tfs/TB1fHhZu4D1gK0jSZFyXXciOVXa-2500-1200.png">
