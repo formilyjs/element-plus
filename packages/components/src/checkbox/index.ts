@@ -143,7 +143,11 @@ const CheckboxGroup = connect(
   })
 )
 
-export const Checkbox = composeExport(connect(CheckboxOption), {
+const InnerCheckbox = connect(CheckboxOption, mapProps({
+  value: 'modelValue',
+}))
+
+export const Checkbox = composeExport(InnerCheckbox, {
   Group: CheckboxGroup,
 })
 
