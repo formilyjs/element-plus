@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0-beta.0(2023-04-17)
+
+### :bug: Bug Fixes
+
+1. [fix(FormItem): ref Is invalid (#28)](https://github.com/formilyjs/element-plus/commit/62f431f) :point_right: ( [sillyhuman](https://github.com/sillyhuman) )
+
 ## v1.0.0-beta.8(2022-11-18)
 
 ### :bug: Bug Fixes
