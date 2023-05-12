@@ -30,12 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/formilyjs/element.git"
+    "url": "git+https://github.com/formilyjs/element-plus.git"
   },
   "bugs": {
-    "url": "https://github.com/formilyjs/element/issues"
+    "url": "https://github.com/formilyjs/element-plus/issues"
   },
-  "homepage": "https://github.com/formilyjs/element#readme",
+  "homepage": "https://github.com/formilyjs/element-plus#readme",
   "publishConfig": {
     "access": "public"
   },
