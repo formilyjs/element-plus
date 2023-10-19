@@ -23,6 +23,8 @@ import {
   createApp,
   PropType,
   h,
+  onMounted,
+  ref,
 } from 'vue'
 import {
   isValidElement,
@@ -374,20 +376,21 @@ export function FormDialog(
 const FormDialogFooter = defineComponent({
   name: 'FFormDialogFooter',
   setup(props, { slots }) {
-    return () => {
-      // 临时解决方案
+    const teleportComponent = ref<VNode | null>(null)
+
+    onMounted(() => {
       if (document.querySelector(`#${PORTAL_TARGET_NAME}`)) {
-        return h(
+        teleportComponent.value = h(
           Teleport as any,
           {
             to: `#${PORTAL_TARGET_NAME}`,
           },
           slots
         )
-      } else {
-        return null
       }
-    }
+    })
+
+    return () => teleportComponent.value
   },
 })
 

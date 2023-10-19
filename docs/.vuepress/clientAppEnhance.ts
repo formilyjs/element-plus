@@ -10,5 +10,5 @@ export default defineClientAppEnhance(({ app }) => {
   //   app.component(name, component)
   // }
   app.component('dumi-previewer', DumiPreviewer)
-  app.use(ElementPlus, { size: 'small' })
+  app.use(ElementPlus, { size: 'default' })
 })
