@@ -6,7 +6,7 @@
 <img src="https://img.shields.io/npm/dm/@formily/element-plus"/>
 <a href="https://www.npmjs.com/package/@formily/element-plus"><img src="https://img.shields.io/npm/v/@formily/element-plus.svg"></a>
 <a href="https://codecov.io/gh/formilyjs/element-plus">
-  <img src="https://codecov.io/gh/formilyjs/element-plus/branch/master/graph/badge.svg?token=3V9RU8Wh9d"/>
+  <img src="https://codecov.io/gh/formilyjs/element-plus/branch/main/graph/badge.svg?token=3V9RU8Wh9d"/>
 </a>
 <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/>
 <a href="https://github.com/actions-cool/issues-helper">

@@ -2,9 +2,10 @@
 
 Hi! I’m really excited that you are interested in contributing to Formily. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
 
-- [Issue Reporting Guidelines](#issue-reporting-guidelines)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Git Commit Specific](./GIT_COMMIT_SPECIFIC.md)
+- [Contributing Guide](#contributing-guide)
+  - [Issue Reporting Guidelines](#issue-reporting-guidelines)
+  - [Pull Request Guidelines](#pull-request-guidelines)
+  - [Git Commit Specific](#git-commit-specific)
 
 ## Issue Reporting Guidelines
 
@@ -26,8 +27,8 @@ Hi! I’m really excited that you are interested in contributing to Formily. Bef
 
 ## Pull Request Guidelines
 
-- Only code that's ready for release should be committed to the master branch. All development should be done in dedicated branches.
-- Checkout a **new** topic branch from master branch, and merge back against master branch.
+- Only code that's ready for release should be committed to the main branch. All development should be done in dedicated branches.
+- Checkout a **new** topic branch from main branch, and merge back against main branch.
 - Work in the `src` folder and **DO NOT** checkin `dist` in the commits.
 - Make sure `npm test` passes.
 - If adding new feature:
