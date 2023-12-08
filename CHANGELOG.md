@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.1.0-beta.1(2023-12-08)
+
+### :bug: Bug Fixes
+
+1. [fix: Solve the problem of only displaying value but not label in the readPretty state of the Select component (#33)](https://github.com/formilyjs/element-plus/commit/4393e16) :point_right: ( [Lobozai](https://github.com/Lobozai) )
+
+1. [fix: footer slot not working in dialog and drawer (#35)](https://github.com/formilyjs/element-plus/commit/2b495b2) :point_right: ( [nigi](https://github.com/nigi) )
+
+1. [fix(Checkbox): mapping value (#29)](https://github.com/formilyjs/element-plus/commit/82895d8) :point_right: ( [uxuip](https://github.com/uxuip) )
+
+1. [fix(docs): Update form-button-group.md api table (#37)](https://github.com/formilyjs/element-plus/commit/40772c2) :point_right: ( [Yueming Fang (方跃明)](https://github.com/Yueming Fang (方跃明)) )
+
+### :blush: Other Changes
+
+1. [chore: modify url (#30)](https://github.com/formilyjs/element-plus/commit/f574931) :point_right: ( [uxuip](https://github.com/uxuip) )
+
 ## v1.1.0-beta.0(2023-04-17)
 
 ### :bug: Bug Fixes
