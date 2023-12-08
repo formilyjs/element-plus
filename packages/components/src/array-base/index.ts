@@ -10,7 +10,12 @@ import {
   PropType,
   h,
 } from 'vue'
-import { FragmentComponent, useField, useFieldSchema } from '@formily/vue'
+import {
+  ExpressionScope,
+  FragmentComponent,
+  useField,
+  useFieldSchema,
+} from '@formily/vue'
 import { isValid, uid, clone } from '@formily/shared'
 import { ArrayField } from '@formily/core'
 import type { ButtonProps as ElButtonProps } from 'element-plus'
@@ -171,7 +176,13 @@ const ArrayBaseItem = defineComponent({
   setup(props: IArrayBaseItemProps, { slots }) {
     provide(ItemSymbol, props)
     return () => {
-      return h(FragmentComponent, {}, slots)
+      return h(
+        ExpressionScope,
+        { value: { $record: props.record, $index: props.index } },
+        {
+          default: () => h(FragmentComponent, {}, slots),
+        }
+      )
     }
   },
 })
