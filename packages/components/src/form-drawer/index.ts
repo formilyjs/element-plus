@@ -17,7 +17,15 @@ import type {
 } from 'element-plus'
 
 // import { t } from 'element-plus/lib/locale'
-import { Component, VNode, defineComponent, Teleport, createApp } from 'vue'
+import {
+  Component,
+  VNode,
+  defineComponent,
+  Teleport,
+  createApp,
+  onMounted,
+  ref,
+} from 'vue'
 import {
   isValidElement,
   resolveComponent,
@@ -402,20 +410,21 @@ export function FormDrawer(
 const FormDrawerFooter = defineComponent({
   name: 'FFormDrawerFooter',
   setup(props, { slots }) {
-    return () => {
-      // 临时解决方案
+    const teleportComponent = ref<VNode | null>(null)
+
+    onMounted(() => {
       if (document.querySelector(`#${PORTAL_TARGET_NAME}`)) {
-        return h(
+        teleportComponent.value = h(
           Teleport,
           {
             to: `#${PORTAL_TARGET_NAME}`,
           },
           slots
         )
-      } else {
-        return null
       }
-    }
+    })
+
+    return () => teleportComponent.value
   },
 })
 

@@ -51,7 +51,7 @@
     "@formily/reactive-vue": "^2.0.20",
     "@formily/shared": "^2.0.20",
     "@formily/vue": "^2.0.20",
-    "element-plus": "^2.1.11",
+    "element-plus": "^2.4.0",
     "resize-observer-polyfill": "^1.5.1",
     "vue-slicksort": "^1.2.0",
     "vuedraggable": "^4.1.0"
