@@ -108,7 +108,7 @@ const FormTab = observer(
             ...attrs,
             class: [prefixCls],
             modelValue: activeKey,
-            onChange: (key: string) => {
+            onTabChange: (key: string) => {
               if (typeof key !== 'string') return
 
               emit('input', key)
