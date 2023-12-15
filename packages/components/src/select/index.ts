@@ -1,9 +1,9 @@
-import { connect, mapProps, h, mapReadPretty } from '@formily/vue'
-import { defineComponent } from 'vue'
+import { connect, mapProps, mapReadPretty } from '@formily/vue'
+import { defineComponent, h } from 'vue'
 import { PreviewText } from '../preview-text'
 
 import { ElSelect, ElOption } from 'element-plus'
-import { transformComponent } from '../__builtins__'
+import { resolveComponent, transformComponent } from '../__builtins__'
 
 export type SelectProps = typeof ElSelect & {
   options?: Array<typeof ElOption>
@@ -34,7 +34,11 @@ const SelectOption = defineComponent({
                     return h(
                       ElOption,
                       { key: option, value: option, label: option },
-                      slots
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option ?? option, { option }),
+                        ],
+                      }
                     )
                   } else {
                     return h(
@@ -43,7 +47,11 @@ const SelectOption = defineComponent({
                         key: option.value,
                         ...option,
                       },
-                      slots
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option ?? option, { option }),
+                        ],
+                      }
                     )
                   }
                 }),
