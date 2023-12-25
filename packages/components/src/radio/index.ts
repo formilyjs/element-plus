@@ -23,10 +23,6 @@ export type RadioGroupProps = typeof ElRadioGroup & {
   optionType: 'defalt' | 'button'
 }
 
-const TransformElRadioGroup = transformComponent(ElRadioGroup, {
-  change: 'input',
-})
-
 const RadioGroupOption = defineComponent({
   name: 'FRadioGroup',
   props: {
@@ -80,7 +76,7 @@ const RadioGroupOption = defineComponent({
             }
           : slots
       return h(
-        TransformElRadioGroup,
+        ElRadioGroup,
         {
           ...attrs,
         },
