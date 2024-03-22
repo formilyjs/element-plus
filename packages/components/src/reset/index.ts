@@ -30,8 +30,8 @@ export const Reset = observer(
           {
             ...attrs,
             onClick: (e: MouseEvent) => {
-              if (attrs?.click) {
-                if (attrs.click(e) === false) return
+              if (attrs?.onClick) {
+                if (attrs.onClick(e) === false) return
               }
               form
                 ?.reset('*', {
