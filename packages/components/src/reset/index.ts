@@ -30,16 +30,16 @@ export const Reset = observer(
           {
             ...attrs,
             onClick: (e: MouseEvent) => {
-              if (attrs?.click) {
-                if (attrs.click(e) === false) return
+              if (attrs?.onClick) {
+                if (attrs.onClick(e) === false) return
               }
               form
                 ?.reset('*', {
                   forceClear: props.forceClear,
                   validate: props.validate,
                 })
-                .then(attrs.resetValidateSuccess as (e: any) => void)
-                .catch(attrs.resetValidateFailed as (e: any) => void)
+                .then(attrs.onResetValidateSuccess as (e: any) => void)
+                .catch(attrs.onResetValidateFailed as (e: any) => void)
             },
           },
           slots

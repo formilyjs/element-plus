@@ -20,6 +20,13 @@
 
 按钮相关的 API 属性，我们参考 [https://element-plus.gitee.io/zh-CN/component/button.html](https://element-plus.gitee.io/zh-CN/component/button.html) 即可，剩下是 Reset 组件独有的 API 属性
 
+### 属性
+
+| 属性名     | 类型      | 描述         | 默认值  |
+| ---------- | --------- | ------------ | ------- |
+| forceClear | `boolean` | 强制清空重置 | `false` |
+| validate   | `boolean` | 校验表单     | `false` |
+
 ### 事件
 
 | 属性名                 | 类型                                                                                             | 描述                                  | 默认值 |
