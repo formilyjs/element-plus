@@ -30,6 +30,10 @@
 
 <dumi-previewer demoPath="guide/select/template-async" />
 
+## Template 作用域插槽
+
+<dumi-previewer demoPath="guide/select/scope-slot" />
+
 ## API
 
 参考 [https://element-plus.gitee.io/zh-CN/component/select.html](https://element-plus.gitee.io/zh-CN/component/select.html)
