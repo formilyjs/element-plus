@@ -3,7 +3,7 @@ import { defineComponent, h } from 'vue'
 import { PreviewText } from '../preview-text'
 
 import { ElSelect, ElOption } from 'element-plus'
-import { resolveComponent, transformComponent } from '../__builtins__'
+import { transformComponent } from '../__builtins__'
 
 export type SelectProps = typeof ElSelect & {
   options?: Array<typeof ElOption>
@@ -35,9 +35,10 @@ const SelectOption = defineComponent({
                       ElOption,
                       { key: option, value: option, label: option },
                       {
-                        default: () => [
-                          resolveComponent(slots?.option ?? option, { option }),
-                        ],
+                        default: () =>
+                          slots?.option?.({
+                            option: { label: option, value: option },
+                          }) ?? option,
                       }
                     )
                   } else {
@@ -48,9 +49,10 @@ const SelectOption = defineComponent({
                         ...option,
                       },
                       {
-                        default: () => [
-                          resolveComponent(slots?.option ?? option, { option }),
-                        ],
+                        default: () =>
+                          slots?.option?.({ option }) ??
+                          option.label ??
+                          option.value,
                       }
                     )
                   }
