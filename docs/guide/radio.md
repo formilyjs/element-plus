@@ -14,6 +14,10 @@
 
 <dumi-previewer demoPath="guide/radio/template" />
 
+## Template 作用域插槽案例
+
+<dumi-previewer demoPath="guide/radio/scope-slot" />
+
 ## API
 
 参考 [https://element-plus.gitee.io/zh-CN/component/radio.html](https://element-plus.gitee.io/zh-CN/component/radio.html)
