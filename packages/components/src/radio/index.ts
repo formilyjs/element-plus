@@ -2,7 +2,6 @@ import { connect, mapProps, mapReadPretty } from '@formily/vue'
 import { defineComponent, PropType, h } from 'vue'
 import {
   composeExport,
-  transformComponent,
   resolveComponent,
   SlotTypes,
 } from '../__builtins__/shared'
@@ -48,24 +47,22 @@ const RadioGroupOption = defineComponent({
                   if (typeof option === 'string') {
                     return h(
                       OptionType,
-                      { label: option },
+                      { label: option, value: option },
                       {
                         default: () => [
-                          resolveComponent(slots?.option ?? option, { option }),
+                          resolveComponent(slots?.default ?? option, {
+                            option,
+                          }),
                         ],
                       }
                     )
                   } else {
                     return h(
                       OptionType,
-                      {
-                        ...option,
-                        value: undefined,
-                        label: option.value,
-                      },
+                      { ...option },
                       {
                         default: () => [
-                          resolveComponent(slots?.option ?? option.label, {
+                          resolveComponent(slots?.default ?? option.label, {
                             option,
                           }),
                         ],
