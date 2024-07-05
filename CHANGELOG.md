@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.1.0(2024-07-05)
+
+### :tada: Enhancements
+
+1. [feat(Select): support option slot (#41)](https://github.com/formilyjs/element-plus/commit/e000ab5) :point_right: ( [Feynman](https://github.com/Feynman) )
+
+### :bug: Bug Fixes
+
+1. [fix: 升级依赖，修复构建错误](https://github.com/formilyjs/element-plus/commit/f626b0e) :point_right: ( [yiyunwan](https://github.com/yiyunwan) )
+
+1. [fix(FormDialog): loading not working during submitting (#42)](https://github.com/formilyjs/element-plus/commit/036cba8) :point_right: ( [yikoyu](https://github.com/yikoyu) )
+
+1. [fix(Reset): 将 Reset API 和 文档 统一 (#44)](https://github.com/formilyjs/element-plus/commit/31cc4d4) :point_right: ( [xuanhen2013](https://github.com/xuanhen2013) )
+
+1. [fix: cascader component style (#45)](https://github.com/formilyjs/element-plus/commit/4bef12a) :point_right: ( [Summer](https://github.com/Summer) )
+
+1. [fix: select display problem (#46)](https://github.com/formilyjs/element-plus/commit/1e6e641) :point_right: ( [Summer](https://github.com/Summer) )
+
+1. [fix: switch v-model invalid in high version element-plus (#47)](https://github.com/formilyjs/element-plus/commit/7d74ea9) :point_right: ( [Summer](https://github.com/Summer) )
+
+1. [fix(FormTab): modify change event name to tab-change (#40)](https://github.com/formilyjs/element-plus/commit/d3145cc) :point_right: ( [Feynman](https://github.com/Feynman) )
+
+1. [fix(Radio): radio group [optionType: 'button'] display error (#39)](https://github.com/formilyjs/element-plus/commit/5ad64a1) :point_right: ( [Feynman](https://github.com/Feynman) )
+
 ## v1.1.0-beta.1(2023-12-08)
 
 ### :bug: Bug Fixes
