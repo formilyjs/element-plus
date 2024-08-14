@@ -27,9 +27,6 @@ const UploadWrapper = defineComponent({
         return error?.message || ''
       },
     },
-    fileList: {
-      type: Array,
-    },
   },
   emits: ['change'],
   setup(curProps: any, { slots, attrs, emit }) {
