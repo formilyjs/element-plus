@@ -24,7 +24,7 @@ import {
   getStyleNumber,
 } from '../__builtins__'
 import { Component } from 'vue'
-import { ElTooltip, ElIcon } from 'element-plus'
+import { ElTooltip, ElIcon, ElPopover } from 'element-plus'
 import ResizeObserver from 'resize-observer-polyfill'
 import { useGridColumn } from '../form-grid'
 
@@ -224,12 +224,10 @@ export const FormBaseItem = defineComponent({
       const formatChildren =
         feedbackLayout === 'popover'
           ? h(
-              'el-popover',
+              ElPopover,
               {
-                props: {
-                  disabled: !feedbackText,
-                  placement: 'top',
-                },
+                disabled: !feedbackText,
+                placement: 'top',
               },
               {
                 reference: () =>
