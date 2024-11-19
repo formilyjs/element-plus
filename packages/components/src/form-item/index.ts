@@ -517,19 +517,12 @@ const Item = connect(
       if (isVoidField(field)) return props
       if (!field) return props
       const takeMessage = () => {
-        const split = (messages: any[]) => {
-          return messages.reduce((buf, text, index) => {
-            if (!text) return buf
-            return index < messages.length - 1
-              ? buf.concat([text, ', '])
-              : buf.concat([text])
-          }, [])
-        }
+        const rejectEmpty = (messages: any[]) => messages.filter(msg => !!msg)
         if (field.validating) return
         if (props.feedbackText) return props.feedbackText
-        if (field.selfErrors.length) return split(field.selfErrors)
-        if (field.selfWarnings.length) return split(field.selfWarnings)
-        if (field.selfSuccesses.length) return split(field.selfSuccesses)
+        if (field.selfErrors.length) return rejectEmpty(field.selfErrors)
+        if (field.selfWarnings.length) return rejectEmpty(field.selfWarnings)
+        if (field.selfSuccesses.length) return rejectEmpty(field.selfSuccesses)
       }
       const errorMessages = takeMessage()
       return {
