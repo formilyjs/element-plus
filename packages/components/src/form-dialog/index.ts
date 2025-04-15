@@ -19,12 +19,14 @@ import {
   Component,
   VNode,
   defineComponent,
+  nextTick,
   Teleport,
-  createApp,
+  createVNode,
   PropType,
   h,
   onMounted,
   ref,
+  render as vueRender,
 } from 'vue'
 import {
   isValidElement,
@@ -50,7 +52,7 @@ type IFormDialogProps = Omit<typeof ElDialogProps, 'title'> & {
   okButtonProps?: typeof ElButtonProps
   beforeClose?: (cb: Function) => void
   onOpen?: () => void
-  onOpend?: () => void
+  onOpened?: () => void
   onClose?: () => void
   onClosed?: () => void
   onCancel?: () => void
@@ -120,7 +122,6 @@ export function FormDialog(
     root: document.createElement('div'),
     form: null,
     promise: null,
-    app: null,
     instance: null,
     openMiddlewares: [],
     confirmMiddlewares: [],
@@ -134,8 +135,7 @@ export function FormDialog(
     ...props,
     onClosed: () => {
       props.onClosed?.()
-      env.app?.unmount?.()
-      env.app = null
+      vueRender(null, env.root)
       env.instance = null
       env.root?.parentNode?.removeChild(env.root)
       env.root = undefined
@@ -161,135 +161,137 @@ export function FormDialog(
   )
 
   const render = (visible = true, resolve?: () => any, reject?: () => any) => {
-    if (!env.instance) {
-      const ComponentConstructor = observer(
-        defineComponent({
-          props: { dialogProps: Object as PropType<typeof ElDialogProps> },
-          data() {
-            return {
-              visible: false,
+    if (env.instance) {
+      env.instance.visible = visible
+      return
+    }
+
+    const ComponentConstructor = observer(
+      defineComponent({
+        props: { dialogProps: Object as PropType<typeof ElDialogProps> },
+        data() {
+          return {
+            visible: false,
+          }
+        },
+        render() {
+          const {
+            onClose,
+            onClosed,
+            onOpen,
+            onOpened,
+            onOK,
+            onCancel,
+            title,
+            footer,
+            okText,
+            cancelText,
+            okButtonProps,
+            cancelButtonProps,
+            ...dialogProps
+          } = this.dialogProps
+
+          const renderFooter = () => {
+            const FooterPortalTarget = h(
+              'span',
+              {
+                id: PORTAL_TARGET_NAME,
+              },
+              {}
+            )
+
+            if (footer === null) {
+              return [null, FooterPortalTarget]
             }
-          },
-          render() {
-            const {
+
+            if (footer) {
+              return [resolveComponent(footer), FooterPortalTarget]
+            }
+
+            return [
+              h(
+                ElButton,
+                {
+                  ...cancelButtonProps,
+                  onClick: () => {
+                    onCancel?.()
+                    reject()
+                  },
+                },
+                {
+                  default: () => resolveComponent(cancelText || '取消'),
+                }
+              ),
+              h(
+                ElButton,
+                {
+                  type: 'primary',
+                  ...okButtonProps,
+                  loading: env.form.submitting,
+                  onClick: () => {
+                    onOK?.()
+                    resolve()
+                  },
+                },
+                {
+                  default: () => resolveComponent(okText || '确定'),
+                }
+              ),
+              FooterPortalTarget,
+            ]
+          }
+
+          return h(
+            ElDialog,
+            {
+              class: [`${prefixCls}`],
+              ...dialogProps,
+              modelValue: this.visible,
+              'onUpdate:modelValue': (val) => {
+                this.visible = val
+              },
               onClose,
               onClosed,
               onOpen,
-              onOpend,
-              onOK,
-              onCancel,
-              title,
-              footer,
-              okText,
-              cancelText,
-              okButtonProps,
-              cancelButtonProps,
-              ...dialogProps
-            } = this.dialogProps
-
-            return h(
-              ElDialog,
-              {
-                class: [`${prefixCls}`],
-                ...dialogProps,
-                modelValue: this.visible,
-                'onUpdate:modelValue': (val) => {
-                  this.visible = val
-                },
-                onClose: () => {
-                  onClose?.()
-                },
-                onClosed: () => {
-                  onClosed?.()
-                },
-                onOpen: () => {
-                  onOpen?.()
-                },
-                onOpened: () => {
-                  onOpend?.()
-                },
-              },
-              {
-                default: () =>
-                  h(FormProvider, { form: env.form }, () =>
-                    h(component, {}, {})
-                  ),
-                title: () =>
-                  h('div', {}, { default: () => resolveComponent(title) }),
-                footer: () =>
-                  h(
-                    'div',
-                    {},
-                    {
-                      default: () => {
-                        const FooterPortalTarget = h(
-                          'span',
-                          {
-                            id: PORTAL_TARGET_NAME,
-                          },
-                          {}
-                        )
-                        if (footer === null) {
-                          return [null, FooterPortalTarget]
-                        } else if (footer) {
-                          return [resolveComponent(footer), FooterPortalTarget]
-                        }
-
-                        return [
-                          h(
-                            ElButton,
-                            {
-                              ...cancelButtonProps,
-                              onClick: (e) => {
-                                onCancel?.(e)
-                                reject()
-                              },
-                            },
-                            {
-                              default: () =>
-                                resolveComponent(
-                                  cancelText || '取消'
-                                  // t('el.popconfirm.cancelButtonText')
-                                ),
-                            }
-                          ),
-                          h(
-                            ElButton,
-                            {
-                              type: 'primary',
-                              ...okButtonProps,
-                              loading: env.form.submitting,
-                              onClick: (e) => {
-                                onOK?.(e)
-                                resolve()
-                              },
-                            },
-                            {
-                              default: () =>
-                                resolveComponent(
-                                  okText || '确定'
-                                  // t('el.popconfirm.confirmButtonText')
-                                ),
-                            }
-                          ),
-                          FooterPortalTarget,
-                        ]
-                      },
-                    }
-                  ),
-              }
-            )
-          },
-        })
-      )
-
-      env.app = createApp(ComponentConstructor, {
-        dialogProps,
-        parent: getPortalContext(id as string | symbol),
+              onOpened,
+              title: isStr(title) ? title : undefined,
+            },
+            {
+              default: () =>
+                h(FormProvider, { form: env.form }, () => h(component, {}, {})),
+              header: !isStr(title)
+                ? (slotProps) =>
+                    h(
+                      'div',
+                      {},
+                      { default: () => resolveComponent(title, slotProps) }
+                    )
+                : undefined,
+              footer: () =>
+                h(
+                  'div',
+                  {},
+                  {
+                    default: renderFooter,
+                  }
+                ),
+            }
+          )
+        },
       })
-      env.instance = env.app.mount(env.root)
-    }
-    env.instance.visible = visible
+    )
+
+    const vnode = createVNode(ComponentConstructor, {
+      dialogProps: dialogProps,
+    })
+
+    vnode.appContext = getPortalContext(id as string | symbol)
+    vueRender(vnode, env.root)
+
+    nextTick(() => {
+      env.instance = vnode.component.proxy
+      env.instance.visible = visible
+    })
   }
 
   const formDialog = {

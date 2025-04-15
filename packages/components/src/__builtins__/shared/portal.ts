@@ -1,4 +1,4 @@
-import { defineComponent, onBeforeUnmount } from 'vue'
+import { defineComponent, getCurrentInstance, onBeforeUnmount } from 'vue'
 import { h, Fragment } from '@formily/vue'
 export interface IPortalProps {
   id?: string | symbol
@@ -16,22 +16,21 @@ export const createPortalProvider = (id: string | symbol) => {
       },
     },
 
-    setup(props) {
+    setup(props, { slots }) {
+      const { appContext } = getCurrentInstance()
+
+      if (props.id && !PortalMap.has(props.id)) {
+        PortalMap.set(props.id, appContext)
+      }
+
       onBeforeUnmount(() => {
         const { id } = props
         if (id && PortalMap.has(id)) {
           PortalMap.delete(id)
         }
       })
-    },
 
-    render() {
-      const { id } = this
-      if (id && !PortalMap.has(id)) {
-        PortalMap.set(id, this)
-      }
-
-      return h(Fragment, {}, this.$slots)
+      return () => h(Fragment, {}, slots)
     },
   })
 
